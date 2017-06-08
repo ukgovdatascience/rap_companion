@@ -1,5 +1,14 @@
-# Hype {#literature}
+# Ethical Considerations {#literature}
 
-Producing official statistics for publications is a key function of many teams across government. It’s a time consuming and meticulous process to ensure that statistics are accurate and timely. With open source software becoming more widely used, there’s now a range of tools and techniques that can be used to reduce production time, whilst maintaining and even improving the quality of the publications. This book is about these techniques: what they are, and how we can use them.  
+The RAP is considered Data Science in that it involves an overlap of Computer Science, Statistics and Expert Domain Knowledge.  
 
-This book was inspired by and draws heavily from a Government Digital Service [blog post](https://gdsdata.blog.gov.uk/2017/03/27/reproducible-analytical-pipeline/) by Dr. Matthew Upson in the Better Use of Data team.  
+Data science ethics are important. 
+
+We consult the [ethical framework](https://www.gov.uk/government/publications/data-science-ethical-framework) before proceeding. We use six principles to structure our thinking:
+
+1. Start with clear user need and public benefit
+2. 
+3. 
+4. 
+5. 
+6. 
