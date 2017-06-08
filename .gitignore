@@ -19,6 +19,11 @@
 
 # RStudio files
 .Rproj.user/
+^.*\.Rproj$
+^\.Rproj\.user$
+
+# Travis
+^\.travis\.yml$
 
 # produced vignettes
 vignettes/*.html
@@ -34,3 +39,4 @@ vignettes/*.pdf
 # Temporary files created by R markdown
 *.utf8.md
 *.knit.md
+.Rproj.user

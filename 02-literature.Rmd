@@ -1,3 +1,5 @@
-# Literature
+# Hype {#literature}
 
-Here is a review of existing methods.
+Producing official statistics for publications is a key function of many teams across government. It’s a time consuming and meticulous process to ensure that statistics are accurate and timely. With open source software becoming more widely used, there’s now a range of tools and techniques that can be used to reduce production time, whilst maintaining and even improving the quality of the publications. This book is about these techniques: what they are, and how we can use them.  
+
+This book was inspired by and draws heavily from a Government Digital Service [blog post](https://gdsdata.blog.gov.uk/2017/03/27/reproducible-analytical-pipeline/) by Dr. Matthew Upson in the Better Use of Data team.  
