@@ -1,5 +1,5 @@
-Package: placeholder
+Package: rap-companion
 Title: Does not matter.
 Version: 0.0.1
-Imports: bookdown, dplyr , readr, ggplot2
+Imports: bookdown
 Remotes: rstudio/bookdown, ukgovdatascience/eesectors
