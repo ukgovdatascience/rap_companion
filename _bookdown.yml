@@ -4,6 +4,7 @@ language:
     chapter_name: "Chapter "
     repo: https://github.com/mammykins/rap-companion
 output_dir: docs
-# rmd_files: ["index.Rmd", "01-intro.Rmd", "02-literature.Rmd"]
+rmd_files: ["index.Rmd", "01-intro.Rmd", "02-ethics.Rmd",
+"06-references.Rmd"]
 clean: [packages.bib, bookdown.bbl]
 new_session: no

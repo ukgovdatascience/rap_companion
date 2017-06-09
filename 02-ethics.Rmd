@@ -1,4 +1,4 @@
-# Ethical Considerations {#literature}
+# Ethical Considerations
 
 The RAP is considered Data Science in that it involves an overlap of Computer Science, Statistics and Expert Domain Knowledge.  
 

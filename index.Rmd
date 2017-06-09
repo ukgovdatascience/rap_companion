@@ -1,6 +1,6 @@
 --- 
 title: "RAP Companion"
-author: "Matthew Gregory & Matthew Upson"
+author: ["Matthew Gregory, Matthew Upson"]
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
@@ -8,12 +8,14 @@ documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
+twitter-handle: mammykins_
+# cover-image: cover.png
 github-repo: mammykins/rap-companion
 url: https://github.com/mammykins/rap-companion
 description: "A technical communication document intended to give assistance to people developing a Reproducible Analytical Pipeline."
 ---
 
-# Introduction
+# Welcome
 
 Producing official statistics for publications is a key function of many teams across government. It’s a time consuming and meticulous process to ensure that statistics are accurate and timely. With open source software becoming more widely used, there’s now a range of tools and techniques that can be used to reduce production time, whilst maintaining and even improving the quality of the publications. This book is about these techniques: what they are, and how we can use them.  
 
