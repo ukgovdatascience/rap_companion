@@ -6,6 +6,8 @@ The production of a RAP is not a trivial task given technical, time and knowledg
 
 This [bookdown](https://bookdown.org/yihui/bookdown/) manual uses the *eesectors* package to help elucidate the RAP development process. It attempts to almagamate the learnings of the early pioneers of RAP into a maintained tome of knowledge to ensure good practice is accessible for RAP newbies.  
 
+## Objectives
+
 * Why RAP?
 * Questions to ask oneself before you RAP?
 * How to RAP?
