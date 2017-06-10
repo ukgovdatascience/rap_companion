@@ -1,0 +1,8 @@
+Package: placeholder
+Title: Does not matter.
+Version: 0.0.1
+Imports: bookdown
+Remotes: rstudio/bookdown
+Authors@R: c(
+    person("Matthew", "Gregory", email = "matthew.gregory@digital.cabinet-office.gov.uk", role = c("aut", "cre")),
+    person("Matthew", "Upson", email = "matthew.upson@digital.cabinet-office.gov.uk", role = "ctb"))
