@@ -25,6 +25,10 @@
 # Travis
 ^\.travis\.yml$
 
+# Appveyor
+^\.appveyor\.yml$
+# appveyor.yml
+
 # produced vignettes
 vignettes/*.html
 vignettes/*.pdf
