@@ -1,7 +1,9 @@
 bookdown::gitbook:
   css: style.css
+  split_by: chapter
   config:
     toc:
+      collapse: subsection
       before: |
         <li><a href="./">RAP Companion</a></li>
       after: |
@@ -15,3 +17,4 @@ bookdown::pdf_book:
   citation_package: natbib
   keep_tex: yes
 bookdown::epub_book: default
+  stylesheet: style.css

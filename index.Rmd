@@ -9,7 +9,7 @@ bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 twitter-handle: mammykins_
-# cover-image: cover.png
+cover-image: cover.png
 github-repo: mammykins/rap-companion
 url: https://github.com/mammykins/rap-companion
 description: "A technical communication document intended to give assistance to people developing a Reproducible Analytical Pipeline."
