@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/mammykins/rap-companion.svg?branch=master)](https://travis-ci.com/mammykins/rap-companion)
+[![Build Status](https://travis-ci.org/mammykins/rap_companion.svg?branch=master)](https://travis-ci.com/mammykins/rap_companion)
 
 [![Windows Build Status]()]()
 
