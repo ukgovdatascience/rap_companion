@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-
-<link rel="next" href="intro.html">
+<link rel="prev" href="ethics.html">
+<link rel="next" href="exemplar.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -168,42 +168,44 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">RAP Companion</h1>
-<h4 class="author"><em>Matthew Gregory, Matthew Upson</em></h4>
-<h4 class="date"><em>2017-06-13</em></h4>
+<div id="why" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Why RAP?</h1>
+<p>Reproducible Analytical Pipelines require a range of tools and techniques to implement that can be a challenge to overcome; so why bother learning to RAP?</p>
+<ul>
+<li>Does your team spend too much time moving data between various softwares?</li>
+<li>Could you reproduce your most recent publication’s stats? How about from five years ago?</li>
+<li>What would your team do with their time if it was freed up from copying and pasting?</li>
+<li>What proportion of spreadsheets contain errors?</li>
+</ul>
+<div id="the-current-statistics-production-process" class="section level2">
+<h2><span class="header-section-number">3.1</span> The current statistics production process</h2>
+<p>Here we use the production of official statistics in Government; altough this process varies widely perhaps it looks something like this?</p>
+<p><a href="https://gdsdata.blog.gov.uk/2017/03/27/reproducible-analytical-pipeline/" target="_blank"><img src="images/messy_pipeline.png" style="display: block; margin: auto;" /></a></p>
+<p>Broadly speaking, data are extracted from a datastore (whether it is a <a href="https://en.wikipedia.org/wiki/Data_lake">data lake</a>, <a href="https://en.wikipedia.org/wiki/Database">database</a>, spreadsheet, or <a href="https://en.wikipedia.org/wiki/Flat_file_database">flat file</a>), and are manipulated in a proprietary statistical software package, and possibly in proprietary spreadsheet software. Formatted tables are often then ‘copy and pasted’ into a word processor, before being converted to pdf format, and finally published to <a href="https://www.gov.uk/">GOV.UK</a>. This is quite a simplification, as statistical publications are usually produced by several people, so this process is likely to be happening in parallel many times.</p>
+<div id="the-problem-with-this-approach" class="section level3">
+<h3><span class="header-section-number">3.1.1</span> The problem with this approach</h3>
+<p>Errors in <a href="http://faculty.tuck.dartmouth.edu/images/uploads/faculty/serp/Errors.pdf">spreadsheets</a> are common due to <a href="https://arxiv.org/abs/1602.02601">human error</a><a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>. We can mitigate these issues by minimising the role humans play in the tasks that they perform poorly<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>. This will free up human time to focus on complex tasks such as the interpretation of the statistics and communicating the implications of these findings to others.</p>
+<p>Other issues are:</p>
+<ul>
+<li>Copy and pasting.</li>
+<li>Lack of proper version control.</li>
+<li>Testing and QA normally happens at the end.</li>
+</ul>
+<p>A key element in this process is quality assurance (QA). Each publication is meticulously checked to ensure the accuracy of the statistics being produced. This may take place throughout the production process or at the end prior to publication. Traditionally, QA has been a manual process which can take up a significant portion of the overall production time of a publication, as any changes will require the manual process of production to be repeated.</p>
 </div>
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<p><a href="https://commons.wikimedia.org/wiki/File:Warp_pipe_edited.PNG" target="_blank"><img src="images/cover.jpg" style="display: block; margin: auto;" /></a></p>
-<p>Producing official statistics for publications is a key function of many teams across Government. It’s a time consuming and meticulous process to ensure that statistics are accurate and timely. With open source software becoming more widely used, there’s now a <a href="https://www.gov.uk/service-manual/technology/choosing-technology-an-introduction">range of tools</a> and techniques that can be used to reduce production time, whilst maintaining and even improving the quality of the publications. This book is about these techniques: what they are, and how we can use them.</p>
-<div id="discovery" class="section level2">
-<h2><span class="header-section-number">0.1</span> Discovery</h2>
-<blockquote>
-<p>Something is better than nothing.</p>
-</blockquote>
-<p>This is NOT TRUE in the <a href="https://en.wikipedia.org/wiki/Agile_software_development">agile</a> world; consider the opportunity cost<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>.</p>
-<p>Prior to commiting to RAP development in your team ask yourself two questions:</p>
-<ol style="list-style-type: decimal">
-<li>Is there a genuine user need for this new product/service?</li>
-<li>Does another product/service exist that you can re-use or adapt?<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></li>
-</ol>
-</div>
-<div id="getting-the-balance-right" class="section level2">
-<h2><span class="header-section-number">0.2</span> Getting the balance right</h2>
-<p>Whilst incredibly powerful, these approaches should not be seen as panacea for all the difficulties of statistics production: however, implementing even a few of these techniques can drive benefits in auditability, speed, quality, and knowledge transfer. There is a balance to be struck between ease of maintenance and the level of automation: this is likely to differ for every publication or team. These techniques are however tried and tested for software development and most already feature in the <a href="https://www.gov.uk/service-manual/technology">Service Manual</a>: in this project we have just applied these methodologies to a new area.</p>
-</div>
-<div id="inspiration" class="section level2">
-<h2><span class="header-section-number">0.3</span> Inspiration</h2>
-<p>This book was inspired by and draws heavily from a Government Digital Service <a href="https://gdsdata.blog.gov.uk/2017/03/27/reproducible-analytical-pipeline/">blog post</a> by Dr. Matthew Upson.</p>
+<div id="desired-reproducible-analytical-pipeline" class="section level3">
+<h3><span class="header-section-number">3.1.2</span> Desired Reproducible Analytical Pipeline</h3>
+<p>Our analytical pipeline should have all the hallmarks of good scientific practice - it should be reproducible.</p>
+<p><a href="https://gdsdata.blog.gov.uk/2017/03/27/reproducible-analytical-pipeline/" target="_blank"><img src="images/rap.png" style="display: block; margin: auto;" /></a></p>
 
+</div>
 </div>
 </div>
 <div class="footnotes">
 <hr />
-<ol start="1">
-<li id="fn1"><p>the loss of other alternatives when one alternative is chosen<a href="index.html#fnref1">↩</a></p></li>
-<li id="fn2"><p>There’s probably some code you can adapt on Github, such as the <a href="https://github.com/ukgovdatascience/eesectors">eesectors pacakge</a><a href="index.html#fnref2">↩</a></p></li>
+<ol start="3">
+<li id="fn3"><p>Research on spreadsheet errors is substantial, compelling, and unanimous. It has three simple conclusions. The first is that spreadsheet errors are rare on a per-cell basis, but in large programs, at least one incorrect bottom-line value is very likely to be present. The second is that errors are extremely difficult to detect and correct. The third is that spreadsheet developers and corporations are highly overconfident in the accuracy of their spreadsheets.<a href="why.html#fnref3">↩</a></p></li>
+<li id="fn4"><p>Tasks that machines excel at<a href="why.html#fnref4">↩</a></p></li>
 </ol>
 </div>
             </section>
@@ -211,8 +213,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-
-<a href="intro.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="ethics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="exemplar.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

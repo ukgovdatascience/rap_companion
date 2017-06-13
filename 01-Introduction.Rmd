@@ -1,4 +1,4 @@
-# Introduction
+# Introduction {#intro}
 
 The [Reproducible Analytical Pipeline (RAP)](https://gdsdata.blog.gov.uk/2017/03/27/reproducible-analytical-pipeline/) is an alternative production methodology for automating the bulk of steps involved in creating a statistical report.  
 
@@ -8,6 +8,6 @@ This [bookdown](https://bookdown.org/yihui/bookdown/) manual uses the *eesectors
 
 ## Objectives
 
-* Why RAP?
 * Questions to ask oneself before you RAP?
+* Why RAP?
 * How to RAP?

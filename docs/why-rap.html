@@ -25,7 +25,7 @@
 <meta name="author" content="Matthew Gregory, Matthew Upson">
 
 
-<meta name="date" content="2017-06-10">
+<meta name="date" content="2017-06-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -66,7 +66,10 @@
 <li><a href="./">RAP Companion</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#discovery"><i class="fa fa-check"></i><b>0.1</b> Discovery</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#inspiration"><i class="fa fa-check"></i><b>0.2</b> Inspiration</a></li>
+</ul></li>
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
 <li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#objectives"><i class="fa fa-check"></i><b>1.1</b> Objectives</a></li>
 </ul></li>
@@ -80,7 +83,11 @@
 <li class="chapter" data-level="2.1.6" data-path="ethical-considerations.html"><a href="ethical-considerations.html#keep-data-secure"><i class="fa fa-check"></i><b>2.1.6</b> Keep data secure</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="technical-details.html"><a href="technical-details.html"><i class="fa fa-check"></i><b>3</b> Technical Details</a></li>
+<li class="chapter" data-level="3" data-path="why-rap.html"><a href="why-rap.html"><i class="fa fa-check"></i><b>3</b> Why RAP?</a><ul>
+<li class="chapter" data-level="3.1" data-path="why-rap.html"><a href="why-rap.html#the-current-statistics-production-process"><i class="fa fa-check"></i><b>3.1</b> The current statistics production process</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="why-rap.html"><a href="why-rap.html#the-problem-with-this-approach"><i class="fa fa-check"></i><b>3.1.1</b> The problem with this approach</a></li>
+</ul></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -101,11 +108,34 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="technical-details" class="section level1">
-<h1><span class="header-section-number">Chapter 3</span> Technical Details</h1>
-<p>Now I’ll teach you some crazy math, but I need to work it out first…</p>
+<div id="why-rap" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Why RAP?</h1>
+<p>Reproducible Analytical Pipelines require a range of tools and techniques to implement that can be a challenge to overcome; so why bother learning to RAP?</p>
+<ul>
+<li>Does your team spend too much time moving data between various softwares?</li>
+<li>Could you reproduce your most recent publication’s stats? How about from five years ago?</li>
+<li>What would your team do with their time if it was freed up from copying and pasting?</li>
+<li>What proportion of spreadsheets contain errors?</li>
+</ul>
+<div id="the-current-statistics-production-process" class="section level2">
+<h2><span class="header-section-number">3.1</span> The current statistics production process</h2>
+<p>Here we use the production of official statistics in Government; altough this process varies widely perhaps it looks something like this?</p>
+<p><a href="https://gdsdata.blog.gov.uk/2017/03/27/reproducible-analytical-pipeline/" target="_blank"><img src="images/messy_pipeline.png" style="display: block; margin: auto;" /></a></p>
+<p>Broadly speaking, data are extracted from a datastore (whether it is a <a href="https://en.wikipedia.org/wiki/Data_lake">data lake</a>, <a href="https://en.wikipedia.org/wiki/Database">database</a>, spreadsheet, or <a href="https://en.wikipedia.org/wiki/Flat_file_database">flat file</a>), and are manipulated in a proprietary statistical software package, and possibly in proprietary spreadsheet software. Formatted tables are often then ‘copy and pasted’ into a word processor, before being converted to pdf format, and finally published to <a href="https://www.gov.uk/">GOV.UK</a>. This is quite a simplification, as statistical publications are usually produced by several people, so this process is likely to be happening in parallel many times.</p>
+<div id="the-problem-with-this-approach" class="section level3">
+<h3><span class="header-section-number">3.1.1</span> The problem with this approach</h3>
+<p>A key element in this process is quality assurance (QA). Each publication is meticulously checked to ensure the accuracy of the statistics being produced. This may take place throughout the production process or at the end prior to publication. Traditionally, QA has been a manual process which can take up a significant portion of the overall production time of a publication, as any changes will require the manual process of production to be repeated.</p>
 
 </div>
+</div>
+</div>
+
+
+
+
+
+
+
             </section>
 
           </div>

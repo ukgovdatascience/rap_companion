@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-
-<link rel="next" href="intro.html">
+<link rel="prev" href="exemplar.html">
+<link rel="next" href="vs.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -168,51 +168,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">RAP Companion</h1>
-<h4 class="author"><em>Matthew Gregory, Matthew Upson</em></h4>
-<h4 class="date"><em>2017-06-13</em></h4>
-</div>
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<p><a href="https://commons.wikimedia.org/wiki/File:Warp_pipe_edited.PNG" target="_blank"><img src="images/cover.jpg" style="display: block; margin: auto;" /></a></p>
-<p>Producing official statistics for publications is a key function of many teams across Government. It’s a time consuming and meticulous process to ensure that statistics are accurate and timely. With open source software becoming more widely used, there’s now a <a href="https://www.gov.uk/service-manual/technology/choosing-technology-an-introduction">range of tools</a> and techniques that can be used to reduce production time, whilst maintaining and even improving the quality of the publications. This book is about these techniques: what they are, and how we can use them.</p>
-<div id="discovery" class="section level2">
-<h2><span class="header-section-number">0.1</span> Discovery</h2>
-<blockquote>
-<p>Something is better than nothing.</p>
-</blockquote>
-<p>This is NOT TRUE in the <a href="https://en.wikipedia.org/wiki/Agile_software_development">agile</a> world; consider the opportunity cost<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>.</p>
-<p>Prior to commiting to RAP development in your team ask yourself two questions:</p>
-<ol style="list-style-type: decimal">
-<li>Is there a genuine user need for this new product/service?</li>
-<li>Does another product/service exist that you can re-use or adapt?<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></li>
-</ol>
-</div>
-<div id="getting-the-balance-right" class="section level2">
-<h2><span class="header-section-number">0.2</span> Getting the balance right</h2>
-<p>Whilst incredibly powerful, these approaches should not be seen as panacea for all the difficulties of statistics production: however, implementing even a few of these techniques can drive benefits in auditability, speed, quality, and knowledge transfer. There is a balance to be struck between ease of maintenance and the level of automation: this is likely to differ for every publication or team. These techniques are however tried and tested for software development and most already feature in the <a href="https://www.gov.uk/service-manual/technology">Service Manual</a>: in this project we have just applied these methodologies to a new area.</p>
-</div>
-<div id="inspiration" class="section level2">
-<h2><span class="header-section-number">0.3</span> Inspiration</h2>
-<p>This book was inspired by and draws heavily from a Government Digital Service <a href="https://gdsdata.blog.gov.uk/2017/03/27/reproducible-analytical-pipeline/">blog post</a> by Dr. Matthew Upson.</p>
+<div id="open" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Open Source rather than proprietary</h1>
+<p>Open source languages such as <a href="https://en.wikipedia.org/wiki/Python_(programming_language)">Python</a> and <a href="https://www.r-project.org/about.html">R</a> are increasing in popularity across government. One advantage of using these tools is that we can reduce the number of steps where the data needs to be moved from one program (or format) into another. This is in line with the principle of reproducibility given in guidance on producing quality analysis for government (the <a href="https://www.gov.uk/government/publications/the-aqua-book-guidance-on-producing-quality-analysis-for-government">AQUA book</a>), as the entire process can be represented as a single step in code, greatly reducing the likelihood of manual transcription errors.</p>
+<p>Chapter <a href="why.html#why">3</a> discussed why spreadsheets are dangerous. Moving away from proprietary software, towards Open Source, may also have the additional benefit of being more compatable with tried and tested software development tools and techniques (as well as the obvious no longer needing to pay for it).</p>
+<p>In GDS’s project with DCMS described in Chapter <a href="exemplar.html#exemplar">4</a>, we decided to use the R language, however we could equally have chosen to use Python or another language entirely: the techniques we outline in this book are language agnostic.</p>
 
-</div>
-</div>
-<div class="footnotes">
-<hr />
-<ol start="1">
-<li id="fn1"><p>the loss of other alternatives when one alternative is chosen<a href="index.html#fnref1">↩</a></p></li>
-<li id="fn2"><p>There’s probably some code you can adapt on Github, such as the <a href="https://github.com/ukgovdatascience/eesectors">eesectors pacakge</a><a href="index.html#fnref2">↩</a></p></li>
-</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="intro.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="exemplar.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="vs.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

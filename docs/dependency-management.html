@@ -25,15 +25,15 @@
 <meta name="author" content="Matthew Gregory, Matthew Upson">
 
 
-<meta name="date" content="2017-06-13">
+<meta name="date" content="2017-06-12">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-
-<link rel="next" href="intro.html">
+<link rel="prev" href="code-cover.html">
+<link rel="next" href="qa-data.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -124,7 +124,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3" data-path="why.html"><a href="why.html"><i class="fa fa-check"></i><b>3</b> Why RAP?</a><ul>
 <li class="chapter" data-level="3.1" data-path="why.html"><a href="why.html#the-current-statistics-production-process"><i class="fa fa-check"></i><b>3.1</b> The current statistics production process</a><ul>
 <li class="chapter" data-level="3.1.1" data-path="why.html"><a href="why.html#the-problem-with-this-approach"><i class="fa fa-check"></i><b>3.1.1</b> The problem with this approach</a></li>
-<li class="chapter" data-level="3.1.2" data-path="why.html"><a href="why.html#desired-reproducible-analytical-pipeline"><i class="fa fa-check"></i><b>3.1.2</b> Desired Reproducible Analytical Pipeline</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="exemplar.html"><a href="exemplar.html"><i class="fa fa-check"></i><b>4</b> Exemplar RAP</a><ul>
@@ -144,10 +143,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="8" data-path="test.html"><a href="test.html"><i class="fa fa-check"></i><b>8</b> Unit test</a></li>
 <li class="chapter" data-level="9" data-path="travis.html"><a href="travis.html"><i class="fa fa-check"></i><b>9</b> Automated Testing</a></li>
 <li class="chapter" data-level="10" data-path="code-cover.html"><a href="code-cover.html"><i class="fa fa-check"></i><b>10</b> Code coverage</a></li>
-<li class="chapter" data-level="11" data-path="dependency-management-dep.html"><a href="dependency-management-dep.html"><i class="fa fa-check"></i><b>11</b> Dependency management {dep}</a></li>
+<li class="chapter" data-level="11" data-path="dependency-management.html"><a href="dependency-management.html"><i class="fa fa-check"></i><b>11</b> Dependency management</a></li>
 <li class="chapter" data-level="12" data-path="qa-data.html"><a href="qa-data.html"><i class="fa fa-check"></i><b>12</b> Quality Assured data</a></li>
-<li class="chapter" data-level="13" data-path="pub.html"><a href="pub.html"><i class="fa fa-check"></i><b>13</b> Producing the publication</a></li>
-<li class="chapter" data-level="14" data-path="final.html"><a href="final.html"><i class="fa fa-check"></i><b>14</b> Final Thoughts</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -168,51 +165,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">RAP Companion</h1>
-<h4 class="author"><em>Matthew Gregory, Matthew Upson</em></h4>
-<h4 class="date"><em>2017-06-13</em></h4>
-</div>
-<div id="preface" class="section level1 unnumbered">
-<h1>Preface</h1>
-<p><a href="https://commons.wikimedia.org/wiki/File:Warp_pipe_edited.PNG" target="_blank"><img src="images/cover.jpg" style="display: block; margin: auto;" /></a></p>
-<p>Producing official statistics for publications is a key function of many teams across Government. It’s a time consuming and meticulous process to ensure that statistics are accurate and timely. With open source software becoming more widely used, there’s now a <a href="https://www.gov.uk/service-manual/technology/choosing-technology-an-introduction">range of tools</a> and techniques that can be used to reduce production time, whilst maintaining and even improving the quality of the publications. This book is about these techniques: what they are, and how we can use them.</p>
-<div id="discovery" class="section level2">
-<h2><span class="header-section-number">0.1</span> Discovery</h2>
-<blockquote>
-<p>Something is better than nothing.</p>
-</blockquote>
-<p>This is NOT TRUE in the <a href="https://en.wikipedia.org/wiki/Agile_software_development">agile</a> world; consider the opportunity cost<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>.</p>
-<p>Prior to commiting to RAP development in your team ask yourself two questions:</p>
-<ol style="list-style-type: decimal">
-<li>Is there a genuine user need for this new product/service?</li>
-<li>Does another product/service exist that you can re-use or adapt?<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></li>
-</ol>
-</div>
-<div id="getting-the-balance-right" class="section level2">
-<h2><span class="header-section-number">0.2</span> Getting the balance right</h2>
-<p>Whilst incredibly powerful, these approaches should not be seen as panacea for all the difficulties of statistics production: however, implementing even a few of these techniques can drive benefits in auditability, speed, quality, and knowledge transfer. There is a balance to be struck between ease of maintenance and the level of automation: this is likely to differ for every publication or team. These techniques are however tried and tested for software development and most already feature in the <a href="https://www.gov.uk/service-manual/technology">Service Manual</a>: in this project we have just applied these methodologies to a new area.</p>
-</div>
-<div id="inspiration" class="section level2">
-<h2><span class="header-section-number">0.3</span> Inspiration</h2>
-<p>This book was inspired by and draws heavily from a Government Digital Service <a href="https://gdsdata.blog.gov.uk/2017/03/27/reproducible-analytical-pipeline/">blog post</a> by Dr. Matthew Upson.</p>
+<div id="dependency-management" class="section level1">
+<h1><span class="header-section-number">Chapter 11</span> Dependency management</h1>
 
-</div>
-</div>
-<div class="footnotes">
-<hr />
-<ol start="1">
-<li id="fn1"><p>the loss of other alternatives when one alternative is chosen<a href="index.html#fnref1">↩</a></p></li>
-<li id="fn2"><p>There’s probably some code you can adapt on Github, such as the <a href="https://github.com/ukgovdatascience/eesectors">eesectors pacakge</a><a href="index.html#fnref2">↩</a></p></li>
-</ol>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="intro.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="code-cover.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="qa-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
