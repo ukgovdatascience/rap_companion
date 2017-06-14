@@ -1,5 +1,27 @@
 language: r
+sudo: required
 cache: packages
 
+env:
+  global:
+    - secure: GITHUB_PAT
+
+r_packages:
+ - devtools
+ - dplyr
+ - ggplot2
+
+install:
+  - Rscript -e "if (!require('devtools')) install.packages('devtools')"
+  - Rscript -e "devtools::install_github('mammykins/bookdown')"
+  - Rscript -e "devtools::install_github('ukgovdatascience/eesectors')"
+  - Rscript -e "devtools::install_github('ukgovdatascience/govstyle')"
+
+
+before_script:
+  - chmod +x ./_build.sh
+  - chmod +x ./_deploy.sh
+
 script:
-  - Rscript -e 'bookdown::render_book("index.rmd")'
+  - ./_build.sh
+  - ./_deploy.sh
