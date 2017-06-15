@@ -25,7 +25,7 @@
 <meta name="author" content="Matthew Gregory, Matthew Upson">
 
 
-<meta name="date" content="2017-06-13">
+<meta name="date" content="2017-06-14">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -139,14 +139,25 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5" data-path="open.html"><a href="open.html"><i class="fa fa-check"></i><b>5</b> Open Source rather than proprietary</a></li>
 <li class="chapter" data-level="6" data-path="vs.html"><a href="vs.html"><i class="fa fa-check"></i><b>6</b> Version Control</a><ul>
 <li class="chapter" data-level="6.1" data-path="vs.html"><a href="vs.html#introduction"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="vs.html"><a href="vs.html#useful-resources"><i class="fa fa-check"></i><b>6.2</b> Useful resources</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="vs.html"><a href="vs.html#graphical-user-interface-focus"><i class="fa fa-check"></i><b>6.2.1</b> Graphical user interface focus</a></li>
+<li class="chapter" data-level="6.2.2" data-path="vs.html"><a href="vs.html#command-line-focus"><i class="fa fa-check"></i><b>6.2.2</b> Command line focus</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="package.html"><a href="package.html"><i class="fa fa-check"></i><b>7</b> Packaging Code</a></li>
-<li class="chapter" data-level="8" data-path="test.html"><a href="test.html"><i class="fa fa-check"></i><b>8</b> Unit test</a></li>
+<li class="chapter" data-level="6.3" data-path="vs.html"><a href="vs.html#typical-workflow"><i class="fa fa-check"></i><b>6.3</b> Typical workflow</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="package.html"><a href="package.html"><i class="fa fa-check"></i><b>7</b> Packaging Code</a><ul>
+<li class="chapter" data-level="7.1" data-path="package.html"><a href="package.html#essential-reading"><i class="fa fa-check"></i><b>7.1</b> Essential reading</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="test.html"><a href="test.html"><i class="fa fa-check"></i><b>8</b> Unit test</a><ul>
+<li class="chapter" data-level="8.1" data-path="test.html"><a href="test.html#further-reading"><i class="fa fa-check"></i><b>8.1</b> Further Reading</a></li>
+</ul></li>
 <li class="chapter" data-level="9" data-path="travis.html"><a href="travis.html"><i class="fa fa-check"></i><b>9</b> Automated Testing</a></li>
 <li class="chapter" data-level="10" data-path="code-cover.html"><a href="code-cover.html"><i class="fa fa-check"></i><b>10</b> Code coverage</a></li>
 <li class="chapter" data-level="11" data-path="dependency-management-dep.html"><a href="dependency-management-dep.html"><i class="fa fa-check"></i><b>11</b> Dependency management {dep}</a></li>
 <li class="chapter" data-level="12" data-path="qa-data.html"><a href="qa-data.html"><i class="fa fa-check"></i><b>12</b> Quality Assured data</a></li>
-<li class="chapter" data-level="13" data-path="pub.html"><a href="pub.html"><i class="fa fa-check"></i><b>13</b> Producing the publication</a></li>
+<li class="chapter" data-level="13" data-path="pub.html"><a href="pub.html"><i class="fa fa-check"></i><b>13</b> Producing the publication</a><ul>
+<li class="chapter" data-level="13.1" data-path="pub.html"><a href="pub.html#further-reading-1"><i class="fa fa-check"></i><b>13.1</b> Further Reading</a></li>
+</ul></li>
 <li class="chapter" data-level="14" data-path="final.html"><a href="final.html"><i class="fa fa-check"></i><b>14</b> Final Thoughts</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -191,8 +202,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="loading-the-package" class="section level3">
 <h3><span class="header-section-number">4.2.2</span> Loading the package</h3>
 <p>Installation means the package is on our computer but it is not loaded into the computer’s working memory. We also load any additional packages that might be useful for exploring the package or data therein.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#  devtools::install_github(&#39;ukgovdatascience/eesectors&#39;)</span>
-<span class="kw">library</span>(eesectors)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&#39;ukgovdatascience/eesectors&#39;</span>)</code></pre></div>
+<pre><code>## Skipping install of &#39;eesectors&#39; from a github remote, the SHA1 (5e91f359) has not changed since last install.
+##   Use `force = TRUE` to force installation</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(eesectors)</code></pre></div>
 <pre><code>## eesectors: Reproducible Analytical Pipeline (RAP) for the
 ## Economic Estimates for DCMS Sectors Statistical First Release
 ## (SFR). For more information visit:
@@ -215,19 +228,19 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>This package seems to work by taking the necessary data inputs as arguments in a function then outputting the relevant figures. The names of the functions match the figures they produce. Prior to this step we have to get the data in the correct format.</p>
 <p>If you look at the functions within the package within R Studio using the package navigator it is evident that there are a function of families dedicated to reading Excel spreadsheets and collecting the data in a tidy .Rds format. These are given the funciton name-prefix of <code>extract_</code> (try to give your functions <a href="http://adv-r.had.co.nz/Style.html">good names</a>).</p>
 <p>The <code>GVA_by_sector_2016</code> provides test data to work with during development. This will be important for the development of other packages for different reports. You need a precise understanding of how you go from raw data, to aggregated data (such as <code>GVA_by_sector_2016</code>) to the final figure. What are your inputs (arguments) and outputs? In some cases where your master data is stored in a particularly difficult for a machine to read you may prefer having a human to this extraction step.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dplyr::<span class="kw">glimpse</span>(GVA_by_sector_2016)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dplyr<span class="op">::</span><span class="kw">glimpse</span>(GVA_by_sector_<span class="dv">2016</span>)</code></pre></div>
 <pre><code>## Observations: 54
 ## Variables: 3
 ## $ sector &lt;fctr&gt; creative, culture, digital, gambling, sport, telecoms,...
 ## $ year   &lt;int&gt; 2010, 2010, 2010, 2010, 2010, 2010, 2010, 2011, 2011, 2...
 ## $ GVA    &lt;dbl&gt; 65188, 20291, 97303, 8407, 7016, 24738, 49150, 69398, 2...</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span>GVA_by_sector_2016</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span>GVA_by_sector_<span class="dv">2016</span></code></pre></div>
 </div>
 <div id="automating-qa" class="section level4">
 <h4><span class="header-section-number">4.2.3.3</span> Automating QA</h4>
 <p>Human’s are not particularly good at Quality Assurance (QA), especially when working with massive spreadsheets it’s easy for errors to creep in. We can automate alot of the sense checking and update this if things change or a human provides another creative test to use for sense checking. If you can describe the test to a colleague then you can code it.</p>
 <p>The author uses messages to tell us what checks are being conducted or we can look at the body of the function if we are interested. This is useful if you are considering developing your own package, it will help you struture the message which are useful for the user.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gva &lt;-<span class="st"> </span><span class="kw">year_sector_data</span>(GVA_by_sector_2016)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gva &lt;-<span class="st"> </span><span class="kw">year_sector_data</span>(GVA_by_sector_<span class="dv">2016</span>)</code></pre></div>
 <pre><code>## Initiating year_sector_data class.
 ## 
 ## 
@@ -330,14 +343,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## }</code></pre>
 <p>The function is structured to tell the user what check is being made and then running that check given the input <code>x</code>. If the input fails a check the function is stopped with a useful diagnostic message for the user. This is achieved using <code>if</code> and the opposite of the desired feature of <code>x</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">    <span class="kw">message</span>(<span class="st">&quot;Checking x has correct columns...&quot;</span>)
-    if (<span class="kw">length</span>(<span class="kw">colnames</span>(x)) !=<span class="st"> </span><span class="dv">3</span>) 
+    <span class="cf">if</span> (<span class="kw">length</span>(<span class="kw">colnames</span>(x)) <span class="op">!=</span><span class="st"> </span><span class="dv">3</span>) 
         <span class="kw">stop</span>(<span class="st">&quot;x must have three columns: sector, year, and one of GVA, export, or x&quot;</span>)</code></pre></div>
 <p>For example, if <code>x</code> does not have exactly three columns we <code>stop</code>.</p>
 </div>
 <div id="output-of-this-function" class="section level4">
 <h4><span class="header-section-number">4.2.3.4</span> Output of this function</h4>
 <p>The output object is different to the input as expected, yet it does contain the initial data.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">identical</span>(gva$df, x)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">identical</span>(gva<span class="op">$</span>df, x)</code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>The rest of the list contains other details that could be changed at a later date if required, demonstrating defensive programming. For example, the sectors that are of interest to DCMS have changed and may change again.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">?year_sector_data</code></pre></div>
@@ -352,7 +365,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="the-input" class="section level4">
 <h4><span class="header-section-number">4.2.3.5</span> The input</h4>
 <p>The input, which is likely a bunch of <a href="https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html">not tidy or messy</a> spreadsheets needs to be wrangled and aggregated (if necessary) for input into the functions prefixed by <code>figure</code>.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dplyr::<span class="kw">glimpse</span>(GVA_by_sector_2016)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dplyr<span class="op">::</span><span class="kw">glimpse</span>(GVA_by_sector_<span class="dv">2016</span>)</code></pre></div>
 <pre><code>## Observations: 54
 ## Variables: 3
 ## $ sector &lt;fctr&gt; creative, culture, digital, gambling, sport, telecoms,...
@@ -366,7 +379,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><img src="04-exemplar_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
 <p>Again we can look at the details of the plot. We could change the body of the function to affect change to the default plot or we can pass additional <code>ggplot</code> arguments to it.</p>
 <p>Reading the code we see it filters the data, makes the variables it needs, refactors the <code>sector</code> variable and then plots it.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">body</span>(figure3<span class="fl">.1</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">body</span>(figure3.<span class="dv">1</span>)</code></pre></div>
 <pre><code>## {
 ##     out &lt;- tryCatch(expr = {
 ##         sectors_set &lt;- x$sectors_set
@@ -391,7 +404,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## }</code></pre>
 <p>We can inspect and change an argument if we feel inclined or if a new colour scheme becomes preferred for example. However, there is no <code>...</code> in the body of the function itself so where does this argument get passed to?</p>
 <p>This all looks straight forward and we can inspect the other functions for generating the figures or plot output.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">body</span>(figure3<span class="fl">.2</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">body</span>(figure3.<span class="dv">2</span>)</code></pre></div>
 <pre><code>## {
 ##     out &lt;- tryCatch(expr = {
 ##         sectors_set &lt;- x$sectors_set
@@ -416,7 +429,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ##     }, finally = {
 ##     })
 ## }</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">body</span>(figure3<span class="fl">.3</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">body</span>(figure3.<span class="dv">3</span>)</code></pre></div>
 <pre><code>## {
 ##     out &lt;- tryCatch(expr = {
 ##         sectors_set &lt;- x$sectors_set

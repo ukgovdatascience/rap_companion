@@ -1,2 +1,7 @@
 # Quality Assured data {#qa_data}
 
+All the testing we have described so far is to do with the code, and ensuring that the code does what we expect it to, but because we have written an [R package](https://github.com/ukgovdatascience/eesectors), it’s also very easy for us to institute tests for the consistency of the data at the time the data is loaded.
+
+The list of tests that we might want to run is endless, and the scope of tests very much be dictated by the team which has the expert knowledge of the data. In the [eesectors](https://github.com/ukgovdatascience/eesectors) package we implemented two very simple checks, but these could very easily be expanded. The simplest of these is a simple test for outliers: since the data for the economic estimates is longitudinal, i.e. stretching back several years; we are able to look at the most recent values in comparison to the values from previous years. If the latest values lie within a threshold determined statistically from the other values then the data passes, if not a warning is raised.
+
+These kinds of automated tests are repeated every time the data are loaded, reducing the burden of QA, and the scope for human error, freeing up statistician time for identifying more subtle data quality issues which might otherwise go unnoticed.

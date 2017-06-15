@@ -1,6 +1,8 @@
 # Packaging Code {#package}
 
-One of the difficulties that can arise in the more manual methods of statistics production is that we have many different files relating to many different stages of the process, each of which needs to be documented, and kept up to date. Part of the heavy lifting can be done here with version control as described above, but we can go a step further: we can create a package of code. As Hadley Wickham (author of a number of essential packages for package development) puts it for R:
+A package enshrines all the business knowledge used to create a corpus of work in one place; including the code and its relevant documentation.
+
+One of the difficulties that can arise in the more manual methods of statistics production is that we have many different files relating to many different stages of the process, each of which needs to be documented, and kept up to date. Part of the heavy lifting can be done here with version control as described in Chapter \@ref(vs), but we can go a step further: we can create a package of code. As Hadley Wickham (author of a number of essential packages for package development) puts it for R:
 
 > Packages are the fundamental units of reproducible R code. They include reusable R functions, the documentation that describes how to use them, and sample data.
 - Hadley Wickham
@@ -14,4 +16,8 @@ library(eesectors)
 ```
 
 
-Linking the documentation to the code makes everything much easier to understand, and can help to minimising the time taken to bring new team members up to speed. This all meets the requirements of the [AQUA](https://www.gov.uk/government/publications/the-aqua-book-guidance-on-producing-quality-analysis-for-government) book in that all assumptions and constraints can be described in the package documentation asssociated tied to the relevant code.  
+Linking the documentation to the code makes everything much easier to understand, and can help to minimising the time taken to bring new team members up to speed. This all meets the requirements of the [AQUA](https://www.gov.uk/government/publications/the-aqua-book-guidance-on-producing-quality-analysis-for-government) book in that all assumptions and constraints can be described in the package documentation asssociated tied to the relevant code. 
+
+## Essential reading
+
+Hadley Wickham's [R Packages](http://r-pkgs.had.co.nz/) book is an excellent and comprehensive introduction to developing your own package in R. It encourages you to start with the basics and improve over time; good advice.

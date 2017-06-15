@@ -25,7 +25,7 @@
 <meta name="author" content="Matthew Gregory, Matthew Upson">
 
 
-<meta name="date" content="2017-06-13">
+<meta name="date" content="2017-06-14">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -139,14 +139,25 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5" data-path="open.html"><a href="open.html"><i class="fa fa-check"></i><b>5</b> Open Source rather than proprietary</a></li>
 <li class="chapter" data-level="6" data-path="vs.html"><a href="vs.html"><i class="fa fa-check"></i><b>6</b> Version Control</a><ul>
 <li class="chapter" data-level="6.1" data-path="vs.html"><a href="vs.html#introduction"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="vs.html"><a href="vs.html#useful-resources"><i class="fa fa-check"></i><b>6.2</b> Useful resources</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="vs.html"><a href="vs.html#graphical-user-interface-focus"><i class="fa fa-check"></i><b>6.2.1</b> Graphical user interface focus</a></li>
+<li class="chapter" data-level="6.2.2" data-path="vs.html"><a href="vs.html#command-line-focus"><i class="fa fa-check"></i><b>6.2.2</b> Command line focus</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="package.html"><a href="package.html"><i class="fa fa-check"></i><b>7</b> Packaging Code</a></li>
-<li class="chapter" data-level="8" data-path="test.html"><a href="test.html"><i class="fa fa-check"></i><b>8</b> Unit test</a></li>
+<li class="chapter" data-level="6.3" data-path="vs.html"><a href="vs.html#typical-workflow"><i class="fa fa-check"></i><b>6.3</b> Typical workflow</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="package.html"><a href="package.html"><i class="fa fa-check"></i><b>7</b> Packaging Code</a><ul>
+<li class="chapter" data-level="7.1" data-path="package.html"><a href="package.html#essential-reading"><i class="fa fa-check"></i><b>7.1</b> Essential reading</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="test.html"><a href="test.html"><i class="fa fa-check"></i><b>8</b> Unit test</a><ul>
+<li class="chapter" data-level="8.1" data-path="test.html"><a href="test.html#further-reading"><i class="fa fa-check"></i><b>8.1</b> Further Reading</a></li>
+</ul></li>
 <li class="chapter" data-level="9" data-path="travis.html"><a href="travis.html"><i class="fa fa-check"></i><b>9</b> Automated Testing</a></li>
 <li class="chapter" data-level="10" data-path="code-cover.html"><a href="code-cover.html"><i class="fa fa-check"></i><b>10</b> Code coverage</a></li>
 <li class="chapter" data-level="11" data-path="dependency-management-dep.html"><a href="dependency-management-dep.html"><i class="fa fa-check"></i><b>11</b> Dependency management {dep}</a></li>
 <li class="chapter" data-level="12" data-path="qa-data.html"><a href="qa-data.html"><i class="fa fa-check"></i><b>12</b> Quality Assured data</a></li>
-<li class="chapter" data-level="13" data-path="pub.html"><a href="pub.html"><i class="fa fa-check"></i><b>13</b> Producing the publication</a></li>
+<li class="chapter" data-level="13" data-path="pub.html"><a href="pub.html"><i class="fa fa-check"></i><b>13</b> Producing the publication</a><ul>
+<li class="chapter" data-level="13.1" data-path="pub.html"><a href="pub.html#further-reading-1"><i class="fa fa-check"></i><b>13.1</b> Further Reading</a></li>
+</ul></li>
 <li class="chapter" data-level="14" data-path="final.html"><a href="final.html"><i class="fa fa-check"></i><b>14</b> Final Thoughts</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -170,6 +181,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="qa_data" class="section level1">
 <h1><span class="header-section-number">Chapter 12</span> Quality Assured data</h1>
+<p>All the testing we have described so far is to do with the code, and ensuring that the code does what we expect it to, but because we have written an <a href="https://github.com/ukgovdatascience/eesectors">R package</a>, it’s also very easy for us to institute tests for the consistency of the data at the time the data is loaded.</p>
+<p>The list of tests that we might want to run is endless, and the scope of tests very much be dictated by the team which has the expert knowledge of the data. In the <a href="https://github.com/ukgovdatascience/eesectors">eesectors</a> package we implemented two very simple checks, but these could very easily be expanded. The simplest of these is a simple test for outliers: since the data for the economic estimates is longitudinal, i.e. stretching back several years; we are able to look at the most recent values in comparison to the values from previous years. If the latest values lie within a threshold determined statistically from the other values then the data passes, if not a warning is raised.</p>
+<p>These kinds of automated tests are repeated every time the data are loaded, reducing the burden of QA, and the scope for human error, freeing up statistician time for identifying more subtle data quality issues which might otherwise go unnoticed.</p>
 
 </div>
             </section>

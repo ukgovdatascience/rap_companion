@@ -35,7 +35,15 @@ Installation means the package is on our computer but it is not loaded into the 
 
 
 ```r
-#  devtools::install_github('ukgovdatascience/eesectors')
+devtools::install_github('ukgovdatascience/eesectors')
+```
+
+```
+## Skipping install of 'eesectors' from a github remote, the SHA1 (5e91f359) has not changed since last install.
+##   Use `force = TRUE` to force installation
+```
+
+```r
 library(eesectors)
 ```
 

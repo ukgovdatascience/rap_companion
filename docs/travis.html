@@ -25,7 +25,7 @@
 <meta name="author" content="Matthew Gregory, Matthew Upson">
 
 
-<meta name="date" content="2017-06-13">
+<meta name="date" content="2017-06-14">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -139,14 +139,25 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5" data-path="open.html"><a href="open.html"><i class="fa fa-check"></i><b>5</b> Open Source rather than proprietary</a></li>
 <li class="chapter" data-level="6" data-path="vs.html"><a href="vs.html"><i class="fa fa-check"></i><b>6</b> Version Control</a><ul>
 <li class="chapter" data-level="6.1" data-path="vs.html"><a href="vs.html#introduction"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="vs.html"><a href="vs.html#useful-resources"><i class="fa fa-check"></i><b>6.2</b> Useful resources</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="vs.html"><a href="vs.html#graphical-user-interface-focus"><i class="fa fa-check"></i><b>6.2.1</b> Graphical user interface focus</a></li>
+<li class="chapter" data-level="6.2.2" data-path="vs.html"><a href="vs.html#command-line-focus"><i class="fa fa-check"></i><b>6.2.2</b> Command line focus</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="package.html"><a href="package.html"><i class="fa fa-check"></i><b>7</b> Packaging Code</a></li>
-<li class="chapter" data-level="8" data-path="test.html"><a href="test.html"><i class="fa fa-check"></i><b>8</b> Unit test</a></li>
+<li class="chapter" data-level="6.3" data-path="vs.html"><a href="vs.html#typical-workflow"><i class="fa fa-check"></i><b>6.3</b> Typical workflow</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="package.html"><a href="package.html"><i class="fa fa-check"></i><b>7</b> Packaging Code</a><ul>
+<li class="chapter" data-level="7.1" data-path="package.html"><a href="package.html#essential-reading"><i class="fa fa-check"></i><b>7.1</b> Essential reading</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="test.html"><a href="test.html"><i class="fa fa-check"></i><b>8</b> Unit test</a><ul>
+<li class="chapter" data-level="8.1" data-path="test.html"><a href="test.html#further-reading"><i class="fa fa-check"></i><b>8.1</b> Further Reading</a></li>
+</ul></li>
 <li class="chapter" data-level="9" data-path="travis.html"><a href="travis.html"><i class="fa fa-check"></i><b>9</b> Automated Testing</a></li>
 <li class="chapter" data-level="10" data-path="code-cover.html"><a href="code-cover.html"><i class="fa fa-check"></i><b>10</b> Code coverage</a></li>
 <li class="chapter" data-level="11" data-path="dependency-management-dep.html"><a href="dependency-management-dep.html"><i class="fa fa-check"></i><b>11</b> Dependency management {dep}</a></li>
 <li class="chapter" data-level="12" data-path="qa-data.html"><a href="qa-data.html"><i class="fa fa-check"></i><b>12</b> Quality Assured data</a></li>
-<li class="chapter" data-level="13" data-path="pub.html"><a href="pub.html"><i class="fa fa-check"></i><b>13</b> Producing the publication</a></li>
+<li class="chapter" data-level="13" data-path="pub.html"><a href="pub.html"><i class="fa fa-check"></i><b>13</b> Producing the publication</a><ul>
+<li class="chapter" data-level="13.1" data-path="pub.html"><a href="pub.html#further-reading-1"><i class="fa fa-check"></i><b>13.1</b> Further Reading</a></li>
+</ul></li>
 <li class="chapter" data-level="14" data-path="final.html"><a href="final.html"><i class="fa fa-check"></i><b>14</b> Final Thoughts</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -170,6 +181,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="travis" class="section level1">
 <h1><span class="header-section-number">Chapter 9</span> Automated Testing</h1>
+<p>Once we are in the habit of packaging our code and writing unit tests, we can start to use free online tools such as <a href="https://travis-ci.org/">Travis CI</a>, <a href="https://jenkins.io/">Jenkins</a>, or <a href="https://www.appveyor.com/">Appveyor</a> to automatically test that our package of code builds, and that the tests we have written, pass.</p>
+<p>These tools integrate with GitHub, so we can easily see when an update to the code has failed one of our tests. The green ticks in the box below show that our tests have passed for the given pull request.</p>
+<p><a href="https://gdsdata.blog.gov.uk/2017/03/27/reproducible-analytical-pipeline/" target="_blank"><img src="images/travis1.png" style="display: block; margin: auto;" /></a></p>
+<p>We can also look at our <a href="https://travis-ci.org/ukgovdatascience/eesectors/branches">test history</a> on Travis CI, as in the screenshot below. From this we can see that our main workstream - the default branch - has been tested 619 times to date, the last of which was one day ago, and the previous five tests have all passed without problems.</p>
+<p><a href="https://gdsdata.blog.gov.uk/2017/03/27/reproducible-analytical-pipeline/" target="_blank"><img src="images/travis2.png" style="display: block; margin: auto;" /></a></p>
 
 </div>
             </section>

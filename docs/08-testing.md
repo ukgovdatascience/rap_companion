@@ -1,2 +1,18 @@
 # Unit test {#test}
 
+Testing is a vital part of package development. It ensures that your code does what you want it to do. We can facilitate testing and Quality Assurance (QA) by building packages with generalisable LEGO-like functions.
+
+In [procedural programming](https://en.wikipedia.org/wiki/Procedural_programming), code is designed to be reused again and again with different inputs, making for simpler code that is easier to understand and audit. It means we can easily build tests to ensure the code continues to work as expected when we make changes to it.
+
+Since each function or group of functions (unit) is generic, it can be tested with a generic example, so that we know that our unit of code works as expected. If we discover cases where our units do not do perform as expected, we can codify these cases into new tests and work to fix the problem until the test passes. We may even go a step further and adopt the practice of [test driven development](https://en.wikipedia.org/wiki/Test-driven_development): starting each unit of code with a test which fails, until we write code which can pass the test.
+
+Test-driven development is a useful paradigm for developing your code in a thoroughly QA'd fashion.  
+
+<a href="https://en.wikipedia.org/wiki/File:TDD_Global_Lifecycle.png" target="_blank"><img src="images/tdd.png" style="display: block; margin: auto;" /></a>
+
+
+## Further Reading
+
+Much of the heavy lifting for this kind of testing can be done in a unit testing framework, for example [testthat](https://github.com/hadley/testthat) for R, or nosetools in [Python](http://nose.readthedocs.io/en/latest/).
+
+For how to test in R read the [R package, Testing Chapter](http://r-pkgs.had.co.nz/tests.html)  
