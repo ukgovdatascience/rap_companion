@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/mammykins/rap_companion.svg?branch=master)](https://travis-ci.org/mammykins/rap_companion)
+[![Build Status](https://travis-ci.org/ukgovdatascience/rap_companion.svg?branch=master)](https://travis-ci.org/ukgovdatascience/rap_companion)
 
 Reproducible Analytical Pipeline Companion
 ==========================================
