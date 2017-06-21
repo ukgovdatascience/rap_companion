@@ -1,8 +1,5 @@
 [![Build Status](https://travis-ci.org/mammykins/rap_companion.svg?branch=master)](https://travis-ci.org/mammykins/rap_companion)
 
-[![Windows Build Status]()]()
-
-
 Reproducible Analytical Pipeline Companion
 ==========================================
 
