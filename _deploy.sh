@@ -2,8 +2,8 @@
 
 
 # configure your name and email if you have not done so
-git config --global user.email "matthew.gregory@digital.cabinet-office"
-git config --global user.name "Matthew Gregory"
+git config --global user.email ${EMAIL}
+git config --global user.name ${USERNAME}
 
 # clone the repository to the book-output directory
 git clone -b gh-pages \
