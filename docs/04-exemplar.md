@@ -34,17 +34,9 @@ As the code is stored on Github we can access the current master version as well
 Installation means the package is on our computer but it is not loaded into the computer's working memory. We also load any additional packages that might be useful for exploring the package or data therein.    
 
 
-```r
-devtools::install_github('ukgovdatascience/eesectors')
-```
-
 ```
 ## Skipping install of 'eesectors' from a github remote, the SHA1 (5e91f359) has not changed since last install.
 ##   Use `force = TRUE` to force installation
-```
-
-```r
-library(eesectors)
 ```
 
 ```

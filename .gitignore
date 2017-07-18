@@ -39,6 +39,9 @@ vignettes/*.pdf
 # GH token
 GH_TOKEN
 
+# Google Analytics trackerid
+# google_analytics.html
+
 # knitr and R markdown default cache directories
 /*_cache/
 /cache/

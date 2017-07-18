@@ -1,7 +1,7 @@
 --- 
 title: "RAP Companion"
 author: ["Matthew Gregory, Matthew Upson"]
-date: "2017-06-14"
+date: "2017-07-17"
 site: bookdown::bookdown_site
 documentclass: book
 # bibliography: [book.bib]  #  Causes doc conversion error
@@ -33,8 +33,10 @@ Prior to commiting to RAP development in your team ask yourself two questions:
 
 ## Getting the balance right
 
-Whilst incredibly powerful, these approaches should not be seen as panacea for all the difficulties of statistics production: however, implementing even a few of these techniques can drive benefits in auditability, speed, quality, and knowledge transfer. There is a balance to be struck between ease of maintenance and the level of automation: this is likely to differ for every publication or team. These techniques are however tried and tested for software development and most already feature in the [Service Manual](https://www.gov.uk/service-manual/technology): in this project we have just applied these methodologies to a new area.
+Whilst incredibly powerful, these approaches should not be seen as panacea for all the difficulties of statistics production: however, implementing even a few of these techniques can drive benefits in auditability, speed, quality, and knowledge transfer.
+
+There is a balance to be struck between ease of maintenance and the level of automation: this is likely to differ for every publication or team. These techniques are however tried and tested for software development and most already feature in the [Service Manual](https://www.gov.uk/service-manual/technology): in this project we have just applied these methodologies to a new area.
 
 ## Inspiration
 
-This book was inspired by and draws heavily from a Government Digital Service [blog post](https://gdsdata.blog.gov.uk/2017/03/27/reproducible-analytical-pipeline/) by Dr. Matthew Upson.  
+This book was inspired by, and draws heavily from a Government Digital Service [blog post](https://gdsdata.blog.gov.uk/2017/03/27/reproducible-analytical-pipeline/) by Dr. Matthew Upson, itself taking much inspiration from the fields of [DevOps](https://en.wikipedia.org/wiki/DevOps) and [reproducible research](https://simplystatistics.org/2014/06/06/the-real-reason-reproducible-research-is-important/).
