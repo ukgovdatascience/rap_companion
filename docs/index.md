@@ -1,17 +1,17 @@
 --- 
 title: "RAP Companion"
 author: ["Matthew Gregory, Matthew Upson"]
-date: "2017-07-17"
+date: "2017-07-20"
 site: bookdown::bookdown_site
 documentclass: book
 # bibliography: [book.bib]  #  Causes doc conversion error
 biblio-style: apalike
 link-citations: yes
-cover-image: "images/cover.png"
+cover-image: images/cover.png
 twitter-handle: mammykins_
 github-repo: mammykins/rap-companion
-url: https://github.com/mammykins/rap-companion
-description: "A technical communication document intended to give assistance to people developing a Reproducible Analytical Pipeline."
+# url: https://github.com/mammykins/rap-companion
+description: "A technical communication document intended to give assistance to people developing a Reproducible Analytical Pipeline using DataOps."
 ---
 
 # Preface {-}

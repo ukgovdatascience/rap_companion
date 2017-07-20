@@ -6,26 +6,26 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>RAP Companion</title>
-  <meta name="description" content="A technical communication document intended to give assistance to people developing a Reproducible Analytical Pipeline.">
+  <meta name="description" content="A technical communication document intended to give assistance to people developing a Reproducible Analytical Pipeline using DataOps.">
   <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
 
   <meta property="og:title" content="RAP Companion" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="<a href="https://github.com/mammykins/rap-companion" class="uri">https://github.com/mammykins/rap-companion</a>" />
-  <meta property="og:image" content="<a href="https://github.com/mammykins/rap-companion" class="uri">https://github.com/mammykins/rap-companion</a>images/cover.png" />
-  <meta property="og:description" content="A technical communication document intended to give assistance to people developing a Reproducible Analytical Pipeline." />
+  
+  <meta property="og:image" content="images/cover.png" />
+  <meta property="og:description" content="A technical communication document intended to give assistance to people developing a Reproducible Analytical Pipeline using DataOps." />
   <meta name="github-repo" content="mammykins/rap-companion" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="RAP Companion" />
   <meta name="twitter:site" content="@mammykins_" />
-  <meta name="twitter:description" content="A technical communication document intended to give assistance to people developing a Reproducible Analytical Pipeline." />
-  <meta name="twitter:image" content="<a href="https://github.com/mammykins/rap-companion" class="uri">https://github.com/mammykins/rap-companion</a>images/cover.png" />
+  <meta name="twitter:description" content="A technical communication document intended to give assistance to people developing a Reproducible Analytical Pipeline using DataOps." />
+  <meta name="twitter:image" content="images/cover.png" />
 
 <meta name="author" content="Matthew Gregory, Matthew Upson">
 
 
-<meta name="date" content="2017-07-17">
+<meta name="date" content="2017-07-20">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -195,8 +195,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">6.1</span> Introduction</h2>
 <p>Few software engineers would embark on a new project without using some sort of <a href="https://en.wikipedia.org/wiki/Version_control">version control software</a>. Version control software allows us to track the three Ws: <strong>Who made Which change, and Why?</strong>. Tools like <a href="https://git-scm.com/">git</a> can be used to track files of any type, but are particularly useful for code in text files for example R or Python code.</p>
 <p>Whilst git can be used locally on a single machine, or many networked machines, git can also be hooked up to free cloud services such as <a href="https://github.com/">GitHub</a>, <a href="https://about.gitlab.com/">GitLab</a>, or Bitbucket(<a href="https://bitbucket.org/" class="uri">https://bitbucket.org/</a>). Each of these services provides hosting for your version control repository, and makes the code open and easy to share. The entire project we are working on with DCMS can be seen on <a href="https://github.com/ukgovdatascience/eesectors">GitHub</a>.</p>
-<p><a href="https://gdsdata.blog.gov.uk/2017/03/27/reproducible-analytical-pipeline/" target="_blank"><img src="images/pull_request.png" style="display: block; margin: auto;" /></a></p>
-<p>Obviously this won’t be appropriate for all Government projects (and solutions do exist to allow these services to be run within secure systems), but in our work with DCMS, we were able to publish all of our code openly. You can use <a href="https://github.com/ukgovdatascience/eesectors">our code</a> to run an example based on the 2016 publication, but producing the entire publication from end to end would require access to data which is not published openly. Below is a screenshot from the commit history showing collaboration between data scientists in DCMS and GDS. The full page can be seen on GitHub.</p>
+<p><a href="https://github.com/ukgovdatascience/eesectors" target="_blank"><img src="images/eesectors_project.png" style="display: block; margin: auto;" /></a></p>
+<p>Obviously this won’t be appropriate for all Government projects (and solutions do exist to allow these services to be run within secure systems), but in our work with DCMS, we were able to publish all of our code openly. You can use <a href="https://github.com/ukgovdatascience/eesectors">our code</a> to run an example based on the 2016 publication, but producing the entire publication from end to end would require access to data which is not published openly. Below is a screenshot from the commit history showing collaboration between data scientists in DCMS and GDS. The full page can be seen on <a href="https://github.com/ukgovdatascience/eesectors/commits/master">GitHub</a>.</p>
+<p><a href="https://github.com/ukgovdatascience/eesectors/commits/master" target="_blank"><img src="images/commit_history.png" style="display: block; margin: auto;" /></a></p>
 <p>Using a service like GitHub allows us to formalise the system of quality assurance (QA) in an auditable way. We can configure GitHub to require a code review by another person before the update to the code (this is called a <a href="https://help.github.com/articles/about-pull-requests/">pull request</a>) is accepted into the main workstream of the project. You can see this in the screenshot below which relates to a pull request which fixed a <a href="https://github.com/ukgovdatascience/eesectors/pull/71">minor bug in the prototype</a>. The work to fix it was done by a data scientist at DCMS, and reviewed by a data scientist from GDS.</p>
 <p><a href="https://gdsdata.blog.gov.uk/2017/03/27/reproducible-analytical-pipeline/" target="_blank"><img src="images/looks_good.png" style="display: block; margin: auto;" /></a></p>
 <p>The open nature of the good is great for transparency and facilitates review. The entire community can contribute to helping QA your code and identify <a href="https://github.com/ukgovdatascience/eesectors/issues">issues or bugs</a>. If you are lucky, they will not only report the bug / issue, but may also offer a fix for your code in the form of a pull request.</p>
@@ -225,19 +226,23 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#  git checkout master</span>
 <span class="co">#  git pull</span></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
-<li>Create your new feature branch to work on:</li>
+<li>Create your new feature branch to work on and get to work:</li>
 </ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#  git checkout -b feature/post_name</span></code></pre></div>
 <ol start="5" style="list-style-type: decimal">
-<li>Squash your commits if appropriate, then push your new branch to Github.</li>
+<li><a href="https://stackoverflow.com/questions/5189560/squash-my-last-x-commits-together-using-git">Squash your commits</a> if appropriate, then push your new branch to Github. You will want to squash all commits together associated with one discrete piece of work (e.g. coding one function).</li>
 </ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#  git push origin feature/post_name -u</span></code></pre></div>
 <ol start="6" style="list-style-type: decimal">
-<li><p>On Github create a pull request and ask a colleague to review your changes before merging with the <code>master</code> branch (you can assign a reviewer in the PR page on Github).</p></li>
-<li><p>If accepted you’re new feature will have been merged on Github. Fetch these changes locally.</p></li>
+<li><p>On Github create a <a href="https://help.github.com/articles/about-pull-requests/">pull request</a> and ask a colleague to review your changes before merging with the <code>master</code> branch (you can assign a reviewer in the PR page on Github).</p></li>
+<li><p>If accepted (and it passes all necessary checks) you’re new feature will have been merged on Github. Fetch these changes locally.</p></li>
 </ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#  git checkout master</span>
 <span class="co">#  git pull</span></code></pre></div>
+<ol start="8" style="list-style-type: decimal">
+<li>You have a new master on Github. Pull it to your local machine and the development cycle starts again!</li>
+</ol>
+<p>CAVEAT: this workflow is not appropriate for large open collaborations, where fork and pull is preferred.</p>
 
 </div>
 </div>

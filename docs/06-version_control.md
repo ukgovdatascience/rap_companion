@@ -6,9 +6,11 @@ Few software engineers would embark on a new project without using some sort of 
 
 Whilst git can be used locally on a single machine, or many networked machines, git can also be hooked up to free cloud services such as [GitHub](https://github.com/), [GitLab](https://about.gitlab.com/), or Bitbucket(https://bitbucket.org/). Each of these services provides hosting for your version control repository, and makes the code open and easy to share. The entire project we are working on with DCMS can be seen on [GitHub](https://github.com/ukgovdatascience/eesectors).
 
-<a href="https://gdsdata.blog.gov.uk/2017/03/27/reproducible-analytical-pipeline/" target="_blank"><img src="images/pull_request.png" style="display: block; margin: auto;" /></a>
+<a href="https://github.com/ukgovdatascience/eesectors" target="_blank"><img src="images/eesectors_project.png" style="display: block; margin: auto;" /></a>
 
-Obviously this won’t be appropriate for all Government projects (and solutions do exist to allow these services to be run within secure systems), but in our work with DCMS, we were able to publish all of our code openly. You can use [our code](https://github.com/ukgovdatascience/eesectors) to run an example based on the 2016 publication, but producing the entire publication from end to end would require access to data which is not published openly. Below is a screenshot from the commit history showing collaboration between data scientists in DCMS and GDS. The full page can be seen on GitHub.
+Obviously this won’t be appropriate for all Government projects (and solutions do exist to allow these services to be run within secure systems), but in our work with DCMS, we were able to publish all of our code openly. You can use [our code](https://github.com/ukgovdatascience/eesectors) to run an example based on the 2016 publication, but producing the entire publication from end to end would require access to data which is not published openly. Below is a screenshot from the commit history showing collaboration between data scientists in DCMS and GDS. The full page can be seen on [GitHub](https://github.com/ukgovdatascience/eesectors/commits/master).  
+
+<a href="https://github.com/ukgovdatascience/eesectors/commits/master" target="_blank"><img src="images/commit_history.png" style="display: block; margin: auto;" /></a>
 
 Using a service like GitHub allows us to formalise the system of quality assurance (QA) in an auditable way. We can configure GitHub to require a code review by another person before the update to the code (this is called a [pull request](https://help.github.com/articles/about-pull-requests/)) is accepted into the main workstream of the project. You can see this in the screenshot below which relates to a pull request which fixed a [minor bug in the prototype](https://github.com/ukgovdatascience/eesectors/pull/71). The work to fix it was done by a data scientist at DCMS, and reviewed by a data scientist from GDS.
 
@@ -44,23 +46,23 @@ We give a simple workflow here (assuming you are collaborating on Github and hav
 #  git pull
 ```
 
-4. Create your new feature branch to work on:
+4. Create your new feature branch to work on and get to work:
 
 
 ```r
 #  git checkout -b feature/post_name
 ```
 
-5. Squash your commits if appropriate, then push your new branch to Github.
+5. [Squash your commits](https://stackoverflow.com/questions/5189560/squash-my-last-x-commits-together-using-git) if appropriate, then push your new branch to Github. You will want to squash all commits together associated with one discrete piece of work (e.g. coding one function).
 
 
 ```r
 #  git push origin feature/post_name -u
 ```
 
-6. On Github create a pull request and ask a colleague to review your changes before merging with the `master` branch (you can assign a reviewer in the PR page on Github).  
+6. On Github create a [pull request](https://help.github.com/articles/about-pull-requests/) and ask a colleague to review your changes before merging with the `master` branch (you can assign a reviewer in the PR page on Github).  
 
-7. If accepted you're new feature will have been merged on Github. Fetch these changes locally.  
+7. If accepted (and it passes all necessary checks) you're new feature will have been merged on Github. Fetch these changes locally.  
 
 
 ```r
@@ -68,5 +70,7 @@ We give a simple workflow here (assuming you are collaborating on Github and hav
 #  git pull
 ```
 
+8. You have a new master on Github. Pull it to your local machine and the development cycle starts again!  
 
+CAVEAT: this workflow is not appropriate for large open collaborations, where fork and pull is preferred.  
 
