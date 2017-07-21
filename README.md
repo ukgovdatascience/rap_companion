@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/ukgovdatascience/rap_companion.svg?branch=master)](https://travis-ci.org/ukgovdatascience/rap_companion)
 
-Reproducible Analytical Pipeline Companion
+[Reproducible Analytical Pipeline Companion](https://ukgovdatascience.github.io/rap_companion/)
 ==========================================
 
 **This is a prototype and subject to constant development**
@@ -12,4 +12,12 @@ This document is intended to be RAP community maintained. If you discover any go
 See the
 [eesectorsmarkdown](https://github.com/ukgovdatascience/eesectorsmarkdown)
 repository for an example of implementing RAP as an R package in the context
-of a Statistical First Release (SFR).
+of a Statistical First Release (SFR).  
+
+## Collaboration
+
+This is a community effort produced by those interested in automating the production of statistical reports in government. If you wish to contribute refer to the [CONTRIBUTING.md](https://github.com/ukgovdatascience/rap_companion/blob/master/CONTRIBUTING.md).  
+
+## Issues
+
+Every GitHub repo comes with a page for tracking issues. Use it! If you encounter a bug while reviewing the [RAP companion](https://ukgovdatascience.github.io/rap_companion/), jot a note down on the [issues page](https://github.com/ukgovdatascience/rap_companion/issues).
