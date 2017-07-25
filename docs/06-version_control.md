@@ -24,6 +24,10 @@ The open nature of the good is great for transparency and facilitates review. Th
 
 A [useful book](http://happygitwithr.com/) on Git and Github that should cover all your needs for those who are uncomfortable working in a command line interface. This will cover most of your Git and Github workflow needs for collaborating in a team.  
 
+### Git and RStudio
+
+You can also use [git and Github within R Studio](http://r-pkgs.had.co.nz/git.html).  
+
 ### Command line focus
 
 However, the terminal isn't that scary really and we recommend using it from the outset. Here's a [video tutorial](https://swcarpentry.github.io/git-novice/) that provides a good introduction and does not expect any experience of using the Unix shell (the terminal or command line).  
@@ -32,11 +36,11 @@ For a comprehensive tome try the [Pro Git book](https://git-scm.com/book/en/v2).
 
 ## Typical workflow
 
-When you first start using git it can be difficult to remember all the commonly used commands.  
+When you first start using git it can be difficult to remember all the commonly used commands (you might find it useful to keep a list of them in a text editor).  
 
-We give a simple workflow here (assuming you are collaborating on Github and have [set up a repo](https://help.github.com/articles/creating-a-new-repository/) called `my_repo` with the origin and remote set (try to avoid hyphens in names)). Remember to remove the comments when copying and pasting into the terminal. You will also need to give your new feature branch a good name.    
+We give a simple workflow here (assuming you are collaborating on Github with a small team and have [set up a repo](https://help.github.com/articles/creating-a-new-repository/) called `my_repo` with the origin and remote set (try to avoid hyphens in names)). Remember to remove the comments (the #) when copying and pasting into the terminal. You will also need to give your new feature branch a good name.    
 
-1. Open your terminal.
+1. Open your terminal (command line tool).
 2. Navigate to `my_repo` using `cd`.
 3. Check you are up-to-date:
 
@@ -73,4 +77,3 @@ We give a simple workflow here (assuming you are collaborating on Github and hav
 8. You have a new master on Github. Pull it to your local machine and the development cycle starts again!  
 
 CAVEAT: this workflow is not appropriate for large open collaborations, where fork and pull is preferred.  
-

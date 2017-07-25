@@ -2,13 +2,80 @@
 
 Chapter \@ref(why) considered why RAP is a useful paradigm.  
 
-In this Chapter we demonstrate a RAP package developed in collaboration with the Department for Culture Media and Sport (DCMS).
+In this Chapter we demonstrate a RAP package developed in collaboration with the Department for Culture Media and Sport (DCMS). This package enshrines all the pertinent business knowledge in one corpus.  
+
+<img src="images/eesectors_package.png" style="display: block; margin: auto;" />
 
 ## Package Purpose
 
 In this exemplar project Matt Upson aimed at a high level of automation to demonstrate what is possible, and because DCMS had a skilled data scientist on hand to maintain and develop the project. Nonetheless, in the course of the work, statisticians at DCMS continue to undertake training in R, and the [Better Use of Data Team](https://data.blog.gov.uk/) spent time to ensure that the software development practices such as managing [software dependencies](https://www.gov.uk/service-manual/technology/managing-software-dependencies), [version control](https://www.gov.uk/service-manual/technology/maintaining-version-control-in-coding), [package development](http://r-pkgs.had.co.nz/),  [unit testing](http://r-pkgs.had.co.nz/tests.html), style [guide](http://adv-r.had.co.nz/Style.html), [open by default](https://www.gov.uk/service-manual/technology/making-source-code-open-and-reusable) and [continuous integration](https://www.r-bloggers.com/continuous-integration-for-r-packages/) are embedded within the team that owns the publication.
 
 We’re continuing to support DCMS in the development of this prototype pipeline, with the expectation that it will be used operationally in 2017. If you want to learn more about this project, the source code for the eesectors R package is maintained on [GitHub.com](https://github.com/ukgovdatascience/eesectors). The README provides instructions on how to test the package using the openly published data from the 2016 publication.  
+
+## Tidy data
+
+> Tidy data are all alike; every messy data is messy in its own way. - Hadley Tolstoy 
+
+What is the [simplest representation](http://vita.had.co.nz/papers/tidy-data.html) of the data possible? Prior to any analysis we must tidy our data: structuring our data to facilitate analysis.  
+
+Tidy datasets are easy to manipulate, model and visualize, and have a specific structure: each variable is a column, each observation is a row, and each type of observational unit is a table. You and your team trying to RAP should spend time reading this [paper](http://vita.had.co.nz/papers/tidy-data.pdf) and hold a seminar discussing it. It's important to involve the analysts involved in the traditional production of this report as they will be familiar with the inputs and outputs of the report.  
+
+With the heuristic of a tidy dataset in your mind, proceed, as a team, to look through the chapter or report you are attempting to produce using RAP. As you work through, note down what variables you would need to produce each table or figure, what would the input dataframe look like? (Say what you see.) After looking at all the figures and tables, is there one tidy daaset that could be used as input? Sketch out what it looks like. 
+
+### eesectors tidy data
+
+We demonstrate this process using the DCMS publication, refer to [Chapter 3 - GVA](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/544103/DCMS_Sectors_Economic_Estimates_-_August_2016.pdf).  
+
+What data do you need to produce this table?
+
+<a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/544103/DCMS_Sectors_Economic_Estimates_-_August_2016.pdf" target="_blank"><img src="images/gva_table_3_1.png" style="display: block; margin: auto;" /></a>
+
+Variables: Year, Sector, GVA  
+
+What data do you need to produce this figure?
+<a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/544103/DCMS_Sectors_Economic_Estimates_-_August_2016.pdf" target="_blank"><img src="images/gva_fig_3_1.png" style="display: block; margin: auto;" /></a>
+
+The GVA of each Sector by Year.
+Variables: Year, Sector, GVA  
+
+What data do you need to produce this figure?
+<a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/544103/DCMS_Sectors_Economic_Estimates_-_August_2016.pdf" target="_blank"><img src="images/gva_fig_3_2.png" style="display: block; margin: auto;" /></a>
+
+Total GVA across all sectors.  
+Variables: Year, Sector, GVA  
+
+What data do you need to produce this figure?
+<a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/544103/DCMS_Sectors_Economic_Estimates_-_August_2016.pdf" target="_blank"><img src="images/gva_fig_3_3.png" style="display: block; margin: auto;" /></a>
+
+For each Year by Sector we need the GVA.  
+Variables: Year, Sector, GVA  
+
+### What does our eesectors tidy data look like?
+
+Remember, for tidy data:  
+1. Each variable forms a column.  
+2. Each observation forms a row.  
+3. Each type of observational unit forms a table.  
+
+Our tidy data is of the form **Year - Sector - GVA**:
+
+
+| Year        | Sector           | GVA  |
+|---------------|:-------------:|------:|
+| 2010      | creative | 65188 |
+| 2010      | culture      |   20291 |
+| 2010 | digital      |    97303 |
+| 2011      | creative | 69398 |
+| 2011      | culture      |   20954 |
+| 2011 | digital      |    107303 |
+
+*This data is for demonstration purposes only.*
+
+### How to build your tidy data?
+
+With the minimal tidy dataset idea in place, you can begin to think about how you might construct this tidy dataset from the data stores you have availiable.
+
+As we are working in R we can formalise this minimal tidy dataset as a [class](http://adv-r.had.co.nz/OO-essentials.html). For our `eesectors` package we create our long data `year_sector_data` class as the fundamental input to create all our figures and tables for the output report.  
 
 ## `eesectors` Package Exploration
 
@@ -384,14 +451,16 @@ dplyr::glimpse(GVA_by_sector_2016)
 
 #### The R output
 
-With the data in the appropriate form to be received as an argument or input for the `figure` family of functions we can proceed to plot.
+> We build our functions to use the same simple, tidy, data. - Matt Upson
+
+With the data in the appropriate form to be received as an argument or input for the `figure` family of functions, we can proceed to plot.
 
 
 ```r
 figure3.1(x = gva)
 ```
 
-<img src="04-exemplar_files/figure-html/unnamed-chunk-10-1.png" width="672" />
+<img src="04-exemplar_files/figure-html/unnamed-chunk-15-1.png" width="672" />
 
 Again we can look at the details of the plot. We could change the body of the function to affect change to the default plot or we can pass additional `ggplot` arguments to it.
 
