@@ -8,7 +8,7 @@ In this Chapter we demonstrate a RAP package developed in collaboration with the
 
 ## Package Purpose
 
-In this exemplar project we aimed at a high level of automation to demonstrate what is possible, and because DCMS had a skilled data scientist on hand to maintain and develop the project. Nonetheless, in the course of the work, statisticians at DCMS continue to undertake training in R, and the [Better Use of Data Team](https://data.blog.gov.uk/) spent time to ensure that the software development practices such as managing [software dependencies](https://www.gov.uk/service-manual/technology/managing-software-dependencies), [version control](https://www.gov.uk/service-manual/technology/maintaining-version-control-in-coding), [package development](http://r-pkgs.had.co.nz/),  [unit testing](http://r-pkgs.had.co.nz/tests.html), style [guide](http://adv-r.had.co.nz/Style.html), [open by default](https://www.gov.uk/service-manual/technology/making-source-code-open-and-reusable) and [continuous integration](https://www.r-bloggers.com/continuous-integration-for-r-packages/) are embedded within the team that owns the publication.
+In this exemplar project Matt Upson aimed at a high level of automation to demonstrate what is possible, and because DCMS had a skilled data scientist on hand to maintain and develop the project. Nonetheless, in the course of the work, statisticians at DCMS continue to undertake training in R, and the [Better Use of Data Team](https://data.blog.gov.uk/) spent time to ensure that the software development practices such as managing [software dependencies](https://www.gov.uk/service-manual/technology/managing-software-dependencies), [version control](https://www.gov.uk/service-manual/technology/maintaining-version-control-in-coding), [package development](http://r-pkgs.had.co.nz/),  [unit testing](http://r-pkgs.had.co.nz/tests.html), style [guide](http://adv-r.had.co.nz/Style.html), [open by default](https://www.gov.uk/service-manual/technology/making-source-code-open-and-reusable) and [continuous integration](https://www.r-bloggers.com/continuous-integration-for-r-packages/) are embedded within the team that owns the publication.
 
 We’re continuing to support DCMS in the development of this prototype pipeline, with the expectation that it will be used operationally in 2017. If you want to learn more about this project, the source code for the eesectors R package is maintained on [GitHub.com](https://github.com/ukgovdatascience/eesectors). The README provides instructions on how to test the package using the openly published data from the 2016 publication.  
 
@@ -129,9 +129,9 @@ The [status badges](https://stackoverflow.com/questions/35563012/what-are-the-st
 
 If you go to Chapter 3 of the [DCMS publication](https://www.gov.uk/government/statistics/dcms-sectors-economic-estimates-2016) it is apparent that most of the content is either data tables of summary statistics or visualisation of the data. This makes automation particularly useful here and likely to make time savings. Chapter 3 seems to be fairly typical in its length (if not a bit shroter compared to other Chapters).
 
-This package works by taking the necessary data inputs as arguments in a function then outputting the relevant figures. The names of the functions match the figures they produce. Prior to this step we have to get the data in the correct format.  
+This package seems to work by taking the necessary data inputs as arguments in a function then outputting the relevant figures. The names of the functions match the figures they produce. Prior to this step we have to get the data in the correct format.  
 
-If you look at the functions within the package within R Studio using the package navigator it is evident that there are a family of functions dedicated to reading Excel spreadsheets and collecting the data in a tidy .Rds format. These are given the funciton name-prefix of `extract_` (try to give your functions [good names](http://adv-r.had.co.nz/Style.html)). 
+If you look at the functions within the package within R Studio using the package navigator it is evident that there are a function of families dedicated to reading Excel spreadsheets and collecting the data in a tidy .Rds format. These are given the funciton name-prefix of `extract_` (try to give your functions [good names](http://adv-r.had.co.nz/Style.html)). 
 
 The `GVA_by_sector_2016` provides test data to work with during development. This will be important for the development of other packages for different reports. You need a precise understanding of how you go from raw data, to aggregated data (such as `GVA_by_sector_2016`) to the final figure. What are your inputs (arguments) and outputs? In some cases where your master data is stored in a particularly difficult for a machine to read you may prefer having a human to this extraction step.  
 
@@ -154,9 +154,9 @@ x <- GVA_by_sector_2016
 
 #### Automating QA
 
-Humans are not particularly good at Quality Assurance (QA), especially when working with massive spreadsheets: it's easy for errors to creep in. We can automate alot of the sense checking and update this if things change or a human provides another creative test to use for sense checking. If you can describe the test to a colleague then you can code it.  
+Human's are not particularly good at Quality Assurance (QA), especially when working with massive spreadsheets it's easy for errors to creep in. We can automate alot of the sense checking and update this if things change or a human provides another creative test to use for sense checking. If you can describe the test to a colleague then you can code it.  
 
-The package author can use messages to tell us what checks are being conducted or we can look at the body of the function if we are interested. This is useful if you are considering developing your own package, it will help you struture the message which are useful for the user.
+The author uses messages to tell us what checks are being conducted or we can look at the body of the function if we are interested. This is useful if you are considering developing your own package, it will help you struture the message which are useful for the user.
 
 
 ```r
