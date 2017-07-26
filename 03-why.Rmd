@@ -15,9 +15,9 @@ Here we use the production of official statistics in Government; altough this pr
 knitr::include_graphics('images/messy_pipeline.png', dpi = NA)
 ```
 
-Broadly speaking, data are extracted from a datastore (whether it is a [data lake](https://en.wikipedia.org/wiki/Data_lake), [database](https://en.wikipedia.org/wiki/Database), spreadsheet, or [flat file](https://en.wikipedia.org/wiki/Flat_file_database)), and are manipulated in a proprietary statistical software package, and possibly in proprietary spreadsheet software. Formatted tables are often then ‘copy and pasted’ into a word processor, before being converted to pdf format, and finally published to [GOV.UK](https://www.gov.uk/). This is quite a simplification, as statistical publications are usually produced by several people, so this process is likely to be happening in parallel many times.  
+Broadly speaking, data are extracted from a datastore (whether it is a [data lake](https://en.wikipedia.org/wiki/Data_lake), [database](https://en.wikipedia.org/wiki/Database), spreadsheet, or [flat file](https://en.wikipedia.org/wiki/Flat_file_database)), and are manipulated in proprietary statistical software, and possibly in proprietary spreadsheet software. Formatted tables are often then ‘copy and pasted’ into a word processor, before being converted to pdf format, and finally published to [GOV.UK](https://www.gov.uk/). This is quite a simplification, as statistical publications are usually produced by several people, so this process is likely to be happening in parallel many times.  
 
-Often, Quality assurance is an after-thought tacked on at the end, where the Word document is sent around to colleagues for review prior to being approved for publication.
+Often quality assurance (QA) is a process takes place at the end of the process. At its simplest, this may be a word processor document or spreadhseet sent by email to colleagues for review, prior to being approved for publication.
 
 ### The problem with this approach
 
@@ -27,19 +27,19 @@ Other issues are:
 
 * Copy and pasting.
 * Lack of proper version control.
-* Testing and QA normally happens at the end.
+* Testing and QA often happens at the end, not throughout.
 
-A key element in this process is quality assurance (QA). Each publication is meticulously checked to ensure the accuracy of the statistics being produced. This may take place throughout the production process or at the end prior to publication. Traditionally, QA has been a manual process which can take up a significant portion of the overall production time of a publication, as any changes will require the manual process of production to be repeated.
+A key element in this process is quality assurance. Each publication is meticulously checked to ensure the accuracy of the statistics being produced. This may take place throughout the production process or at the end prior to publication. Traditionally, QA has been a manual process which can take up a significant portion of the overall production time of a publication, as any changes will require the manual process of production to be repeated.
 
 ### Desired Reproducible Analytical Pipeline
 
-Our analytical pipeline should have all the hallmarks of good scientific practice - it should be reproducible. We should make use of modern DataOps principles, tools and techniques to improve the quality of the final product in a more timely fashion compared to the traditional method.  
+An analytical pipeline should have all the hallmarks of good scientific practice - it should be reproducible. We should make use of modern [DataOps](https://en.wikipedia.org/wiki/Dataops) principles, tools and techniques to improve the quality of the final product in a more timely fashion compared to the traditional method.  
 
 ```{r fig.align='center', echo=FALSE, include=identical(knitr:::pandoc_to(), 'html'), fig.link='https://gdsdata.blog.gov.uk/2017/03/27/reproducible-analytical-pipeline/'}
 knitr::include_graphics('images/rap.png', dpi = NA)
 ```
 
-All these parallel work flows to produce different parts of the report (e.g. tables and figures represented by different colours) can be conducted by bespoke functions within an R software package (we are language agnostic but prefer R and R markdown for the DCMS due to their prior experience with R). Rather than copying and pasting between different softwares, we read our data in once using a tidy data set that we create We then do all the analysis and report production within R and benefit from many open source tools that make up RAP. These are represented by the logos along the bottom; [git](https://git-scm.com/), [Github](https://github.com/), [Travis](https://travis-ci.org/), [Appveyor](https://ci.appveyor.com/projects) and [codecov](https://codecov.io/).  
+All these parallel work flows to produce different parts of the report (e.g. tables and figures represented by different colours) can be conducted by bespoke functions within an R software package (we are language agnostic but prefered R and Rmarkdown for our DCMS work due to their prior experience with R). Rather than copying and pasting between different software, we read our data in once using a tidy data set that we create. We then do all the analysis and report production within R and benefit from many open source tools that make up RAP. These are represented by the logos along the bottom; [git](https://git-scm.com/), [Github](https://github.com/), [Travis](https://travis-ci.org/), [Appveyor](https://ci.appveyor.com/projects) and [codecov](https://codecov.io/).  
 
 ## Why learning to RAP might be hard
 
@@ -47,13 +47,13 @@ Automating statistical report production is not without its challenges. RAP requ
 
 Based on ours and others' experiences, here are some things that will make your road to RAP difficult (though not impossible):  
 
-* Data format changes unexpectedly: e.g. the source data are not stored in a SQL database, but are provided from a third party in spreadsheets.  
-* Publication format changes frequently  
+* Data format changes unexpectedly: e.g. the source data are not stored in a relational database, but are provided from a third party in spreadsheets.  
+* Publication format changes frequently.
 * Limited access to open source tools; ideally you would need access to the following: 
     * Rstudio
     * R
     * Rtools (required to build packages)
     * git (command line or GUI - this is extremely important)
     * github (need to be able to push and pull to/from a remote repository)  
-* Not coding in the open. Not coding in the open makes it much harder to collaborate, and you will not have access to a range of automated tools like [travis](https://travis-ci.org/)/[appveyor](https://ci.appveyor.com/projects)/[codecov](https://codecov.io/)/[coveralls](https://coveralls.io/) which are part of the RAP model.  
+* Not coding in the open. Not coding in the open makes it much harder to collaborate, as you will not have free access to a range of automated tools like [travis](https://travis-ci.org/)/[appveyor](https://ci.appveyor.com/projects)/[codecov](https://codecov.io/)/[coveralls](https://coveralls.io/) which are part of the RAP model.  
 * Business as usual (BAU): It's not possible to do this kind of work whilst also doing BAU tasks. It takes time to get to grips with the techniques, and the first version should be considered a prototype that needs to be at least partly validated against a manual procedure.  
