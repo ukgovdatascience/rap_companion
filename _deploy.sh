@@ -18,7 +18,7 @@ git clone -b gh-pages \
 
 # Copy locally built *.html files into 
 
-cp /home/travis/build/ukgovdatascience/rap_companion/docs/* book-output
+cp -r /home/travis/build/ukgovdatascience/rap_companion/docs/* book-output
 
 # Add the locally built files to a commit and push
 
