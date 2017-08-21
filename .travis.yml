@@ -2,6 +2,9 @@ language: r
 sudo: required
 cache: packages
 
+git:
+  depth: 3
+
 env:
   global:
     - secure: GITHUB_PAT
