@@ -1,4 +1,4 @@
-# Dependency management {dep}
+# Dependency management {#dep}
 
 > If you want your code to be reproducible in the long-run (i.e. so you can come back to run it next month or next year), you’ll need to track the versions of the packages that your code uses. A rigorous approach is to use packrat, http://rstudio.github.io/packrat/, which store packages in your project directory, or checkpoint, https://github.com/RevolutionAnalytics/checkpoint, which will reinstall packages available on a specified date. A quick and dirty hack is to include a chunk that runs sessionInfo() — that won’t you let easily recreate your packages as they are today, but at least you’ll know what they were. 
 - Hadley Wickham, R for Data Science

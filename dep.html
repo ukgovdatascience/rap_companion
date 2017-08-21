@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="qa-data.html">
-<link rel="next" href="final.html">
+<link rel="prev" href="code-cover.html">
+<link rel="next" href="qa-data.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -196,27 +196,22 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="pub" class="section level1">
-<h1><span class="header-section-number">Chapter 13</span> Producing the publication</h1>
+<div id="dep" class="section level1">
+<h1><span class="header-section-number">Chapter 11</span> Dependency management</h1>
 <blockquote>
-<p>R Markdown provides an unified authoring framework for data science, combining your code, its results, and your prose commentary. R Markdown documents are fully reproducible and support dozens of output formats, like PDFs, Word files, slideshows, and more. - Hadley Wikcham, R for Data Science</p>
+<p>If you want your code to be reproducible in the long-run (i.e. so you can come back to run it next month or next year), you’ll need to track the versions of the packages that your code uses. A rigorous approach is to use packrat, <a href="http://rstudio.github.io/packrat/" class="uri">http://rstudio.github.io/packrat/</a>, which store packages in your project directory, or checkpoint, <a href="https://github.com/RevolutionAnalytics/checkpoint" class="uri">https://github.com/RevolutionAnalytics/checkpoint</a>, which will reinstall packages available on a specified date. A quick and dirty hack is to include a chunk that runs sessionInfo() — that won’t you let easily recreate your packages as they are today, but at least you’ll know what they were. - Hadley Wickham, R for Data Science</p>
 </blockquote>
-<p>Everything I have talked about so far is to do with the production of the statistics themselves, not preparation of the final publication, but there are tools that can help with this too. In our project with DCMS we plan to use <a href="http://rmarkdown.rstudio.com/">Rmarkdown</a> (a flavour of <a href="https://en.wikipedia.org/wiki/Markdown">markdown</a>) to incorporate the R code into the same document as the text of the publication.</p>
-<p>Working in this way means that we can do all of the operations in a single file, so we have no problems with ensuring that our tables or figures are synced with the latest version of the text: everything can be produced in a single file. We can even produce templates with boilerplate text like: ‘this measure increased by X%’, and then automatically populate the X with the correct values when we run the code.</p>
-<div id="further-reading-1" class="section level2">
-<h2><span class="header-section-number">13.1</span> Further Reading</h2>
-<p>You can write individual chapters using <a href="http://r4ds.had.co.nz/r-markdown.html">R markdown</a>, as one file per Chapter.</p>
-<p>Alternatively you can write the whole publication using <a href="https://bookdown.org/yihui/bookdown/">bookdown</a>. For a basic start in bookdown try this <a href="http://seankross.com/2016/11/17/How-to-Start-a-Bookdown-Book.html">blog post</a> (we wrote this book using this to kick things off).</p>
+<p>One of the problems with working with open source software is that it is quite easy to fall into a trap called ‘<a href="https://en.wikipedia.org/wiki/Dependency_hell">dependency hell</a>’. Essentially, this occurs when the software we write depends on open source packages, which depend on other open source packages, which can depend on other packages, and on, and on.</p>
+<p>All these packages may be written by many different people, and are updated at vastly different timescales. If we fail to take account of this, then we are likely to fail at the first hurdle of reproducibility, and we may find that in a year’s time we are no longer able to reproduce the work that we previously did - or at least not without a lot of trouble. There are several ways we might get on top of this problem, but in this project we opted for using <a href="https://rstudio.github.io/packrat/">packrat</a>, which creates a cache of all the R packages used in the project which is then version controlled on GitHub. Matt Upson has <a href="http://www.machinegurning.com/rstats/latex-phd/">blogged about this previously</a> in the context of writing academic works.</p>
 
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="qa-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="final.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="code-cover.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="qa-data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
