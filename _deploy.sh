@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# Ensure we are in the right folder
-
-cd /home/travis/build/ukgovdatascience/rap_companion/docs/
-
 # Configure your name and email if you have not done so
 
 git config --global user.email ${EMAIL}
@@ -22,7 +18,7 @@ git clone -b gh-pages \
 
 # Copy locally built *.html files into 
 
-cp docs/* book-output
+cp /home/travis/build/ukgovdatascience/rap_companion/docs/* book-output
 
 # Add the locally built files to a commit and push
 
