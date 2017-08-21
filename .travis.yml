@@ -2,6 +2,9 @@ language: r
 sudo: required
 cache: packages
 
+git:
+  depth: 3
+
 env:
   global:
     - secure: GITHUB_PAT
@@ -12,6 +15,10 @@ r_packages:
  - ggplot2
 
 install:
+    # Install pandoc 1.18 to squash warning messages
+  - curl -L https://github.com/jgm/pandoc/releases/download/1.18/pandoc-1.18-1-amd64.deb > pandoc-1.18-1-amd64.deb
+  - sudo dpkg -i pandoc-1.18-1-amd64.deb
+  - sudo apt-get install -f
   - Rscript -e "if (!require('devtools')) install.packages('devtools')"
   - Rscript -e "devtools::install_github('mammykins/bookdown')"
   - Rscript -e "devtools::install_github('ukgovdatascience/eesectors')"
