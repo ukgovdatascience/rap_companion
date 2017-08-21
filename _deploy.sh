@@ -20,6 +20,11 @@ git clone -b gh-pages \
 
 cp -r /home/travis/build/ukgovdatascience/rap_companion/docs/* book-output
 
+# Create .nojekyll file to prevent git from trying to build
+# html pages with jekyll.
+
+touch book-output/.nojekyll
+
 # Add the locally built files to a commit and push
 
 cd book-output
