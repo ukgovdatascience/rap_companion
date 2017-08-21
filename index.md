@@ -1,0 +1,42 @@
+--- 
+title: "RAP Companion"
+author: ["Matthew Gregory, Matthew Upson"]
+date: "2017-08-21"
+site: bookdown::bookdown_site
+documentclass: book
+# bibliography: [book.bib]  #  Causes doc conversion error
+biblio-style: apalike
+link-citations: yes
+cover-image: images/cover.png
+twitter-handle: mammykins_
+github-repo: mammykins/rap-companion
+# url: https://github.com/mammykins/rap-companion
+description: "A technical communication document intended to give assistance to people developing a Reproducible Analytical Pipeline using DataOps."
+---
+
+# Preface {-}
+
+<a href="https://commons.wikimedia.org/wiki/File:Warp_pipe_edited.PNG" target="_blank"><img src="images/cover.png" style="display: block; margin: auto;" /></a>
+
+Producing official statistics for publications is a key function of many teams across Government. It’s a time consuming and meticulous process to ensure that statistics are accurate and timely. With open source software becoming more widely used, there’s now a [range of tools](https://www.gov.uk/service-manual/technology/choosing-technology-an-introduction) and techniques that can be used to reduce production time, whilst maintaining and even improving the quality of the publications. This book is about these techniques: what they are, and how we can use them.  
+
+## Discovery
+
+> Something is better than nothing. 
+
+This is NOT TRUE in the [agile](https://en.wikipedia.org/wiki/Agile_software_development) world; consider the opportunity cost^[the loss of other alternatives when one alternative is chosen].  
+
+Prior to commiting to RAP development in your team ask yourself two questions:  
+
+1. Is there a genuine user need for this new product/service?
+2. Does another product/service exist that you can re-use or adapt?^[There's probably some code you can adapt on Github, such as the [eesectors pacakge](https://github.com/ukgovdatascience/eesectors)]
+
+## Getting the balance right
+
+Whilst incredibly powerful, these approaches should not be seen as panacea for all the difficulties of statistics production: however, implementing even a few of these techniques can drive benefits in auditability, speed, quality, and knowledge transfer.
+
+There is a balance to be struck between ease of maintenance and the level of automation: this is likely to differ for every publication or team. These techniques are however tried and tested for software development and most already feature in the [Service Manual](https://www.gov.uk/service-manual/technology): in this project we have just applied these methodologies to a new area.
+
+## Inspiration
+
+This book was inspired by, and draws heavily from a Government Digital Service [blog post](https://gdsdata.blog.gov.uk/2017/03/27/reproducible-analytical-pipeline/) by Dr. Matthew Upson, itself taking much inspiration from the fields of [DevOps](https://en.wikipedia.org/wiki/DevOps) and [reproducible research](https://simplystatistics.org/2014/06/06/the-real-reason-reproducible-research-is-important/).

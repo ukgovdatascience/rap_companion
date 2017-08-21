@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>RAP Companion</title>
+  <meta name="description" content="A technical communication document intended to give assistance to people developing a Reproducible Analytical Pipeline using DataOps.">
+  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+
+  <meta property="og:title" content="RAP Companion" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="images/cover.png" />
+  <meta property="og:description" content="A technical communication document intended to give assistance to people developing a Reproducible Analytical Pipeline using DataOps." />
+  <meta name="github-repo" content="mammykins/rap-companion" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="RAP Companion" />
+  <meta name="twitter:site" content="@mammykins_" />
+  <meta name="twitter:description" content="A technical communication document intended to give assistance to people developing a Reproducible Analytical Pipeline using DataOps." />
+  <meta name="twitter:image" content="images/cover.png" />
+
+<meta name="author" content="Matthew Gregory, Matthew Upson">
+
+
+<meta name="date" content="2017-08-21">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="why.html">
+<link rel="next" href="open.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-102661099-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">RAP Companion</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#discovery"><i class="fa fa-check"></i><b>0.1</b> Discovery</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#getting-the-balance-right"><i class="fa fa-check"></i><b>0.2</b> Getting the balance right</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#inspiration"><i class="fa fa-check"></i><b>0.3</b> Inspiration</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#objectives"><i class="fa fa-check"></i><b>1.1</b> Objectives</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="ethics.html"><a href="ethics.html"><i class="fa fa-check"></i><b>2</b> Ethical Considerations</a><ul>
+<li class="chapter" data-level="2.1" data-path="ethics.html"><a href="ethics.html#extra-detail"><i class="fa fa-check"></i><b>2.1</b> Extra detail</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="ethics.html"><a href="ethics.html#start-with-clear-user-need-and-public-benefit"><i class="fa fa-check"></i><b>2.1.1</b> Start with clear user need and public benefit</a></li>
+<li class="chapter" data-level="2.1.2" data-path="ethics.html"><a href="ethics.html#use-data-and-tools-which-have-the-minimum-intrusion-necessary"><i class="fa fa-check"></i><b>2.1.2</b> Use data and tools which have the minimum intrusion necessary</a></li>
+<li class="chapter" data-level="2.1.3" data-path="ethics.html"><a href="ethics.html#create-robust-data-science-models"><i class="fa fa-check"></i><b>2.1.3</b> Create robust data science models</a></li>
+<li class="chapter" data-level="2.1.4" data-path="ethics.html"><a href="ethics.html#be-alert-to-public-perceptions"><i class="fa fa-check"></i><b>2.1.4</b> Be alert to public perceptions</a></li>
+<li class="chapter" data-level="2.1.5" data-path="ethics.html"><a href="ethics.html#be-as-open-and-accountable-as-possible"><i class="fa fa-check"></i><b>2.1.5</b> Be as open and accountable as possible</a></li>
+<li class="chapter" data-level="2.1.6" data-path="ethics.html"><a href="ethics.html#keep-data-secure"><i class="fa fa-check"></i><b>2.1.6</b> Keep data secure</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="why.html"><a href="why.html"><i class="fa fa-check"></i><b>3</b> Why RAP?</a><ul>
+<li class="chapter" data-level="3.1" data-path="why.html"><a href="why.html#the-current-statistics-production-process"><i class="fa fa-check"></i><b>3.1</b> The current statistics production process</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="why.html"><a href="why.html#the-problem-with-this-approach"><i class="fa fa-check"></i><b>3.1.1</b> The problem with this approach</a></li>
+<li class="chapter" data-level="3.1.2" data-path="why.html"><a href="why.html#desired-reproducible-analytical-pipeline"><i class="fa fa-check"></i><b>3.1.2</b> Desired Reproducible Analytical Pipeline</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="why.html"><a href="why.html#why-learning-to-rap-might-be-hard"><i class="fa fa-check"></i><b>3.2</b> Why learning to RAP might be hard</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="exemplar.html"><a href="exemplar.html"><i class="fa fa-check"></i><b>4</b> Exemplar RAP</a><ul>
+<li class="chapter" data-level="4.1" data-path="exemplar.html"><a href="exemplar.html#package-purpose"><i class="fa fa-check"></i><b>4.1</b> Package Purpose</a></li>
+<li class="chapter" data-level="4.2" data-path="exemplar.html"><a href="exemplar.html#tidy-data"><i class="fa fa-check"></i><b>4.2</b> Tidy data</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="exemplar.html"><a href="exemplar.html#eesectors-tidy-data"><i class="fa fa-check"></i><b>4.2.1</b> eesectors tidy data</a></li>
+<li class="chapter" data-level="4.2.2" data-path="exemplar.html"><a href="exemplar.html#what-does-our-eesectors-tidy-data-look-like"><i class="fa fa-check"></i><b>4.2.2</b> What does our eesectors tidy data look like?</a></li>
+<li class="chapter" data-level="4.2.3" data-path="exemplar.html"><a href="exemplar.html#how-to-build-your-tidy-data"><i class="fa fa-check"></i><b>4.2.3</b> How to build your tidy data?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="exemplar.html"><a href="exemplar.html#eesectors-package-exploration"><i class="fa fa-check"></i><b>4.3</b> <code>eesectors</code> Package Exploration</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="exemplar.html"><a href="exemplar.html#installation"><i class="fa fa-check"></i><b>4.3.1</b> Installation</a></li>
+<li class="chapter" data-level="4.3.2" data-path="exemplar.html"><a href="exemplar.html#loading-the-package"><i class="fa fa-check"></i><b>4.3.2</b> Loading the package</a></li>
+<li class="chapter" data-level="4.3.3" data-path="exemplar.html"><a href="exemplar.html#explore-the-package"><i class="fa fa-check"></i><b>4.3.3</b> Explore the package</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="exemplar.html"><a href="exemplar.html#chapter-plenary"><i class="fa fa-check"></i><b>4.4</b> Chapter plenary</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="open.html"><a href="open.html"><i class="fa fa-check"></i><b>5</b> Open Source rather than proprietary</a></li>
+<li class="chapter" data-level="6" data-path="vs.html"><a href="vs.html"><i class="fa fa-check"></i><b>6</b> Version Control</a><ul>
+<li class="chapter" data-level="6.1" data-path="vs.html"><a href="vs.html#introduction"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="vs.html"><a href="vs.html#useful-resources"><i class="fa fa-check"></i><b>6.2</b> Useful resources</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="vs.html"><a href="vs.html#graphical-user-interface-focus"><i class="fa fa-check"></i><b>6.2.1</b> Graphical user interface focus</a></li>
+<li class="chapter" data-level="6.2.2" data-path="vs.html"><a href="vs.html#git-and-rstudio"><i class="fa fa-check"></i><b>6.2.2</b> Git and RStudio</a></li>
+<li class="chapter" data-level="6.2.3" data-path="vs.html"><a href="vs.html#command-line-focus"><i class="fa fa-check"></i><b>6.2.3</b> Command line focus</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="vs.html"><a href="vs.html#typical-workflow"><i class="fa fa-check"></i><b>6.3</b> Typical workflow</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="package.html"><a href="package.html"><i class="fa fa-check"></i><b>7</b> Packaging Code</a><ul>
+<li class="chapter" data-level="7.1" data-path="package.html"><a href="package.html#essential-reading"><i class="fa fa-check"></i><b>7.1</b> Essential reading</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="test.html"><a href="test.html"><i class="fa fa-check"></i><b>8</b> Unit test</a><ul>
+<li class="chapter" data-level="8.1" data-path="test.html"><a href="test.html#further-reading"><i class="fa fa-check"></i><b>8.1</b> Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="travis.html"><a href="travis.html"><i class="fa fa-check"></i><b>9</b> Automated Testing</a></li>
+<li class="chapter" data-level="10" data-path="code-cover.html"><a href="code-cover.html"><i class="fa fa-check"></i><b>10</b> Code coverage</a></li>
+<li class="chapter" data-level="11" data-path="dependency-management-dep.html"><a href="dependency-management-dep.html"><i class="fa fa-check"></i><b>11</b> Dependency management {dep}</a></li>
+<li class="chapter" data-level="12" data-path="qa-data.html"><a href="qa-data.html"><i class="fa fa-check"></i><b>12</b> Quality Assured data</a></li>
+<li class="chapter" data-level="13" data-path="pub.html"><a href="pub.html"><i class="fa fa-check"></i><b>13</b> Producing the publication</a><ul>
+<li class="chapter" data-level="13.1" data-path="pub.html"><a href="pub.html#further-reading-1"><i class="fa fa-check"></i><b>13.1</b> Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="final.html"><a href="final.html"><i class="fa fa-check"></i><b>14</b> Final Thoughts</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">RAP Companion</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="exemplar" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> Exemplar RAP</h1>
+<p>Chapter <a href="why.html#why">3</a> considered why RAP is a useful paradigm.</p>
+<p>In this Chapter we demonstrate a RAP package developed in collaboration with the Department for Culture Media and Sport (DCMS). This package enshrines all the pertinent business knowledge in one corpus.</p>
+<p><img src="images/eesectors_package.png" style="display: block; margin: auto;" /></p>
+<div id="package-purpose" class="section level2">
+<h2><span class="header-section-number">4.1</span> Package Purpose</h2>
+<p>In this exemplar project Matt Upson aimed at a high level of automation to demonstrate what is possible, and because DCMS had a skilled data scientist on hand to maintain and develop the project. Nonetheless, in the course of the work, statisticians at DCMS continue to undertake training in R, and the <a href="https://data.blog.gov.uk/">Better Use of Data Team</a> spent time to ensure that the software development practices such as managing <a href="https://www.gov.uk/service-manual/technology/managing-software-dependencies">software dependencies</a>, <a href="https://www.gov.uk/service-manual/technology/maintaining-version-control-in-coding">version control</a>, <a href="http://r-pkgs.had.co.nz/">package development</a>, <a href="http://r-pkgs.had.co.nz/tests.html">unit testing</a>, style <a href="http://adv-r.had.co.nz/Style.html">guide</a>, <a href="https://www.gov.uk/service-manual/technology/making-source-code-open-and-reusable">open by default</a> and <a href="https://www.r-bloggers.com/continuous-integration-for-r-packages/">continuous integration</a> are embedded within the team that owns the publication.</p>
+<p>We’re continuing to support DCMS in the development of this prototype pipeline, with the expectation that it will be used operationally in 2017. If you want to learn more about this project, the source code for the eesectors R package is maintained on <a href="https://github.com/ukgovdatascience/eesectors">GitHub.com</a>. The README provides instructions on how to test the package using the openly published data from the 2016 publication.</p>
+</div>
+<div id="tidy-data" class="section level2">
+<h2><span class="header-section-number">4.2</span> Tidy data</h2>
+<blockquote>
+<p>Tidy data are all alike; every messy data is messy in its own way. - Hadley Tolstoy</p>
+</blockquote>
+<p>What is the <a href="http://vita.had.co.nz/papers/tidy-data.html">simplest representation</a> of the data possible? Prior to any analysis we must tidy our data: structuring our data to facilitate analysis.</p>
+<p>Tidy datasets are easy to manipulate, model and visualize, and have a specific structure: each variable is a column, each observation is a row, and each type of observational unit is a table. You and your team trying to RAP should spend time reading this <a href="http://vita.had.co.nz/papers/tidy-data.pdf">paper</a> and hold a seminar discussing it. It’s important to involve the analysts involved in the traditional production of this report as they will be familiar with the inputs and outputs of the report.</p>
+<p>With the heuristic of a tidy dataset in your mind, proceed, as a team, to look through the chapter or report you are attempting to produce using RAP. As you work through, note down what variables you would need to produce each table or figure, what would the input dataframe look like? (Say what you see.) After looking at all the figures and tables, is there one tidy daaset that could be used as input? Sketch out what it looks like.</p>
+<div id="eesectors-tidy-data" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> eesectors tidy data</h3>
+<p>We demonstrate this process using the DCMS publication, refer to <a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/544103/DCMS_Sectors_Economic_Estimates_-_August_2016.pdf">Chapter 3 - GVA</a>.</p>
+<p>What data do you need to produce this table?</p>
+<p><a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/544103/DCMS_Sectors_Economic_Estimates_-_August_2016.pdf" target="_blank"><img src="images/gva_table_3_1.png" style="display: block; margin: auto;" /></a></p>
+<p>Variables: Year, Sector, GVA</p>
+<p>What data do you need to produce this figure? <a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/544103/DCMS_Sectors_Economic_Estimates_-_August_2016.pdf" target="_blank"><img src="images/gva_fig_3_1.png" style="display: block; margin: auto;" /></a></p>
+<p>The GVA of each Sector by Year. Variables: Year, Sector, GVA</p>
+<p>What data do you need to produce this figure? <a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/544103/DCMS_Sectors_Economic_Estimates_-_August_2016.pdf" target="_blank"><img src="images/gva_fig_3_2.png" style="display: block; margin: auto;" /></a></p>
+<p>Total GVA across all sectors.<br />
+Variables: Year, Sector, GVA</p>
+<p>What data do you need to produce this figure? <a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/544103/DCMS_Sectors_Economic_Estimates_-_August_2016.pdf" target="_blank"><img src="images/gva_fig_3_3.png" style="display: block; margin: auto;" /></a></p>
+<p>For each Year by Sector we need the GVA.<br />
+Variables: Year, Sector, GVA</p>
+</div>
+<div id="what-does-our-eesectors-tidy-data-look-like" class="section level3">
+<h3><span class="header-section-number">4.2.2</span> What does our eesectors tidy data look like?</h3>
+<p>Remember, for tidy data:<br />
+1. Each variable forms a column.<br />
+2. Each observation forms a row.<br />
+3. Each type of observational unit forms a table.</p>
+<p>Our tidy data is of the form <strong>Year - Sector - GVA</strong>:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Year</th>
+<th align="center">Sector</th>
+<th align="right">GVA</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2010</td>
+<td align="center">creative</td>
+<td align="right">65188</td>
+</tr>
+<tr class="even">
+<td>2010</td>
+<td align="center">culture</td>
+<td align="right">20291</td>
+</tr>
+<tr class="odd">
+<td>2010</td>
+<td align="center">digital</td>
+<td align="right">97303</td>
+</tr>
+<tr class="even">
+<td>2011</td>
+<td align="center">creative</td>
+<td align="right">69398</td>
+</tr>
+<tr class="odd">
+<td>2011</td>
+<td align="center">culture</td>
+<td align="right">20954</td>
+</tr>
+<tr class="even">
+<td>2011</td>
+<td align="center">digital</td>
+<td align="right">107303</td>
+</tr>
+</tbody>
+</table>
+<p><em>This data is for demonstration purposes only.</em></p>
+</div>
+<div id="how-to-build-your-tidy-data" class="section level3">
+<h3><span class="header-section-number">4.2.3</span> How to build your tidy data?</h3>
+<p>With the minimal tidy dataset idea in place, you can begin to think about how you might construct this tidy dataset from the data stores you have availiable.</p>
+<p>As we are working in R we can formalise this minimal tidy dataset as a <a href="http://adv-r.had.co.nz/OO-essentials.html">class</a>. For our <code>eesectors</code> package we create our long data <code>year_sector_data</code> class as the fundamental input to create all our figures and tables for the output report.</p>
+</div>
+</div>
+<div id="eesectors-package-exploration" class="section level2">
+<h2><span class="header-section-number">4.3</span> <code>eesectors</code> Package Exploration</h2>
+<p>The following is an exploration of the <code>eesectors</code> package to help familiarise users with the key principles so that they can automate report production through package development in R using <code>knitr</code>. This examines the package in more detail compared to the README so that data scientists looking to implement RAP can note some of the characteristics of the code employed.</p>
+<div id="installation" class="section level3">
+<h3><span class="header-section-number">4.3.1</span> Installation</h3>
+<p>The package can then be installed using <code>devtools::install_github('ukgovdatascience/eesectors')</code>. Some users may not be able to use the <code>devtools::install_github()</code> commands as a result of network security settings. If this is the case, <code>eesectors</code> can be installed by downloading the <a href="https://github.com/ukgovdatascience/govstyle/archive/master.zip">zip of the repository</a> and installing the package locally using <code>devtools::install_local(&lt;path to zip file&gt;)</code>.</p>
+<div id="version-control" class="section level4">
+<h4><span class="header-section-number">4.3.1.1</span> Version control</h4>
+<p>As the code is stored on Github we can access the current master version as well as all <a href="https://github.com/ukgovdatascience/eesectors/releases">historic versions</a>. This allows me to reproduce a report from last year if required. I can look at what release version was used and install that accordingly using the <a href="ftp://cran.r-project.org/pub/R/web/packages/githubinstall/vignettes/githubinstall.html">additional arguments</a> for <code>install_github</code>.</p>
+</div>
+</div>
+<div id="loading-the-package" class="section level3">
+<h3><span class="header-section-number">4.3.2</span> Loading the package</h3>
+<p>Installation means the package is on our computer but it is not loaded into the computer’s working memory. We also load any additional packages that might be useful for exploring the package or data therein.</p>
+<pre><code>## Using GitHub PAT from envvar GITHUB_PAT</code></pre>
+<pre><code>## Skipping install of &#39;eesectors&#39; from a github remote, the SHA1 (5e91f359) has not changed since last install.
+##   Use `force = TRUE` to force installation</code></pre>
+<pre><code>## eesectors: Reproducible Analytical Pipeline (RAP) for the
+## Economic Estimates for DCMS Sectors Statistical First Release
+## (SFR). For more information visit:
+## https://github.com/ukgovdatascience/eesectors</code></pre>
+<p>This makes all the functions within the package available for use. It also provides us with some R <a href="https://github.com/ukgovdatascience/eesectors/tree/master/data">data objects</a>, such as aggregated data sets ready for visualisations or analysis within the report.</p>
+<blockquote>
+<p>Packages are the fundamental units of reproducible R code. They include reusable R functions, the documentation that describes how to use them, and sample data. - Hadely Wickham</p>
+</blockquote>
+</div>
+<div id="explore-the-package" class="section level3">
+<h3><span class="header-section-number">4.3.3</span> Explore the package</h3>
+<p>A good place to start is the package <a href="https://github.com/ukgovdatascience/eesectors">README</a>.</p>
+<div id="status-badges" class="section level4">
+<h4><span class="header-section-number">4.3.3.1</span> Status badges</h4>
+<p>The <a href="https://stackoverflow.com/questions/35563012/what-are-the-status-tags-like-build-passing">status badges</a> provide useful information. They are found in the top left of the README and should be green and say passing. This indicates that this package will run OK on Windows and linux or mac. Essentially the package is likely to build correctly on your machine when you install it. You can carry out these build tests locally using the <a href="https://github.com/hadley/devtools"><code>devtools</code> package</a>.</p>
+</div>
+<div id="look-at-the-output-first" class="section level4">
+<h4><span class="header-section-number">4.3.3.2</span> Look at the output first</h4>
+<p>If you go to Chapter 3 of the <a href="https://www.gov.uk/government/statistics/dcms-sectors-economic-estimates-2016">DCMS publication</a> it is apparent that most of the content is either data tables of summary statistics or visualisation of the data. This makes automation particularly useful here and likely to make time savings. Chapter 3 seems to be fairly typical in its length (if not a bit shroter compared to other Chapters).</p>
+<p>This package seems to work by taking the necessary data inputs as arguments in a function then outputting the relevant figures. The names of the functions match the figures they produce. Prior to this step we have to get the data in the correct format.</p>
+<p>If you look at the functions within the package within R Studio using the package navigator it is evident that there are a function of families dedicated to reading Excel spreadsheets and collecting the data in a tidy .Rds format. These are given the funciton name-prefix of <code>extract_</code> (try to give your functions <a href="http://adv-r.had.co.nz/Style.html">good names</a>).</p>
+<p>The <code>GVA_by_sector_2016</code> provides test data to work with during development. This will be important for the development of other packages for different reports. You need a precise understanding of how you go from raw data, to aggregated data (such as <code>GVA_by_sector_2016</code>) to the final figure. What are your inputs (arguments) and outputs? In some cases where your master data is stored in a particularly difficult for a machine to read you may prefer having a human to this extraction step.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dplyr::<span class="kw">glimpse</span>(GVA_by_sector_2016)</code></pre></div>
+<pre><code>## Observations: 54
+## Variables: 3
+## $ sector &lt;fctr&gt; creative, culture, digital, gambling, sport, telecoms,...
+## $ year   &lt;int&gt; 2010, 2010, 2010, 2010, 2010, 2010, 2010, 2011, 2011, 2...
+## $ GVA    &lt;dbl&gt; 65188, 20291, 97303, 8407, 7016, 24738, 49150, 69398, 2...</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span>GVA_by_sector_2016</code></pre></div>
+</div>
+<div id="automating-qa" class="section level4">
+<h4><span class="header-section-number">4.3.3.3</span> Automating QA</h4>
+<p>Human’s are not particularly good at Quality Assurance (QA), especially when working with massive spreadsheets it’s easy for errors to creep in. We can automate alot of the sense checking and update this if things change or a human provides another creative test to use for sense checking. If you can describe the test to a colleague then you can code it.</p>
+<p>The author uses messages to tell us what checks are being conducted or we can look at the body of the function if we are interested. This is useful if you are considering developing your own package, it will help you struture the message which are useful for the user.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gva &lt;-<span class="st"> </span><span class="kw">year_sector_data</span>(GVA_by_sector_2016)</code></pre></div>
+<pre><code>## Initiating year_sector_data class.
+## 
+## 
+## Expects a data.frame with three columns: sector, year, and measure, where
+## measure is one of GVA, exports, or enterprises. The data.frame should include
+## historical data, which is used for checks on the quality of this year&#39;s data,
+## and for producing tables and plots. More information on the format expected by
+## this class is given by ?year_sector_data().</code></pre>
+<pre><code>## 
+## *** Running integrity checks on input dataframe (x):</code></pre>
+<pre><code>## 
+## Checking input is properly formatted...</code></pre>
+<pre><code>## Checking x is a data.frame...</code></pre>
+<pre><code>## Checking x has correct columns...</code></pre>
+<pre><code>## Checking x contains a year column...</code></pre>
+<pre><code>## Checking x contains a sector column...</code></pre>
+<pre><code>## Checking x does not contain missing values...</code></pre>
+<pre><code>## Checking for the correct number of rows...</code></pre>
+<pre><code>## ...passed</code></pre>
+<pre><code>## 
+## ***Running statistical checks on input dataframe (x)...
+## 
+##   These tests are implemented using the package assertr see:
+##   https://cran.r-project.org/web/packages/assertr for more details.</code></pre>
+<pre><code>## Checking years in a sensible range (2000:2020)...</code></pre>
+<pre><code>## Checking sectors are correct...</code></pre>
+<pre><code>## Checking for outliers (x_i &gt; median(x) + 3 * mad(x)) in each sector timeseries...</code></pre>
+<pre><code>## Checking sector timeseries: all_dcms</code></pre>
+<pre><code>## Checking sector timeseries: creative</code></pre>
+<pre><code>## Checking sector timeseries: culture</code></pre>
+<pre><code>## Checking sector timeseries: digital</code></pre>
+<pre><code>## Checking sector timeseries: gambling</code></pre>
+<pre><code>## Checking sector timeseries: sport</code></pre>
+<pre><code>## Checking sector timeseries: telecoms</code></pre>
+<pre><code>## Checking sector timeseries: tourism</code></pre>
+<pre><code>## Checking sector timeseries: UK</code></pre>
+<pre><code>## ...passed</code></pre>
+<pre><code>## Checking for outliers on a row by row basis using mahalanobis distance...</code></pre>
+<pre><code>## Checking sector timeseries: all_dcms</code></pre>
+<pre><code>## Checking sector timeseries: creative</code></pre>
+<pre><code>## Checking sector timeseries: culture</code></pre>
+<pre><code>## Checking sector timeseries: digital</code></pre>
+<pre><code>## Checking sector timeseries: gambling</code></pre>
+<pre><code>## Checking sector timeseries: sport</code></pre>
+<pre><code>## Checking sector timeseries: telecoms</code></pre>
+<pre><code>## Checking sector timeseries: tourism</code></pre>
+<pre><code>## Checking sector timeseries: UK</code></pre>
+<pre><code>## ...passed</code></pre>
+<p>This is a semi-automated process so the user should check the Checks and ensure they meet their usual checks that would be conducted manually. If a new check or test becomes necessary then it should be implemented by changing the code.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">body</span>(year_sector_data)</code></pre></div>
+<pre><code>## {
+##     message(&quot;Initiating year_sector_data class.\\n\\n\\nExpects a data.frame with three columns: sector, year, and measure, where\\nmeasure is one of GVA, exports, or enterprises. The data.frame should include\\nhistorical data, which is used for checks on the quality of this year&#39;s data,\\nand for producing tables and plots. More information on the format expected by\\nthis class is given by ?year_sector_data().&quot;)
+##     message(&quot;\\n*** Running integrity checks on input dataframe (x):&quot;)
+##     message(&quot;\\nChecking input is properly formatted...&quot;)
+##     message(&quot;Checking x is a data.frame...&quot;)
+##     if (!is.data.frame(x)) 
+##         stop(&quot;x must be a data.frame&quot;)
+##     message(&quot;Checking x has correct columns...&quot;)
+##     if (length(colnames(x)) != 3) 
+##         stop(&quot;x must have three columns: sector, year, and one of GVA, export, or x&quot;)
+##     message(&quot;Checking x contains a year column...&quot;)
+##     if (!&quot;year&quot; %in% colnames(x)) 
+##         stop(&quot;x must contain year column&quot;)
+##     message(&quot;Checking x contains a sector column...&quot;)
+##     if (!&quot;sector&quot; %in% colnames(x)) 
+##         stop(&quot;x must contain sector column&quot;)
+##     message(&quot;Checking x does not contain missing values...&quot;)
+##     if (anyNA(x)) 
+##         stop(&quot;x cannot contain any missing values&quot;)
+##     message(&quot;Checking for the correct number of rows...&quot;)
+##     if (nrow(x) != length(unique(x$sector)) * length(unique(x$year))) {
+##         warning(&quot;x does not appear to be well formed. nrow(x) should equal\\nlength(unique(x$sector)) * length(unique(x$year)). Check the of x.&quot;)
+##     }
+##     message(&quot;...passed&quot;)
+##     message(&quot;\\n***Running statistical checks on input dataframe (x)...\\n\\n  These tests are implemented using the package assertr see:\\n  https://cran.r-project.org/web/packages/assertr for more details.&quot;)
+##     value &lt;- colnames(x)[(!colnames(x) %in% c(&quot;sector&quot;, &quot;year&quot;))]
+##     message(&quot;Checking years in a sensible range (2000:2020)...&quot;)
+##     assertr::assert_(x, assertr::in_set(2000:2020), ~year)
+##     message(&quot;Checking sectors are correct...&quot;)
+##     sectors_set &lt;- c(creative = &quot;Creative Industries&quot;, culture = &quot;Cultural Sector&quot;, 
+##         digital = &quot;Digital Sector&quot;, gambling = &quot;Gambling&quot;, sport = &quot;Sport&quot;, 
+##         telecoms = &quot;Telecoms&quot;, tourism = &quot;Tourism&quot;, all_dcms = &quot;All DCMS sectors&quot;, 
+##         perc_of_UK = &quot;% of UK GVA&quot;, UK = &quot;UK&quot;)
+##     assertr::assert_(x, assertr::in_set(names(sectors_set)), 
+##         ~sector, error_fun = raise_issue)
+##     message(&quot;Checking for outliers (x_i &gt; median(x) + 3 * mad(x)) in each sector timeseries...&quot;)
+##     series_split &lt;- split(x, x$sector)
+##     lapply(X = series_split, FUN = function(x) {
+##         message(&quot;Checking sector timeseries: &quot;, unique(x[[&quot;sector&quot;]]))
+##         assertr::insist_(x, assertr::within_n_mads(3), lazyeval::interp(~value, 
+##             value = as.name(value)), error_fun = raise_issue)
+##     })
+##     message(&quot;...passed&quot;)
+##     message(&quot;Checking for outliers on a row by row basis using mahalanobis distance...&quot;)
+##     lapply(X = series_split, FUN = maha_check)
+##     message(&quot;...passed&quot;)
+##     structure(list(df = x, colnames = colnames(x), type = colnames(x)[!colnames(x) %in% 
+##         c(&quot;year&quot;, &quot;sector&quot;)], sector_levels = levels(x$sector), 
+##         sectors_set = sectors_set, years = unique(x$year)), class = &quot;year_sector_data&quot;)
+## }</code></pre>
+<p>The function is structured to tell the user what check is being made and then running that check given the input <code>x</code>. If the input fails a check the function is stopped with a useful diagnostic message for the user. This is achieved using <code>if</code> and the opposite of the desired feature of <code>x</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">    <span class="kw">message</span>(<span class="st">&quot;Checking x has correct columns...&quot;</span>)
+    if (<span class="kw">length</span>(<span class="kw">colnames</span>(x)) !=<span class="st"> </span><span class="dv">3</span>) 
+        <span class="kw">stop</span>(<span class="st">&quot;x must have three columns: sector, year, and one of GVA, export, or x&quot;</span>)</code></pre></div>
+<p>For example, if <code>x</code> does not have exactly three columns we <code>stop</code>.</p>
+</div>
+<div id="output-of-this-function" class="section level4">
+<h4><span class="header-section-number">4.3.3.4</span> Output of this function</h4>
+<p>The output object is different to the input as expected, yet it does contain the initial data.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">identical</span>(gva$df, x)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>The rest of the list contains other details that could be changed at a later date if required, demonstrating defensive programming. For example, the sectors that are of interest to DCMS have changed and may change again.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">?year_sector_data</code></pre></div>
+<p>Let’s take a closer look at this function using the help and other standard function exploration functions.</p>
+<p>The help says it produces a custom class of object with five slots.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">isS4</span>(gva)</code></pre></div>
+<pre><code>## [1] FALSE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(gva)</code></pre></div>
+<pre><code>## [1] &quot;year_sector_data&quot;</code></pre>
+<p>It’s not actually an S4 object, by slots the author means a list of objects. This approach is sensible and easy to work with, as most users are familiar with <a href="http://adv-r.had.co.nz/S3.html">S3</a>.</p>
+</div>
+<div id="the-input" class="section level4">
+<h4><span class="header-section-number">4.3.3.5</span> The input</h4>
+<p>The input, which is likely a bunch of <a href="https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html">not tidy or messy</a> spreadsheets needs to be wrangled and aggregated (if necessary) for input into the functions prefixed by <code>figure</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dplyr::<span class="kw">glimpse</span>(GVA_by_sector_2016)</code></pre></div>
+<pre><code>## Observations: 54
+## Variables: 3
+## $ sector &lt;fctr&gt; creative, culture, digital, gambling, sport, telecoms,...
+## $ year   &lt;int&gt; 2010, 2010, 2010, 2010, 2010, 2010, 2010, 2011, 2011, 2...
+## $ GVA    &lt;dbl&gt; 65188, 20291, 97303, 8407, 7016, 24738, 49150, 69398, 2...</code></pre>
+</div>
+<div id="the-r-output" class="section level4">
+<h4><span class="header-section-number">4.3.3.6</span> The R output</h4>
+<blockquote>
+<p>We build our functions to use the same simple, tidy, data. - Matt Upson</p>
+</blockquote>
+<p>With the data in the appropriate form to be received as an argument or input for the <code>figure</code> family of functions, we can proceed to plot.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">figure3.1</span>(<span class="dt">x =</span> gva)</code></pre></div>
+<p><img src="04-exemplar_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p>Again we can look at the details of the plot. We could change the body of the function to affect change to the default plot or we can pass additional <code>ggplot</code> arguments to it.</p>
+<p>Reading the code we see it filters the data, makes the variables it needs, refactors the <code>sector</code> variable and then plots it.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">body</span>(figure3<span class="fl">.1</span>)</code></pre></div>
+<pre><code>## {
+##     out &lt;- tryCatch(expr = {
+##         sectors_set &lt;- x$sectors_set
+##         x &lt;- dplyr::filter_(x$df, ~sector != &quot;UK&quot;)
+##         x &lt;- dplyr::mutate_(x, year = ~factor(year, levels = c(2016:2010)))
+##         x$sector &lt;- factor(x = unname(sectors_set[as.character(x$sector)]), 
+##             levels = rev(as.character(unname(sectors_set[levels(x$sector)]))))
+##         p &lt;- ggplot2::ggplot(x) + ggplot2::aes_(y = ~GVA, x = ~sector, 
+##             fill = ~year) + ggplot2::geom_bar(colour = &quot;slategray&quot;, 
+##             position = &quot;dodge&quot;, stat = &quot;identity&quot;) + ggplot2::coord_flip() + 
+##             govstyle::theme_gov(base_colour = &quot;black&quot;) + ggplot2::scale_fill_brewer(palette = &quot;Blues&quot;) + 
+##             ggplot2::ylab(&quot;Gross Value Added (£bn)&quot;) + ggplot2::theme(legend.position = &quot;right&quot;, 
+##             legend.key = ggplot2::element_blank()) + ggplot2::scale_y_continuous(labels = scales::comma)
+##         return(p)
+##     }, warning = function() {
+##         w &lt;- warnings()
+##         warning(&quot;Warning produced running figure3.1():&quot;, w)
+##     }, error = function(e) {
+##         stop(&quot;Error produced running figure3.1():&quot;, e)
+##     }, finally = {
+##     })
+## }</code></pre>
+<p>We can inspect and change an argument if we feel inclined or if a new colour scheme becomes preferred for example. However, there is no <code>...</code> in the body of the function itself so where does this argument get passed to?</p>
+<p>This all looks straight forward and we can inspect the other functions for generating the figures or plot output.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">body</span>(figure3<span class="fl">.2</span>)</code></pre></div>
+<pre><code>## {
+##     out &lt;- tryCatch(expr = {
+##         sectors_set &lt;- x$sectors_set
+##         x &lt;- dplyr::filter_(x$df, ~sector %in% c(&quot;UK&quot;, &quot;all_dcms&quot;))
+##         x$sector &lt;- factor(x = unname(sectors_set[as.character(x$sector)]))
+##         x &lt;- dplyr::group_by_(x, ~sector)
+##         x &lt;- dplyr::mutate_(x, index = ~max(ifelse(year == 2010, 
+##             GVA, 0)), indexGVA = ~GVA/index * 100)
+##         p &lt;- ggplot2::ggplot(x) + ggplot2::aes_(y = ~indexGVA, 
+##             x = ~year, colour = ~sector, linetype = ~sector) + 
+##             ggplot2::geom_path(size = 1.5) + govstyle::theme_gov(base_colour = &quot;black&quot;) + 
+##             ggplot2::scale_colour_manual(values = unname(govstyle::gov_cols[c(&quot;red&quot;, 
+##                 &quot;purple&quot;)])) + ggplot2::ylab(&quot;GVA Index: 2010=100&quot;) + 
+##             ggplot2::theme(legend.position = &quot;bottom&quot;, legend.key = ggplot2::element_blank()) + 
+##             ggplot2::ylim(c(80, 130))
+##         return(p)
+##     }, warning = function() {
+##         w &lt;- warnings()
+##         warning(&quot;Warning produced running figure3.2():&quot;, w)
+##     }, error = function(e) {
+##         stop(&quot;Error produced running figure3.2():&quot;, e)
+##     }, finally = {
+##     })
+## }</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">body</span>(figure3<span class="fl">.3</span>)</code></pre></div>
+<pre><code>## {
+##     out &lt;- tryCatch(expr = {
+##         sectors_set &lt;- x$sectors_set
+##         x &lt;- dplyr::filter_(x$df, ~!sector %in% c(&quot;UK&quot;, &quot;all_dcms&quot;))
+##         x$sector &lt;- factor(x = unname(sectors_set[as.character(x$sector)]))
+##         x &lt;- dplyr::group_by_(x, ~sector)
+##         x &lt;- dplyr::mutate_(x, index = ~max(ifelse(year == 2010, 
+##             GVA, 0)), indexGVA = ~GVA/index * 100)
+##         p &lt;- ggplot2::ggplot(x) + ggplot2::aes_(y = ~indexGVA, 
+##             x = ~year, colour = ~sector, linetype = ~sector) + 
+##             ggplot2::geom_path(size = 1.5) + govstyle::theme_gov(base_colour = &quot;black&quot;) + 
+##             ggplot2::scale_colour_brewer(palette = &quot;Set1&quot;) + 
+##             ggplot2::ylab(&quot;GVA Index: 2010=100&quot;) + ggplot2::theme(legend.position = &quot;right&quot;, 
+##             legend.key = ggplot2::element_blank()) + ggplot2::ylim(c(80, 
+##             150))
+##         return(p)
+##     }, warning = function() {
+##         w &lt;- warnings()
+##         warning(&quot;Warning produced running figure3.2():&quot;, w)
+##     }, error = function(e) {
+##         stop(&quot;Error produced running figure3.2():&quot;, e)
+##     }, finally = {
+##     })
+## }</code></pre>
+</div>
+<div id="error-handling" class="section level4">
+<h4><span class="header-section-number">4.3.3.7</span> Error handling</h4>
+<p>A point of interest in the code with which some users may be unfamiliar is <code>tryCatch</code> which is a function that allows the function to catch conditions such as warnings, errors and messages. We see this towards the end of the function where if either of these conditions are produced then an informative message is produced (in that it tells you in what function there was a problem). The structure here is simple and could be copied and pasted for use in automating other figures of other chapters or statistical reports.</p>
+<p>For a comprehensive introduction see <a href="http://adv-r.had.co.nz/Exceptions-Debugging.html#condition-handling">Hadley’s Chapter</a>.</p>
+</div>
+</div>
+</div>
+<div id="chapter-plenary" class="section level2">
+<h2><span class="header-section-number">4.4</span> Chapter plenary</h2>
+<p>We have explored the <code>eesectors</code> package from the perspective of someone wishing to develop our own semi-automated chapter production through the development of a package in R. This package provides a useful tempplate where one could copy the foundations of the package and workflow.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="why.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="open.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

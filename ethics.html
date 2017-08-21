@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>RAP Companion</title>
+  <meta name="description" content="A technical communication document intended to give assistance to people developing a Reproducible Analytical Pipeline using DataOps.">
+  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+
+  <meta property="og:title" content="RAP Companion" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="images/cover.png" />
+  <meta property="og:description" content="A technical communication document intended to give assistance to people developing a Reproducible Analytical Pipeline using DataOps." />
+  <meta name="github-repo" content="mammykins/rap-companion" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="RAP Companion" />
+  <meta name="twitter:site" content="@mammykins_" />
+  <meta name="twitter:description" content="A technical communication document intended to give assistance to people developing a Reproducible Analytical Pipeline using DataOps." />
+  <meta name="twitter:image" content="images/cover.png" />
+
+<meta name="author" content="Matthew Gregory, Matthew Upson">
+
+
+<meta name="date" content="2017-08-21">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="intro.html">
+<link rel="next" href="why.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-102661099-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">RAP Companion</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#discovery"><i class="fa fa-check"></i><b>0.1</b> Discovery</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#getting-the-balance-right"><i class="fa fa-check"></i><b>0.2</b> Getting the balance right</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#inspiration"><i class="fa fa-check"></i><b>0.3</b> Inspiration</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#objectives"><i class="fa fa-check"></i><b>1.1</b> Objectives</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="ethics.html"><a href="ethics.html"><i class="fa fa-check"></i><b>2</b> Ethical Considerations</a><ul>
+<li class="chapter" data-level="2.1" data-path="ethics.html"><a href="ethics.html#extra-detail"><i class="fa fa-check"></i><b>2.1</b> Extra detail</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="ethics.html"><a href="ethics.html#start-with-clear-user-need-and-public-benefit"><i class="fa fa-check"></i><b>2.1.1</b> Start with clear user need and public benefit</a></li>
+<li class="chapter" data-level="2.1.2" data-path="ethics.html"><a href="ethics.html#use-data-and-tools-which-have-the-minimum-intrusion-necessary"><i class="fa fa-check"></i><b>2.1.2</b> Use data and tools which have the minimum intrusion necessary</a></li>
+<li class="chapter" data-level="2.1.3" data-path="ethics.html"><a href="ethics.html#create-robust-data-science-models"><i class="fa fa-check"></i><b>2.1.3</b> Create robust data science models</a></li>
+<li class="chapter" data-level="2.1.4" data-path="ethics.html"><a href="ethics.html#be-alert-to-public-perceptions"><i class="fa fa-check"></i><b>2.1.4</b> Be alert to public perceptions</a></li>
+<li class="chapter" data-level="2.1.5" data-path="ethics.html"><a href="ethics.html#be-as-open-and-accountable-as-possible"><i class="fa fa-check"></i><b>2.1.5</b> Be as open and accountable as possible</a></li>
+<li class="chapter" data-level="2.1.6" data-path="ethics.html"><a href="ethics.html#keep-data-secure"><i class="fa fa-check"></i><b>2.1.6</b> Keep data secure</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="why.html"><a href="why.html"><i class="fa fa-check"></i><b>3</b> Why RAP?</a><ul>
+<li class="chapter" data-level="3.1" data-path="why.html"><a href="why.html#the-current-statistics-production-process"><i class="fa fa-check"></i><b>3.1</b> The current statistics production process</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="why.html"><a href="why.html#the-problem-with-this-approach"><i class="fa fa-check"></i><b>3.1.1</b> The problem with this approach</a></li>
+<li class="chapter" data-level="3.1.2" data-path="why.html"><a href="why.html#desired-reproducible-analytical-pipeline"><i class="fa fa-check"></i><b>3.1.2</b> Desired Reproducible Analytical Pipeline</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="why.html"><a href="why.html#why-learning-to-rap-might-be-hard"><i class="fa fa-check"></i><b>3.2</b> Why learning to RAP might be hard</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="exemplar.html"><a href="exemplar.html"><i class="fa fa-check"></i><b>4</b> Exemplar RAP</a><ul>
+<li class="chapter" data-level="4.1" data-path="exemplar.html"><a href="exemplar.html#package-purpose"><i class="fa fa-check"></i><b>4.1</b> Package Purpose</a></li>
+<li class="chapter" data-level="4.2" data-path="exemplar.html"><a href="exemplar.html#tidy-data"><i class="fa fa-check"></i><b>4.2</b> Tidy data</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="exemplar.html"><a href="exemplar.html#eesectors-tidy-data"><i class="fa fa-check"></i><b>4.2.1</b> eesectors tidy data</a></li>
+<li class="chapter" data-level="4.2.2" data-path="exemplar.html"><a href="exemplar.html#what-does-our-eesectors-tidy-data-look-like"><i class="fa fa-check"></i><b>4.2.2</b> What does our eesectors tidy data look like?</a></li>
+<li class="chapter" data-level="4.2.3" data-path="exemplar.html"><a href="exemplar.html#how-to-build-your-tidy-data"><i class="fa fa-check"></i><b>4.2.3</b> How to build your tidy data?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="exemplar.html"><a href="exemplar.html#eesectors-package-exploration"><i class="fa fa-check"></i><b>4.3</b> <code>eesectors</code> Package Exploration</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="exemplar.html"><a href="exemplar.html#installation"><i class="fa fa-check"></i><b>4.3.1</b> Installation</a></li>
+<li class="chapter" data-level="4.3.2" data-path="exemplar.html"><a href="exemplar.html#loading-the-package"><i class="fa fa-check"></i><b>4.3.2</b> Loading the package</a></li>
+<li class="chapter" data-level="4.3.3" data-path="exemplar.html"><a href="exemplar.html#explore-the-package"><i class="fa fa-check"></i><b>4.3.3</b> Explore the package</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="exemplar.html"><a href="exemplar.html#chapter-plenary"><i class="fa fa-check"></i><b>4.4</b> Chapter plenary</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="open.html"><a href="open.html"><i class="fa fa-check"></i><b>5</b> Open Source rather than proprietary</a></li>
+<li class="chapter" data-level="6" data-path="vs.html"><a href="vs.html"><i class="fa fa-check"></i><b>6</b> Version Control</a><ul>
+<li class="chapter" data-level="6.1" data-path="vs.html"><a href="vs.html#introduction"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="vs.html"><a href="vs.html#useful-resources"><i class="fa fa-check"></i><b>6.2</b> Useful resources</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="vs.html"><a href="vs.html#graphical-user-interface-focus"><i class="fa fa-check"></i><b>6.2.1</b> Graphical user interface focus</a></li>
+<li class="chapter" data-level="6.2.2" data-path="vs.html"><a href="vs.html#git-and-rstudio"><i class="fa fa-check"></i><b>6.2.2</b> Git and RStudio</a></li>
+<li class="chapter" data-level="6.2.3" data-path="vs.html"><a href="vs.html#command-line-focus"><i class="fa fa-check"></i><b>6.2.3</b> Command line focus</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="vs.html"><a href="vs.html#typical-workflow"><i class="fa fa-check"></i><b>6.3</b> Typical workflow</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="package.html"><a href="package.html"><i class="fa fa-check"></i><b>7</b> Packaging Code</a><ul>
+<li class="chapter" data-level="7.1" data-path="package.html"><a href="package.html#essential-reading"><i class="fa fa-check"></i><b>7.1</b> Essential reading</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="test.html"><a href="test.html"><i class="fa fa-check"></i><b>8</b> Unit test</a><ul>
+<li class="chapter" data-level="8.1" data-path="test.html"><a href="test.html#further-reading"><i class="fa fa-check"></i><b>8.1</b> Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="travis.html"><a href="travis.html"><i class="fa fa-check"></i><b>9</b> Automated Testing</a></li>
+<li class="chapter" data-level="10" data-path="code-cover.html"><a href="code-cover.html"><i class="fa fa-check"></i><b>10</b> Code coverage</a></li>
+<li class="chapter" data-level="11" data-path="dependency-management-dep.html"><a href="dependency-management-dep.html"><i class="fa fa-check"></i><b>11</b> Dependency management {dep}</a></li>
+<li class="chapter" data-level="12" data-path="qa-data.html"><a href="qa-data.html"><i class="fa fa-check"></i><b>12</b> Quality Assured data</a></li>
+<li class="chapter" data-level="13" data-path="pub.html"><a href="pub.html"><i class="fa fa-check"></i><b>13</b> Producing the publication</a><ul>
+<li class="chapter" data-level="13.1" data-path="pub.html"><a href="pub.html#further-reading-1"><i class="fa fa-check"></i><b>13.1</b> Further Reading</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="final.html"><a href="final.html"><i class="fa fa-check"></i><b>14</b> Final Thoughts</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">RAP Companion</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ethics" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Ethical Considerations</h1>
+<p>The RAP is considered Data Science in that it involves an overlap of Computer Science, Statistics and Expert Domain Knowledge.</p>
+<p><strong>Data science ethics are important.</strong></p>
+<p>We consult the <a href="https://www.gov.uk/government/publications/data-science-ethical-framework">ethical framework</a> before proceeding. We use the recommended Six Key Principles to structure our thinking:</p>
+<ol style="list-style-type: decimal">
+<li>Start with clear user need and public benefit</li>
+<li>Use data and tools which have the minimum intrusion necessary</li>
+<li>Create robust data science models</li>
+<li>Be alert to public perceptions</li>
+<li>Be as open and accountable as possible</li>
+<li>Keep data secure</li>
+</ol>
+<p><em>Fundamentally, the public benefit of doing the project needs to be balanced against the risks of doing so.</em></p>
+<div id="extra-detail" class="section level2">
+<h2><span class="header-section-number">2.1</span> Extra detail</h2>
+<p>Working through the quick checklist in the Ethical Framework we can identify those Principles that are more pertinent to a RAP project. We discuss some of these considerations in more detail here and the questions you should ask your team and stakeholders before proceeding with development.</p>
+<div id="start-with-clear-user-need-and-public-benefit" class="section level3">
+<h3><span class="header-section-number">2.1.1</span> Start with clear user need and public benefit</h3>
+<ul>
+<li>How does the department and public benefit?</li>
+<li>Is this a vanity project?</li>
+<li>How many statistical reports does your team produce?</li>
+<li>What proportion of their time does this take up?</li>
+<li>How much copy and pasting (data movement) between softwares is involved?</li>
+<li>Have you demonstrated the benefit to your team? (<a href="https://gdsengagement.blog.gov.uk/2016/11/04/what-we-mean-when-we-say-show-the-thing/">Show the thing.</a>)</li>
+</ul>
+<blockquote>
+<p>RAP has reduced the time taken to produce a report from two months to two weeks. - placeholder</p>
+</blockquote>
+</div>
+<div id="use-data-and-tools-which-have-the-minimum-intrusion-necessary" class="section level3">
+<h3><span class="header-section-number">2.1.2</span> Use data and tools which have the minimum intrusion necessary</h3>
+<ul>
+<li>How intrusive and identifiable is the data you are working with?</li>
+<li>What is the minimum data necessary to achieve the user benefit?</li>
+<li>Do you really need to use sensitive data (de-identify or aggregate it)?</li>
+<li>Have you made synthetic data, that looks like real data, for the RAP software development?</li>
+<li>If identifying individuals, how widely are you searching personal data?</li>
+</ul>
+</div>
+<div id="create-robust-data-science-models" class="section level3">
+<h3><span class="header-section-number">2.1.3</span> Create robust data science models</h3>
+<ul>
+<li>What is the quality of the data?</li>
+<li>How representative is the data? (what are the biases?)</li>
+<li>Are there any automated decisions?</li>
+<li>What safeguards can be implemented to validate any automatic decision making?</li>
+<li>What is the risk that someone will suffer a negative unintended consequence as a result of the project?</li>
+<li>What are all the data checking and validation steps that occur (if you can explain it to a human you should be able to code it)?</li>
+</ul>
+</div>
+<div id="be-alert-to-public-perceptions" class="section level3">
+<h3><span class="header-section-number">2.1.4</span> Be alert to public perceptions</h3>
+<ul>
+<li>If personal data for operational purposes, how compatible was it with the reason collected?</li>
+<li>Do the public agree with what you are doing?</li>
+<li>Automation often has negative conotations - why is RAP useful to everyone involved?</li>
+</ul>
+</div>
+<div id="be-as-open-and-accountable-as-possible" class="section level3">
+<h3><span class="header-section-number">2.1.5</span> Be as open and accountable as possible</h3>
+<ul>
+<li>How open can you be about the project?</li>
+<li>How much oversight and accountability is there throughout the project?</li>
+<li>Can you explain in plain English why you are developing a RAP?</li>
+<li>Can you get colleagues from other departments to review your <a href="https://help.github.com/articles/about-pull-requests/">Pull Requests</a>?</li>
+</ul>
+</div>
+<div id="keep-data-secure" class="section level3">
+<h3><span class="header-section-number">2.1.6</span> Keep data secure</h3>
+<ul>
+<li>How secure is your data?</li>
+<li>You will be using a version control software like <a href="https://gdstechnology.blog.gov.uk/2014/01/27/how-we-use-github/">Git</a>. How will you prevent your RAP developers from accidentally pushing sensitive data to <a href="https://stackoverflow.com/questions/13321556/difference-between-git-and-github">Github</a>?</li>
+<li>Are you following <a href="https://gdsdata.blog.gov.uk/2017/03/27/reproducible-analytical-pipeline/">GDS best practice</a>?</li>
+<li>Have you considered using tools, like <a href="https://github.com/ukgovdatascience/dotfiles">Git hooks</a>, to prevent the unintended publication of sensitive data on Github?</li>
+</ul>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="why.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
