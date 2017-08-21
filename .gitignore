@@ -50,3 +50,5 @@ GH_TOKEN
 *.utf8.md
 *.knit.md
 .Rproj.user
+_site
+.jekyll-metadata
