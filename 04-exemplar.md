@@ -106,8 +106,59 @@ Installation means the package is on our computer but it is not loaded into the 
 ```
 
 ```
-## Skipping install of 'eesectors' from a github remote, the SHA1 (5e91f359) has not changed since last install.
-##   Use `force = TRUE` to force installation
+## Downloading GitHub repo ukgovdatascience/eesectors@master
+## from URL https://api.github.com/repos/ukgovdatascience/eesectors/zipball/master
+```
+
+```
+## Installing eesectors
+```
+
+```
+## Using GitHub PAT from envvar GITHUB_PAT
+## Using GitHub PAT from envvar GITHUB_PAT
+```
+
+```
+## Downloading GitHub repo ukgovdatascience/govstyle@master
+## from URL https://api.github.com/repos/ukgovdatascience/govstyle/zipball/master
+```
+
+```
+## Installing govstyle
+```
+
+```
+## Using GitHub PAT from envvar GITHUB_PAT
+```
+
+```
+## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
+##   --no-restore --quiet CMD INSTALL  \
+##   '/tmp/Rtmpm9j2JX/devtools4eb64cd86246/ukgovdatascience-govstyle-a58c163'  \
+##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.1'  \
+##   --install-tests
+```
+
+```
+## 
+```
+
+```
+## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
+##   --no-restore --quiet CMD INSTALL  \
+##   '/tmp/Rtmpm9j2JX/devtools4eb66297580b/ukgovdatascience-eesectors-5e91f35'  \
+##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.1'  \
+##   --install-tests
+```
+
+```
+## 
+```
+
+```
+## Using GitHub PAT from envvar GITHUB_PAT
+## Using GitHub PAT from envvar GITHUB_PAT
 ```
 
 ```
