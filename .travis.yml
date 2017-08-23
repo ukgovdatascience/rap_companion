@@ -1,6 +1,10 @@
 language: r
 sudo: required
-cache: packages
+cache:
+  directories:
+    - $TRAVIS_BUILD_DIR/packrat/src
+    - $TRAVIS_BUILD_DIR/packrat/lib
+  packages: true
 
 git:
   depth: 3
@@ -19,10 +23,11 @@ install:
   - curl -L https://github.com/jgm/pandoc/releases/download/1.18/pandoc-1.18-1-amd64.deb > pandoc-1.18-1-amd64.deb
   - sudo dpkg -i pandoc-1.18-1-amd64.deb
   - sudo apt-get install -f
-  - Rscript -e "if (!require('devtools')) install.packages('devtools')"
-  - Rscript -e "devtools::install_github('mammykins/bookdown')"
-  - Rscript -e "devtools::install_github('ukgovdatascience/eesectors')"
-  - Rscript -e "devtools::install_github('ukgovdatascience/govstyle')"
+    # Bootstrap packrat install
+  - R -e "0" --args --bootstrap-packrat
+    #- Rscript -e "if (!require('devtools')) install.packages('devtools')"
+    #- Rscript -e "devtools::install_github('ukgovdatascience/eesectors')"
+    #- Rscript -e "devtools::install_github('ukgovdatascience/govstyle')"
 
 
 before_script:
