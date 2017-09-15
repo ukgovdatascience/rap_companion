@@ -123,17 +123,7 @@ Now, go to town hacking away and making whatever changes you want to. When you'r
 
 ## Rendering the book
 
-It's easiest to render the book from the command line. Make sure your in the correct repository (rap_companion) on the correct branch (the one you are working on). Then run the following code in your command line. This will output all the html pages from the Rmarkdown you have written (if new to bookdown then refer to the [bookdown book](https://bookdown.org/yihui/bookdown/)).   
-
-```shell
-
-Rscript -e "bookdown::render_book('index.Rmd', 'bookdown::gitbook')"
-
-```
-
-Open the book locally in RStudio, by navigating to the docs folder in the Files tab (/rap_companion/docs), and left-clicking on the `index.html` file and viewing it in your browser. Check it looks as you desire, make changes and repeat the process until it looks correct.  
-
-For full instructions on rendering see Yihu Xie's [bookdown bookdown book](https://bookdown.org/yihui/bookdown/build-the-book.html). 
+This done automatically using [Travis](https://stackoverflow.com/questions/23277391/how-to-publish-to-github-pages-from-travis-ci), interacting with [Github](https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/#enabling-github-pages-to-publish-your-site-from-master-or-gh-pages), to execute some code when the pull request is accepted; it automatically builds the book to the `gh-pages` branch which then updates the [RAP companion](https://ukgovdatascience.github.io/rap_companion/).
 
 ## Submitting a Pull Request
 
