@@ -106,8 +106,171 @@ Installation means the package is on our computer but it is not loaded into the 
 ```
 
 ```
-## Skipping install of 'eesectors' from a github remote, the SHA1 (5e91f359) has not changed since last install.
-##   Use `force = TRUE` to force installation
+## Downloading GitHub repo ukgovdatascience/eesectors@master
+## from URL https://api.github.com/repos/ukgovdatascience/eesectors/zipball/master
+```
+
+```
+## Installing eesectors
+```
+
+```
+## Using GitHub PAT from envvar GITHUB_PAT
+## Using GitHub PAT from envvar GITHUB_PAT
+```
+
+```
+## Installing dplyr
+```
+
+```
+## Installing BH
+```
+
+```
+## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
+##   --no-restore --quiet CMD INSTALL  \
+##   '/tmp/RtmpM41IFl/devtools4a4b768ac568/BH'  \
+##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.1'  \
+##   --install-tests
+```
+
+```
+## 
+```
+
+```
+## Installing Rcpp
+```
+
+```
+## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
+##   --no-restore --quiet CMD INSTALL  \
+##   '/tmp/RtmpM41IFl/devtools4a4b52743897/Rcpp'  \
+##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.1'  \
+##   --install-tests
+```
+
+```
+## 
+```
+
+```
+## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
+##   --no-restore --quiet CMD INSTALL  \
+##   '/tmp/RtmpM41IFl/devtools4a4b3e800cae/dplyr'  \
+##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.1'  \
+##   --install-tests
+```
+
+```
+## 
+```
+
+```
+## Installing scales
+```
+
+```
+## Installing viridisLite
+```
+
+```
+## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
+##   --no-restore --quiet CMD INSTALL  \
+##   '/tmp/RtmpM41IFl/devtools4a4b3337477c/viridisLite'  \
+##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.1'  \
+##   --install-tests
+```
+
+```
+## 
+```
+
+```
+## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
+##   --no-restore --quiet CMD INSTALL  \
+##   '/tmp/RtmpM41IFl/devtools4a4b59ee2237/scales'  \
+##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.1'  \
+##   --install-tests
+```
+
+```
+## 
+```
+
+```
+## Installing tidyr
+```
+
+```
+## Installing tidyselect
+```
+
+```
+## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
+##   --no-restore --quiet CMD INSTALL  \
+##   '/tmp/RtmpM41IFl/devtools4a4b66172911/tidyselect'  \
+##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.1'  \
+##   --install-tests
+```
+
+```
+## 
+```
+
+```
+## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
+##   --no-restore --quiet CMD INSTALL  \
+##   '/tmp/RtmpM41IFl/devtools4a4b605ca61d/tidyr'  \
+##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.1'  \
+##   --install-tests
+```
+
+```
+## 
+```
+
+```
+## Downloading GitHub repo ukgovdatascience/govstyle@master
+## from URL https://api.github.com/repos/ukgovdatascience/govstyle/zipball/master
+```
+
+```
+## Installing govstyle
+```
+
+```
+## Using GitHub PAT from envvar GITHUB_PAT
+```
+
+```
+## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
+##   --no-restore --quiet CMD INSTALL  \
+##   '/tmp/RtmpM41IFl/devtools4a4b40458fce/ukgovdatascience-govstyle-a58c163'  \
+##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.1'  \
+##   --install-tests
+```
+
+```
+## 
+```
+
+```
+## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
+##   --no-restore --quiet CMD INSTALL  \
+##   '/tmp/RtmpM41IFl/devtools4a4b9a0c8c9/ukgovdatascience-eesectors-5e91f35'  \
+##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.1'  \
+##   --install-tests
+```
+
+```
+## 
+```
+
+```
+## Using GitHub PAT from envvar GITHUB_PAT
+## Using GitHub PAT from envvar GITHUB_PAT
 ```
 
 ```
