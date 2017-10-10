@@ -171,13 +171,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9" data-path="travis.html"><a href="travis.html"><i class="fa fa-check"></i><b>9</b> Automated Testing</a></li>
 <li class="chapter" data-level="10" data-path="code-cover.html"><a href="code-cover.html"><i class="fa fa-check"></i><b>10</b> Code coverage</a></li>
 <li class="chapter" data-level="11" data-path="dep.html"><a href="dep.html"><i class="fa fa-check"></i><b>11</b> Dependency management</a></li>
-<li class="chapter" data-level="12" data-path="qa-data.html"><a href="qa-data.html"><i class="fa fa-check"></i><b>12</b> Quality Assured data</a><ul>
-<li class="chapter" data-level="12.1" data-path="qa-data.html"><a href="qa-data.html#murphys-law-and-errors-in-your-pipeline"><i class="fa fa-check"></i><b>12.1</b> Murphy’s Law and errors in your pipeline</a></li>
-<li class="chapter" data-level="12.2" data-path="qa-data.html"><a href="qa-data.html#error-handling-1"><i class="fa fa-check"></i><b>12.2</b> Error handling</a></li>
-<li class="chapter" data-level="12.3" data-path="qa-data.html"><a href="qa-data.html#error-logging"><i class="fa fa-check"></i><b>12.3</b> Error logging</a><ul>
-<li class="chapter" data-level="12.3.1" data-path="qa-data.html"><a href="qa-data.html#pipeline-pitfalls"><i class="fa fa-check"></i><b>12.3.1</b> Pipeline pitfalls</a></li>
-<li class="chapter" data-level="12.3.2" data-path="qa-data.html"><a href="qa-data.html#error-logging-using-futile.logger"><i class="fa fa-check"></i><b>12.3.2</b> Error logging using <code>futile.logger</code></a></li>
-<li class="chapter" data-level="12.3.3" data-path="qa-data.html"><a href="qa-data.html#logging-to-file"><i class="fa fa-check"></i><b>12.3.3</b> Logging to file</a></li>
+<li class="chapter" data-level="12" data-path="qa-data.html"><a href="qa-data.html"><i class="fa fa-check"></i><b>12</b> Quality Assurance of the pipeline</a><ul>
+<li class="chapter" data-level="12.1" data-path="qa-data.html"><a href="qa-data.html#testing-the-input-data"><i class="fa fa-check"></i><b>12.1</b> Testing the input data</a></li>
+<li class="chapter" data-level="12.2" data-path="qa-data.html"><a href="qa-data.html#murphys-law-and-errors-in-your-pipeline"><i class="fa fa-check"></i><b>12.2</b> Murphy’s Law and errors in your pipeline</a></li>
+<li class="chapter" data-level="12.3" data-path="qa-data.html"><a href="qa-data.html#error-handling-1"><i class="fa fa-check"></i><b>12.3</b> Error handling</a></li>
+<li class="chapter" data-level="12.4" data-path="qa-data.html"><a href="qa-data.html#error-logging"><i class="fa fa-check"></i><b>12.4</b> Error logging</a><ul>
+<li class="chapter" data-level="12.4.1" data-path="qa-data.html"><a href="qa-data.html#pipeline-pitfalls"><i class="fa fa-check"></i><b>12.4.1</b> Pipeline pitfalls</a></li>
+<li class="chapter" data-level="12.4.2" data-path="qa-data.html"><a href="qa-data.html#error-logging-using-futile.logger"><i class="fa fa-check"></i><b>12.4.2</b> Error logging using <code>futile.logger</code></a></li>
+<li class="chapter" data-level="12.4.3" data-path="qa-data.html"><a href="qa-data.html#logging-to-file"><i class="fa fa-check"></i><b>12.4.3</b> Logging to file</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="pub.html"><a href="pub.html"><i class="fa fa-check"></i><b>13</b> Producing the publication</a><ul>
@@ -208,17 +209,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="qa_data" class="section level1">
-<h1><span class="header-section-number">Chapter 12</span> Quality Assured data</h1>
-<p>All the testing we have described so far is to do with the code, and ensuring that the code does what we expect it to, but because we have written an <a href="https://github.com/ukgovdatascience/eesectors">R package</a>, it’s also very easy for us to institute tests for the consistency of the data at the time the data is loaded.</p>
+<h1><span class="header-section-number">Chapter 12</span> Quality Assurance of the pipeline</h1>
+<p>All the testing we have described so far is to do with the code, and ensuring that the code does what we expect it to, but because we have written an <a href="https://github.com/ukgovdatascience/eesectors">R package</a>, it’s also very easy for us to institute tests for the consistency of the data at the time the data is loaded. We may also wish to employ defensive programming against potential errors and consider how we might want to flag these for the user and / or how our pipeline might recover from such errors.</p>
+<div id="testing-the-input-data" class="section level2">
+<h2><span class="header-section-number">12.1</span> Testing the input data</h2>
+<p>If our RAP were a sausage factory, the data would be the input meat. Given we do not own the input data nor are we responsible for its preparation we should plan for how we can protect our pipeline against a change in input data format or any anomalous data therein.</p>
 <p>The list of tests that we might want to run is endless, and the scope of tests very much be dictated by the team which has the expert knowledge of the data. In the <a href="https://github.com/ukgovdatascience/eesectors">eesectors</a> package we implemented two very simple checks, but these could very easily be expanded. The simplest of these is a simple test for outliers: since the data for the economic estimates is longitudinal, i.e. stretching back several years; we are able to look at the most recent values in comparison to the values from previous years. If the latest values lie within a threshold determined statistically from the other values then the data passes, if not a warning is raised.</p>
-<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD These kinds of automated tests are repeated every time the data are loaded, reducing the burden of QA, and the scope for human error, freeing up statistician time for identifying more subtle data quality issues which might otherwise go unnoticed.</p>
+<p>These kinds of automated tests are repeated every time the data are loaded, reducing the burden of QA, and the scope for human error, freeing up statistician time for identifying more subtle data quality issues which might otherwise go unnoticed.</p>
+</div>
 <div id="murphys-law-and-errors-in-your-pipeline" class="section level2">
-<h2><span class="header-section-number">12.1</span> Murphy’s Law and errors in your pipeline</h2>
+<h2><span class="header-section-number">12.2</span> Murphy’s Law and errors in your pipeline</h2>
 <p>Paraphrasing from <a href="http://adv-r.had.co.nz/beyond-exception-handling.html">Advanced R</a> by Hadley Wickham:</p>
 <p>If something can go wrong, it will: the format of the spreadsheet you normally receive your raw data in changes, the server you’re talking to may be down, your Wi-Fi drops. Any such problem may stop a piece of your pipeline (code) from doing what it is intended to do. This is not a bug; the problem did not originate from within the code itself. However, if the pipeline downstream is dependent on this code acting as intended then you have a problem, you need to deal with the error somehow. Errors aren’t caused by bugs <em>per se</em>, but neglecting to handle an error appropriately is a bug.</p>
 </div>
 <div id="error-handling-1" class="section level2">
-<h2><span class="header-section-number">12.2</span> Error handling</h2>
+<h2><span class="header-section-number">12.3</span> Error handling</h2>
 <p>Not all problems are unexpected. For example, an input data file may be missing. We can often anticipate some of these likely problems by thinking about our users and how the code we might be implemented or misunderstood. If something goes wrong, we want the user to know about it. We can communicate to the user using a variety of conditions; messages, warnings and errors.</p>
 <p>If we want to let the user know about something fairly inoccuous or keep them informed we can use the <code>message()</code> function. Sometimes we might want to draw the users attention to something that might be problematic without stopping the code from running, using <code>warning()</code>. If there’s no way for the code to execute then a fatal error may be preferred using <code>stop()</code>.</p>
 <p>As an example we look to code from the RAP <code>eesectors</code> <a href="https://github.com/DCMSstats/eesectors/">package</a> produced in collaboration with DCMS. Specifically, we look at a snippet of code from the <code>year_sector_data</code> <a href="https://github.com/DCMSstats/eesectors/blob/master/R/year_sector_data.R">function</a>.</p>
@@ -273,17 +278,17 @@ figure3<span class="fl">.1</span> &lt;-<span class="st"> </span>function(x, ...)
 <pre><code>## [1] &quot;What happens if this is not wrapped in try?&quot;</code></pre>
 </div>
 <div id="error-logging" class="section level2">
-<h2><span class="header-section-number">12.3</span> Error logging</h2>
+<h2><span class="header-section-number">12.4</span> Error logging</h2>
 <p>We are increasingly using R and software packages like our RAP in “operational” settings that require robust error handling and logging. In this section we describe a quick-and-dirty way to get python style multi-level log files by wrapping the <code>futile.logger</code> package inspired by this <a href="https://www.r-bloggers.com/python-style-logging-in-r/">blog post</a>.</p>
 <div id="pipeline-pitfalls" class="section level3">
-<h3><span class="header-section-number">12.3.1</span> Pipeline pitfalls</h3>
+<h3><span class="header-section-number">12.4.1</span> Pipeline pitfalls</h3>
 <p>Our real world scenario involves an R package that processes raw data (typically from a spreadsheet or SQL table) that is updated periodically. The raw data can come from various different sources, set up by different agencies and usually manually procured or copy and pasted together prioritising human readability over machine readability.</p>
 <p>Data could be missing or in a different layout from that which we are use to, for a variety of reasons, before it even gets to us. And then our R functions within our package may extract this data and perform various checks on it. From there a user (analyst / statistician) may put together a statistical report using Rmarkdown ultimately resulting in a html document. This pipeline has lots of steps and potential to encounter problems throughout.</p>
 <p>As we develop our RAP for our intended bespoke problem and start to use it in an operational setting, we must ensure that in this chaotic environment we protect ourselves against things going wrong without our realising. One of the methods for working with chaotic situations in operational software is to have lots and Lots and LOTS of logging.</p>
 <p>We take our inspirration from Python, which has the brilliant “logging” module that allows us to quickly set up separate output files for log statements at different levels. This is important as we have different users who may have different needs from the log files. For example, the data scientist / analyst who did the programming for the RAP package may wish to debug the code on logging an error whereas a statistician may prefer to be notified only when an ERROR or something FATAL occurred.</p>
 </div>
 <div id="error-logging-using-futile.logger" class="section level3">
-<h3><span class="header-section-number">12.3.2</span> Error logging using <code>futile.logger</code></h3>
+<h3><span class="header-section-number">12.4.2</span> Error logging using <code>futile.logger</code></h3>
 <p>Fortunately there’s a package available on CRAN that makes this process easy in R called <code>futile.logger</code>. There are a few concepts that it’s helpful to be familiar with before proceeding which are introduced in this <a href="https://www.r-bloggers.com/better-logging-in-r-aka-futile-logger-1-3-0-released/">blog post</a> by the package author.</p>
 <p>One approach is to replace <code>tryCatch</code> with the <code>ftry</code> function with the <code>finally</code>. This function integrates <code>futile.logger</code> with the error and warning system so problems can be caught both in the standard R warning system, while also being emitted via <code>futile.logger</code>.</p>
 <p>We think about how to adapt our earlier code to this function. The primary use case for <code>futile.logger</code> is to write out log messages. There are log writers associated with all the predefined log levels: TRACE, DEBUG, INFO, WARN, ERROR, FATAL. Log messages will only be written if the log level is equal to or more urgent than the current threshold. By default the ROOT logger is set to INFO but this can be adjusted by the user facilitating customisation of the error logging to meet the needs of the current user (by using the <code>flog.threshold</code> function).</p>
@@ -314,7 +319,7 @@ futile.logger::<span class="kw">flog.info</span>(<span class="st">&quot;Finished
 <p>The above example can help the user identify where the pipeline is going wrong by logging the error and capturing the object <code>x</code> where the data is missing. This allows us to more quickly track down what’s going wrong.</p>
 </div>
 <div id="logging-to-file" class="section level3">
-<h3><span class="header-section-number">12.3.3</span> Logging to file</h3>
+<h3><span class="header-section-number">12.4.3</span> Logging to file</h3>
 <p>At the moment we default to writing our log to the console. We could write to a file if interested using the <code>appender</code> family of functions.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Print log messages to the console</span>
 futile.logger::<span class="kw">appender.console</span>()
@@ -324,7 +329,6 @@ futile.logger::<span class="kw">appender.file</span>(<span class="st">&quot;rap_
 
 <span class="co"># Write log messages to console and a file</span>
 futile.logger::<span class="kw">appender.tee</span>(<span class="st">&quot;rap_companion.log&quot;</span>)</code></pre></div>
-<p>======= These kinds of automated tests are repeated every time the data are loaded, reducing the burden of QA, and the scope for human error, freeing up statistician time for identifying more subtle data quality issues which might otherwise go unnoticed. &gt;&gt;&gt;&gt;&gt;&gt;&gt; 1ef3a86… Revert “Add condition handling and logging to QA chapter (#40)” (#41)</p>
 
 </div>
 </div>
