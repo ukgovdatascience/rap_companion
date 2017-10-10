@@ -3,8 +3,7 @@ Title: Reproducible Analytical Pipeline manual
 Version: 0.0.1
 Imports: 
   bookdown (>= 0.4),
-  dplyr (>= 0.4),
-  futile.logger (>= 1.4.3)
+  dplyr (>= 0.4)
 Suggests:
     testthat (>= 1.0.2),
     knitr (>= 1.15.1),

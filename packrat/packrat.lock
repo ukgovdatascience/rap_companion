@@ -140,17 +140,6 @@ Version: 0.2.0
 Hash: e5a3b0b96a39f5581467b0c6366f7408
 Requires: magrittr, tibble
 
-Package: futile.logger
-Source: CRAN
-Version: 1.4.3
-Hash: d1cc6584b39f2c4cfbe377fd94cbdbaa
-Requires: futile.options, lambda.r
-
-Package: futile.options
-Source: CRAN
-Version: 1.0.0
-Hash: 4f24cbf581681c263186b9425f05ba3e
-
 Package: ggplot2
 Source: CRAN
 Version: 2.2.1
@@ -225,11 +214,6 @@ Package: labeling
 Source: CRAN
 Version: 0.3
 Hash: ecf589b42cd284b03a4beb9665482d3e
-
-Package: lambda.r
-Source: CRAN
-Version: 1.2
-Hash: a17af00010c92198f159cebf1467e111
 
 Package: lazyeval
 Source: CRAN

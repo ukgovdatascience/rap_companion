@@ -17,7 +17,6 @@ r_packages:
  - devtools
  - dplyr
  - ggplot2
- - futile.logger
 
 install:
     # Install pandoc 1.18 to squash warning messages
