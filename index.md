@@ -1,7 +1,7 @@
 --- 
 title: "RAP Companion"
 author: ["Matthew Gregory, Matthew Upson"]
-date: "2017-10-11"
+date: "2017-11-07"
 site: bookdown::bookdown_site
 documentclass: book
 # bibliography: [book.bib]  #  Causes doc conversion error
@@ -19,6 +19,8 @@ description: "A technical communication document intended to give assistance to 
 <a href="https://commons.wikimedia.org/wiki/File:Warp_pipe_edited.PNG" target="_blank"><img src="images/cover.png" style="display: block; margin: auto;" /></a>
 
 Producing official statistics for publications is a key function of many teams across Government. It’s a time consuming and meticulous process to ensure that statistics are accurate and timely. With open source software becoming more widely used, there’s now a [range of tools](https://www.gov.uk/service-manual/technology/choosing-technology-an-introduction) and techniques that can be used to reduce production time, whilst maintaining and even improving the quality of the publications. This book is about these techniques: what they are, and how we can use them.  
+
+<a href="https://commons.wikimedia.org/wiki/File:Warp_pipe_edited.PNG" target="_blank"><img src="images/rap_hex.png" style="display: block; margin: auto;" /></a>
 
 ## Discovery
 

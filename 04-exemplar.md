@@ -130,8 +130,24 @@ Installation means the package is on our computer but it is not loaded into the 
 ```
 ## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
 ##   --no-restore --quiet CMD INSTALL  \
-##   '/tmp/RtmpYUgDCx/devtools4a87f4a4798/BH'  \
-##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.1'  \
+##   '/tmp/RtmpMKGdDL/devtools4b82388f40a3/BH'  \
+##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
+##   --install-tests
+```
+
+```
+## 
+```
+
+```
+## Installing glue
+```
+
+```
+## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
+##   --no-restore --quiet CMD INSTALL  \
+##   '/tmp/RtmpMKGdDL/devtools4b82410c9089/glue'  \
+##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
 ##   --install-tests
 ```
 
@@ -146,8 +162,24 @@ Installation means the package is on our computer but it is not loaded into the 
 ```
 ## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
 ##   --no-restore --quiet CMD INSTALL  \
-##   '/tmp/RtmpYUgDCx/devtools4a8771d8def0/Rcpp'  \
-##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.1'  \
+##   '/tmp/RtmpMKGdDL/devtools4b821751da17/Rcpp'  \
+##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
+##   --install-tests
+```
+
+```
+## 
+```
+
+```
+## Installing rlang
+```
+
+```
+## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
+##   --no-restore --quiet CMD INSTALL  \
+##   '/tmp/RtmpMKGdDL/devtools4b82c098678/rlang'  \
+##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
 ##   --install-tests
 ```
 
@@ -158,8 +190,24 @@ Installation means the package is on our computer but it is not loaded into the 
 ```
 ## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
 ##   --no-restore --quiet CMD INSTALL  \
-##   '/tmp/RtmpYUgDCx/devtools4a874e1d9941/dplyr'  \
-##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.1'  \
+##   '/tmp/RtmpMKGdDL/devtools4b82549a1fed/dplyr'  \
+##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
+##   --install-tests
+```
+
+```
+## 
+```
+
+```
+## Installing lazyeval
+```
+
+```
+## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
+##   --no-restore --quiet CMD INSTALL  \
+##   '/tmp/RtmpMKGdDL/devtools4b8235e3d793/lazyeval'  \
+##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
 ##   --install-tests
 ```
 
@@ -178,8 +226,8 @@ Installation means the package is on our computer but it is not loaded into the 
 ```
 ## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
 ##   --no-restore --quiet CMD INSTALL  \
-##   '/tmp/RtmpYUgDCx/devtools4a873a2d9212/viridisLite'  \
-##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.1'  \
+##   '/tmp/RtmpMKGdDL/devtools4b8273493696/viridisLite'  \
+##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
 ##   --install-tests
 ```
 
@@ -190,8 +238,8 @@ Installation means the package is on our computer but it is not loaded into the 
 ```
 ## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
 ##   --no-restore --quiet CMD INSTALL  \
-##   '/tmp/RtmpYUgDCx/devtools4a872398db3c/scales'  \
-##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.1'  \
+##   '/tmp/RtmpMKGdDL/devtools4b8217a77f37/scales'  \
+##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
 ##   --install-tests
 ```
 
@@ -204,14 +252,30 @@ Installation means the package is on our computer but it is not loaded into the 
 ```
 
 ```
+## Installing purrr
+```
+
+```
+## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
+##   --no-restore --quiet CMD INSTALL  \
+##   '/tmp/RtmpMKGdDL/devtools4b827b82675d/purrr'  \
+##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
+##   --install-tests
+```
+
+```
+## 
+```
+
+```
 ## Installing tidyselect
 ```
 
 ```
 ## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
 ##   --no-restore --quiet CMD INSTALL  \
-##   '/tmp/RtmpYUgDCx/devtools4a8730cd8a42/tidyselect'  \
-##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.1'  \
+##   '/tmp/RtmpMKGdDL/devtools4b82624e0471/tidyselect'  \
+##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
 ##   --install-tests
 ```
 
@@ -222,8 +286,8 @@ Installation means the package is on our computer but it is not loaded into the 
 ```
 ## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
 ##   --no-restore --quiet CMD INSTALL  \
-##   '/tmp/RtmpYUgDCx/devtools4a879e634d8/tidyr'  \
-##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.1'  \
+##   '/tmp/RtmpMKGdDL/devtools4b8210286484/tidyr'  \
+##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
 ##   --install-tests
 ```
 
@@ -247,8 +311,8 @@ Installation means the package is on our computer but it is not loaded into the 
 ```
 ## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
 ##   --no-restore --quiet CMD INSTALL  \
-##   '/tmp/RtmpYUgDCx/devtools4a8721d4bc6c/ukgovdatascience-govstyle-a58c163'  \
-##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.1'  \
+##   '/tmp/RtmpMKGdDL/devtools4b824008b5e1/ukgovdatascience-govstyle-a58c163'  \
+##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
 ##   --install-tests
 ```
 
@@ -259,8 +323,8 @@ Installation means the package is on our computer but it is not loaded into the 
 ```
 ## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
 ##   --no-restore --quiet CMD INSTALL  \
-##   '/tmp/RtmpYUgDCx/devtools4a875c329df1/ukgovdatascience-eesectors-5e91f35'  \
-##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.1'  \
+##   '/tmp/RtmpMKGdDL/devtools4b8220f8b815/ukgovdatascience-eesectors-5e91f35'  \
+##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
 ##   --install-tests
 ```
 
@@ -492,9 +556,9 @@ body(year_sector_data)
 
 ```
 ## {
-##     message("Initiating year_sector_data class.\\n\\n\\nExpects a data.frame with three columns: sector, year, and measure, where\\nmeasure is one of GVA, exports, or enterprises. The data.frame should include\\nhistorical data, which is used for checks on the quality of this year's data,\\nand for producing tables and plots. More information on the format expected by\\nthis class is given by ?year_sector_data().")
-##     message("\\n*** Running integrity checks on input dataframe (x):")
-##     message("\\nChecking input is properly formatted...")
+##     message("Initiating year_sector_data class.\n\n\nExpects a data.frame with three columns: sector, year, and measure, where\nmeasure is one of GVA, exports, or enterprises. The data.frame should include\nhistorical data, which is used for checks on the quality of this year's data,\nand for producing tables and plots. More information on the format expected by\nthis class is given by ?year_sector_data().")
+##     message("\n*** Running integrity checks on input dataframe (x):")
+##     message("\nChecking input is properly formatted...")
 ##     message("Checking x is a data.frame...")
 ##     if (!is.data.frame(x)) 
 ##         stop("x must be a data.frame")
@@ -512,10 +576,10 @@ body(year_sector_data)
 ##         stop("x cannot contain any missing values")
 ##     message("Checking for the correct number of rows...")
 ##     if (nrow(x) != length(unique(x$sector)) * length(unique(x$year))) {
-##         warning("x does not appear to be well formed. nrow(x) should equal\\nlength(unique(x$sector)) * length(unique(x$year)). Check the of x.")
+##         warning("x does not appear to be well formed. nrow(x) should equal\nlength(unique(x$sector)) * length(unique(x$year)). Check the of x.")
 ##     }
 ##     message("...passed")
-##     message("\\n***Running statistical checks on input dataframe (x)...\\n\\n  These tests are implemented using the package assertr see:\\n  https://cran.r-project.org/web/packages/assertr for more details.")
+##     message("\n***Running statistical checks on input dataframe (x)...\n\n  These tests are implemented using the package assertr see:\n  https://cran.r-project.org/web/packages/assertr for more details.")
 ##     value <- colnames(x)[(!colnames(x) %in% c("sector", "year"))]
 ##     message("Checking years in a sensible range (2000:2020)...")
 ##     assertr::assert_(x, assertr::in_set(2000:2020), ~year)
