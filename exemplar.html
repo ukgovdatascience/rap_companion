@@ -185,8 +185,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="13.1" data-path="pub.html"><a href="pub.html#further-reading-1"><i class="fa fa-check"></i><b>13.1</b> Further Reading</a></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="final.html"><a href="final.html"><i class="fa fa-check"></i><b>14</b> Final Thoughts</a><ul>
-<li class="chapter" data-level="14.1" data-path="final.html"><a href="final.html#user-feedback"><i class="fa fa-check"></i><b>14.1</b> User feedback</a></li>
-<li class="chapter" data-level="14.2" data-path="final.html"><a href="final.html#just-the-beginning"><i class="fa fa-check"></i><b>14.2</b> Just the beginning…</a></li>
+<li class="chapter" data-level="14.1" data-path="final.html"><a href="final.html#a-structured-rap-course"><i class="fa fa-check"></i><b>14.1</b> A Structured RAP Course</a></li>
+<li class="chapter" data-level="14.2" data-path="final.html"><a href="final.html#user-feedback"><i class="fa fa-check"></i><b>14.2</b> User feedback</a></li>
+<li class="chapter" data-level="14.3" data-path="final.html"><a href="final.html#just-the-beginning"><i class="fa fa-check"></i><b>14.3</b> Just the beginning…</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -312,106 +313,8 @@ Variables: Year, Sector, GVA</p>
 <h3><span class="header-section-number">4.3.2</span> Loading the package</h3>
 <p>Installation means the package is on our computer but it is not loaded into the computer’s working memory. We also load any additional packages that might be useful for exploring the package or data therein.</p>
 <pre><code>## Using GitHub PAT from envvar GITHUB_PAT</code></pre>
-<pre><code>## Downloading GitHub repo ukgovdatascience/eesectors@master
-## from URL https://api.github.com/repos/ukgovdatascience/eesectors/zipball/master</code></pre>
-<pre><code>## Installing eesectors</code></pre>
-<pre><code>## Using GitHub PAT from envvar GITHUB_PAT
-## Using GitHub PAT from envvar GITHUB_PAT</code></pre>
-<pre><code>## Installing dplyr</code></pre>
-<pre><code>## Installing BH</code></pre>
-<pre><code>## &#39;/home/travis/R-bin/lib/R/bin/R&#39; --no-site-file --no-environ --no-save  \
-##   --no-restore --quiet CMD INSTALL  \
-##   &#39;/tmp/RtmpQlsqO4/devtools4b85749fb43e/BH&#39;  \
-##   --library=&#39;/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2&#39;  \
-##   --install-tests</code></pre>
-<pre><code>## </code></pre>
-<pre><code>## Installing glue</code></pre>
-<pre><code>## &#39;/home/travis/R-bin/lib/R/bin/R&#39; --no-site-file --no-environ --no-save  \
-##   --no-restore --quiet CMD INSTALL  \
-##   &#39;/tmp/RtmpQlsqO4/devtools4b85993e124/glue&#39;  \
-##   --library=&#39;/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2&#39;  \
-##   --install-tests</code></pre>
-<pre><code>## </code></pre>
-<pre><code>## Installing Rcpp</code></pre>
-<pre><code>## &#39;/home/travis/R-bin/lib/R/bin/R&#39; --no-site-file --no-environ --no-save  \
-##   --no-restore --quiet CMD INSTALL  \
-##   &#39;/tmp/RtmpQlsqO4/devtools4b8544535ebc/Rcpp&#39;  \
-##   --library=&#39;/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2&#39;  \
-##   --install-tests</code></pre>
-<pre><code>## </code></pre>
-<pre><code>## Installing rlang</code></pre>
-<pre><code>## &#39;/home/travis/R-bin/lib/R/bin/R&#39; --no-site-file --no-environ --no-save  \
-##   --no-restore --quiet CMD INSTALL  \
-##   &#39;/tmp/RtmpQlsqO4/devtools4b853e74884d/rlang&#39;  \
-##   --library=&#39;/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2&#39;  \
-##   --install-tests</code></pre>
-<pre><code>## </code></pre>
-<pre><code>## &#39;/home/travis/R-bin/lib/R/bin/R&#39; --no-site-file --no-environ --no-save  \
-##   --no-restore --quiet CMD INSTALL  \
-##   &#39;/tmp/RtmpQlsqO4/devtools4b85210a51f7/dplyr&#39;  \
-##   --library=&#39;/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2&#39;  \
-##   --install-tests</code></pre>
-<pre><code>## </code></pre>
-<pre><code>## Installing lazyeval</code></pre>
-<pre><code>## &#39;/home/travis/R-bin/lib/R/bin/R&#39; --no-site-file --no-environ --no-save  \
-##   --no-restore --quiet CMD INSTALL  \
-##   &#39;/tmp/RtmpQlsqO4/devtools4b85562160e2/lazyeval&#39;  \
-##   --library=&#39;/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2&#39;  \
-##   --install-tests</code></pre>
-<pre><code>## </code></pre>
-<pre><code>## Installing scales</code></pre>
-<pre><code>## Installing viridisLite</code></pre>
-<pre><code>## &#39;/home/travis/R-bin/lib/R/bin/R&#39; --no-site-file --no-environ --no-save  \
-##   --no-restore --quiet CMD INSTALL  \
-##   &#39;/tmp/RtmpQlsqO4/devtools4b8528022a8e/viridisLite&#39;  \
-##   --library=&#39;/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2&#39;  \
-##   --install-tests</code></pre>
-<pre><code>## </code></pre>
-<pre><code>## &#39;/home/travis/R-bin/lib/R/bin/R&#39; --no-site-file --no-environ --no-save  \
-##   --no-restore --quiet CMD INSTALL  \
-##   &#39;/tmp/RtmpQlsqO4/devtools4b85665cc777/scales&#39;  \
-##   --library=&#39;/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2&#39;  \
-##   --install-tests</code></pre>
-<pre><code>## </code></pre>
-<pre><code>## Installing tidyr</code></pre>
-<pre><code>## Installing purrr</code></pre>
-<pre><code>## &#39;/home/travis/R-bin/lib/R/bin/R&#39; --no-site-file --no-environ --no-save  \
-##   --no-restore --quiet CMD INSTALL  \
-##   &#39;/tmp/RtmpQlsqO4/devtools4b856ba43a35/purrr&#39;  \
-##   --library=&#39;/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2&#39;  \
-##   --install-tests</code></pre>
-<pre><code>## </code></pre>
-<pre><code>## Installing tidyselect</code></pre>
-<pre><code>## &#39;/home/travis/R-bin/lib/R/bin/R&#39; --no-site-file --no-environ --no-save  \
-##   --no-restore --quiet CMD INSTALL  \
-##   &#39;/tmp/RtmpQlsqO4/devtools4b856872db5a/tidyselect&#39;  \
-##   --library=&#39;/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2&#39;  \
-##   --install-tests</code></pre>
-<pre><code>## </code></pre>
-<pre><code>## &#39;/home/travis/R-bin/lib/R/bin/R&#39; --no-site-file --no-environ --no-save  \
-##   --no-restore --quiet CMD INSTALL  \
-##   &#39;/tmp/RtmpQlsqO4/devtools4b856603c0a7/tidyr&#39;  \
-##   --library=&#39;/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2&#39;  \
-##   --install-tests</code></pre>
-<pre><code>## </code></pre>
-<pre><code>## Downloading GitHub repo ukgovdatascience/govstyle@master
-## from URL https://api.github.com/repos/ukgovdatascience/govstyle/zipball/master</code></pre>
-<pre><code>## Installing govstyle</code></pre>
-<pre><code>## Using GitHub PAT from envvar GITHUB_PAT</code></pre>
-<pre><code>## &#39;/home/travis/R-bin/lib/R/bin/R&#39; --no-site-file --no-environ --no-save  \
-##   --no-restore --quiet CMD INSTALL  \
-##   &#39;/tmp/RtmpQlsqO4/devtools4b855d32b476/ukgovdatascience-govstyle-a58c163&#39;  \
-##   --library=&#39;/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2&#39;  \
-##   --install-tests</code></pre>
-<pre><code>## </code></pre>
-<pre><code>## &#39;/home/travis/R-bin/lib/R/bin/R&#39; --no-site-file --no-environ --no-save  \
-##   --no-restore --quiet CMD INSTALL  \
-##   &#39;/tmp/RtmpQlsqO4/devtools4b8513ebfee7/ukgovdatascience-eesectors-5e91f35&#39;  \
-##   --library=&#39;/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2&#39;  \
-##   --install-tests</code></pre>
-<pre><code>## </code></pre>
-<pre><code>## Using GitHub PAT from envvar GITHUB_PAT
-## Using GitHub PAT from envvar GITHUB_PAT</code></pre>
+<pre><code>## Skipping install of &#39;eesectors&#39; from a github remote, the SHA1 (5e91f359) has not changed since last install.
+##   Use `force = TRUE` to force installation</code></pre>
 <pre><code>## eesectors: Reproducible Analytical Pipeline (RAP) for the
 ## Economic Estimates for DCMS Sectors Statistical First Release
 ## (SFR). For more information visit:

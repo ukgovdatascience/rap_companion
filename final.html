@@ -185,8 +185,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="13.1" data-path="pub.html"><a href="pub.html#further-reading-1"><i class="fa fa-check"></i><b>13.1</b> Further Reading</a></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="final.html"><a href="final.html"><i class="fa fa-check"></i><b>14</b> Final Thoughts</a><ul>
-<li class="chapter" data-level="14.1" data-path="final.html"><a href="final.html#user-feedback"><i class="fa fa-check"></i><b>14.1</b> User feedback</a></li>
-<li class="chapter" data-level="14.2" data-path="final.html"><a href="final.html#just-the-beginning"><i class="fa fa-check"></i><b>14.2</b> Just the beginning…</a></li>
+<li class="chapter" data-level="14.1" data-path="final.html"><a href="final.html#a-structured-rap-course"><i class="fa fa-check"></i><b>14.1</b> A Structured RAP Course</a></li>
+<li class="chapter" data-level="14.2" data-path="final.html"><a href="final.html#user-feedback"><i class="fa fa-check"></i><b>14.2</b> User feedback</a></li>
+<li class="chapter" data-level="14.3" data-path="final.html"><a href="final.html#just-the-beginning"><i class="fa fa-check"></i><b>14.3</b> Just the beginning…</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -212,14 +213,109 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1><span class="header-section-number">Chapter 14</span> Final Thoughts</h1>
 <p>It’s called Data Science for a reason, record all the data handling, experimentation and analysis in your <a href="http://colinpurrington.com/tips/lab-notebooks">lab-notebook</a>.</p>
 <p>Version control is your digital lab notebook.</p>
+<div id="a-structured-rap-course" class="section level2">
+<h2><span class="header-section-number">14.1</span> A Structured RAP Course</h2>
+<p>You’re welcome to dip into the previous chapters as and when you need, but you may prefer a more comprehensive grounding in the principles of reproducibility. We provide a sequenced list of lessons here to help you on your journey in becoming a RAP champion. We suggest you work through the list. The links designated as HELP are provided as comprehensive resources if you get stuck, and can be otherwise skipped. The estimated completion time for a resource is given in parentheses.</p>
+<ul>
+<li>The Unix Shell or terminal
+<ul>
+<li><a href="http://swcarpentry.github.io/shell-novice">Interactive lesson that prepares you for git</a> (3 hours)<br />
+</li>
+</ul></li>
+<li>Version Control with git
+<ul>
+<li><a href="http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004668">Quick overview for those without a computing background</a> (30 mins)<br />
+</li>
+<li><a href="http://swcarpentry.github.io/git-novice/">Interactive lesson</a> (3 hours)<br />
+</li>
+<li>HELP: <a href="https://git-scm.com/book/en/v2">Comprehensive git book</a><br />
+</li>
+</ul></li>
+<li>git and Github
+<ul>
+<li><a href="https://stackoverflow.com/questions/13321556/difference-between-git-and-github">The difference between git and Github</a> (5 mins)<br />
+</li>
+<li>ADVANCED: <a href="http://scottchacon.com/2011/08/31/github-flow.html">Github workflow written</a> (1 hour)<br />
+</li>
+<li><a href="https://guides.github.com/introduction/flow/">Github workflow visual</a><br />
+</li>
+</ul></li>
+<li>RStudio, R projects and R fundamentals
+<ul>
+<li><a href="http://swcarpentry.github.io/r-novice-gapminder/">Interactive lesson</a> (12 hours)<br />
+</li>
+<li><a href="http://swcarpentry.github.io/r-novice-inflammation/">Interactive lesson (some overlap with above lesson)</a> (7 hours)<br />
+</li>
+<li>HELP:</li>
+</ul></li>
+<li>Rmarkdown
+<ul>
+<li><a href="http://rmarkdown.rstudio.com/lesson-1.html">Passive lesson</a> (3 hours)<br />
+</li>
+<li>HELP: Write a book in Rmarkdown using <a href="https://bookdown.org/yihui/bookdown/">bookdown</a><br />
+</li>
+</ul></li>
+<li>R packages
+<ul>
+<li>HELP: <a href="http://r-pkgs.had.co.nz/">Hadley Wickham’s R packages</a><br />
+</li>
+</ul></li>
+<li>Prevent dependency hell with packrat
+<ul>
+<li><a href="https://rstudio.github.io/packrat/walkthrough.html">packrat setup</a> (1 hour)<br />
+</li>
+</ul></li>
+<li>Data concerns
+<ul>
+<li><a href="https://www.google.co.uk/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=1&amp;cad=rja&amp;uact=8&amp;ved=0ahUKEwjqp8KdjK_XAhXJmBoKHeFMDGEQFggqMAA&amp;url=https%3A%2F%2Fwww.jstatsoft.org%2Farticle%2Fview%2Fv059i10%2Fv59i10.pdf&amp;usg=AOvVaw2vJ6CHw9RT8m_noVUfoeP6">Tidy data</a> (1 hour)<br />
+</li>
+<li><a href="https://ukgovdatascience.github.io/rap_companion/exemplar.html#tidy-data">The minimal tidy data set</a> (1 hour)<br />
+</li>
+<li>HELP: <a href="http://www.datacarpentry.org/spreadsheet-ecology-lesson/">thinking about data from spreadsheets</a><br />
+</li>
+<li>HELP: <a href="http://www.datacarpentry.org/sql-ecology-lesson/">data management with SQL SQL</a><br />
+</li>
+<li>HELP: <a href="http://kbroman.org/dataorg/">organising data</a></li>
+</ul></li>
+<li>Unit tests
+<ul>
+<li><a href="http://r-pkgs.had.co.nz/tests.html">Hadley Wickham’s chapter</a> (2 hours)<br />
+</li>
+</ul></li>
+<li>Automated testing; detects problems you might miss.
+<ul>
+<li><a href="http://r-pkgs.had.co.nz/check.html">Using RMD check</a></li>
+<li><a href="https://docs.travis-ci.com/user/getting-started/">Getting started with Travis</a><br />
+</li>
+<li><a href="https://docs.travis-ci.com/user/languages/r/">Building an R project with Travis</a><br />
+</li>
+<li><a href="https://github.com/DCMSstats/eesectors/blob/master/.travis.yml">Look at an example RAP .travis.yml</a><br />
+</li>
+</ul></li>
+<li>Further reading
+<ul>
+<li><a href="https://software-carpentry.org/reading/">Software carpentry</a><br />
+</li>
+<li><a href="http://www.datacarpentry.org/">Data carpentry</a><br />
+</li>
+<li><a href="https://en.wikipedia.org/wiki/DevOps">DevOps</a></li>
+<li><a href="https://en.wikipedia.org/wiki/DataOps">DataOps</a><br />
+</li>
+<li><a href="http://r4ds.had.co.nz/">R for Data Science</a><br />
+</li>
+<li><a href="http://www.pnas.org/content/112/6/1645.full">Evidence based data analysis</a></li>
+</ul></li>
+</ul>
+<p>It’s also worthwhile looking at other Department’s RAP efforts. For a good open example see <a href="https://github.com/DCMSstats/eesectors">DCMS’s eesectors package</a>.</p>
+</div>
 <div id="user-feedback" class="section level2">
-<h2><span class="header-section-number">14.1</span> User feedback</h2>
+<h2><span class="header-section-number">14.2</span> User feedback</h2>
 <p>The RAP companion is intended to point data scientists in the Civil Service towards the Data Ops toolkit that should be used when attempting to automate some of the boring stuff for their colleagues. Your feedback is welcome and important. It will help us improve the RAP companion through further iterations.</p>
 <p>You can feedback through completing this <a href="https://docs.google.com/forms/d/e/1FAIpQLSeVYmjJIPm-YJ_lgKu0JdIiUwc2glSLtfGFQxKdW1cMmRwbCQ/viewform?usp=pp_url&amp;entry.1747016377=4&amp;entry.305553560=4&amp;entry.349499540&amp;entry.1168732002=Column+4&amp;entry.1948461863=Column+4&amp;entry.1262699325=Column+4&amp;entry.1033407422=Column+4&amp;entry.900063493=Column+4&amp;entry.811492760=Column+4&amp;entry.2083454847&amp;entry.2141214542=Yes&amp;entry.1340586078&amp;entry.879050699&amp;entry.1223500353">Google form</a> which allows us to <a href="https://www.gov.uk/service-manual/measuring-success/measuring-user-satisfaction">measure your satisfaction</a>.</p>
 <p>Or, by raising an <a href="https://github.com/ukgovdatascience/rap_companion/issues">issue on the RAP companion repo page</a>.</p>
 </div>
 <div id="just-the-beginning" class="section level2">
-<h2><span class="header-section-number">14.2</span> Just the beginning…</h2>
+<h2><span class="header-section-number">14.3</span> Just the beginning…</h2>
 <p>We’ve introduced you to the basics of reproducibility and Data Ops. For further development ideas and inspiration consider the <a href="http://dataopsmanifesto.org/">Data Ops manifesto</a>.</p>
 
 </div>
