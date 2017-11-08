@@ -4,6 +4,54 @@ It's called Data Science for a reason, record all the data handling, experimenta
 
 Version control is your digital lab notebook.
 
+## A Structured RAP Course
+
+You're welcome to dip into the previous chapters as and when you need, but you may prefer a more comprehensive grounding in the principles of reproducibility. We provide a sequenced list of lessons here to help you on your journey in becoming a RAP champion. We suggest you work through the list. The links designated as HELP are provided as comprehensive resources if you get stuck, and can be otherwise skipped. The estimated completion time for a resource is given in parentheses.  
+
+* The Unix Shell or terminal  
+    + [Interactive lesson that prepares you for git](http://swcarpentry.github.io/shell-novice) (3 hours)  
+* Version Control with git  
+    + [Quick overview for those without a computing background](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004668) (30 mins)  
+    + [Interactive lesson](http://swcarpentry.github.io/git-novice/) (3 hours)  
+    + HELP: [Comprehensive git book](https://git-scm.com/book/en/v2)  
+* git and Github  
+    + [The difference between git and Github](https://stackoverflow.com/questions/13321556/difference-between-git-and-github) (5 mins)  
+    + ADVANCED: [Github workflow written](http://scottchacon.com/2011/08/31/github-flow.html) (1 hour)  
+    + [Github workflow visual](https://guides.github.com/introduction/flow/)  
+* RStudio, R projects and R fundamentals  
+    + [Interactive lesson](http://swcarpentry.github.io/r-novice-gapminder/) (12 hours)  
+    + [Interactive lesson (some overlap with above lesson)](http://swcarpentry.github.io/r-novice-inflammation/) (7 hours)  
+    + HELP: 
+* Rmarkdown  
+    + [Passive lesson](http://rmarkdown.rstudio.com/lesson-1.html)  (3 hours)  
+    + HELP: Write a book in Rmarkdown using [bookdown](https://bookdown.org/yihui/bookdown/)  
+* R packages  
+    + HELP: [Hadley Wickham's R packages](http://r-pkgs.had.co.nz/)  
+* Prevent dependency hell with packrat  
+    + [packrat setup](https://rstudio.github.io/packrat/walkthrough.html) (1 hour)  
+* Data concerns  
+    + [Tidy data](https://www.google.co.uk/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwjqp8KdjK_XAhXJmBoKHeFMDGEQFggqMAA&url=https%3A%2F%2Fwww.jstatsoft.org%2Farticle%2Fview%2Fv059i10%2Fv59i10.pdf&usg=AOvVaw2vJ6CHw9RT8m_noVUfoeP6) (1 hour)  
+    + [The minimal tidy data set](https://ukgovdatascience.github.io/rap_companion/exemplar.html#tidy-data) (1 hour)  
+    + HELP: [thinking about data from spreadsheets](http://www.datacarpentry.org/spreadsheet-ecology-lesson/)  
+    + HELP: [data management with SQL SQL](http://www.datacarpentry.org/sql-ecology-lesson/)  
+    + HELP: [organising data](http://kbroman.org/dataorg/)
+* Unit tests  
+    + [Hadley Wickham's chapter](http://r-pkgs.had.co.nz/tests.html) (2 hours)  
+* Automated testing; detects problems you might miss.  
+    + [Using RMD check](http://r-pkgs.had.co.nz/check.html)
+    + [Getting started with Travis](https://docs.travis-ci.com/user/getting-started/)  
+    + [Building an R project with Travis](https://docs.travis-ci.com/user/languages/r/)  
+    + [Look at an example RAP .travis.yml](https://github.com/DCMSstats/eesectors/blob/master/.travis.yml)  
+* Further reading  
+    + [Software carpentry](https://software-carpentry.org/reading/)  
+    + [Data carpentry](http://www.datacarpentry.org/)  
+    + [DevOps](https://en.wikipedia.org/wiki/DevOps)
+    + [DataOps](https://en.wikipedia.org/wiki/DataOps)  
+    + [R for Data Science](http://r4ds.had.co.nz/)  
+    + [Evidence based data analysis](http://www.pnas.org/content/112/6/1645.full)  
+    
+It's also worthwhile looking at other Department's RAP efforts. For a good open example see [DCMS's eesectors package](https://github.com/DCMSstats/eesectors).  
+
 ## User feedback
 
 The RAP companion is intended to point data scientists in the Civil Service towards the Data Ops toolkit that should be used when attempting to automate some of the boring stuff for their colleagues. Your feedback is welcome and important. It will help us improve the RAP companion through further iterations.  
