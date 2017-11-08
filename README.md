@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/ukgovdatascience/rap_companion.svg?branch=master)](https://travis-ci.org/ukgovdatascience/rap_companion)
 
-[Reproducible Analytical Pipeline Companion](https://ukgovdatascience.github.io/rap_companion/)
+[Reproducible Analytical Pipeline Companion](https://ukgovdatascience.github.io/rap_companion/) <img src="images/rap_hex.png" align="right" width="200" height="200" />  
 ==========================================
 
 **This is a prototype and subject to constant development**
@@ -21,3 +21,7 @@ This is a community effort produced by those interested in automating the produc
 ## Issues
 
 Every GitHub repo comes with a page for tracking issues. Use it! If you encounter a bug while reviewing the [RAP companion](https://ukgovdatascience.github.io/rap_companion/), jot a note down on the [issues page](https://github.com/ukgovdatascience/rap_companion/issues).
+
+## Acknowledgements
+
+Thanks to Dr Matthew Dray for converting the RAP logo into a hex sticker using the [hexSticker](https://cran.r-project.org/web/packages/hexSticker/index.html) pagkage. The warp pipe originates from [Wikimedia](https://commons.wikimedia.org/wiki/File:Warp_pipe_edited.PNG).  
