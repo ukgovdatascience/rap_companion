@@ -140,7 +140,7 @@ futile.logger::flog.info("But this %s", 'will')
 ```
 
 ```
-## INFO [2017-11-20 19:43:58] But this will
+## INFO [2017-11-20 22:29:00] But this will
 ```
 
 ```r
@@ -148,7 +148,7 @@ futile.logger::flog.warn("As will %s", 'this')
 ```
 
 ```
-## WARN [2017-11-20 19:43:58] As will this
+## WARN [2017-11-20 22:29:00] As will this
 ```
 
 
@@ -178,7 +178,7 @@ futile.logger::flog.trace("Checking x does not contain missing values...")
 ```
 
 ```
-## ERROR [2017-11-20 19:43:58] x cannot contain any missing values.
+## ERROR [2017-11-20 22:29:00] x cannot contain any missing values.
 ## 
 ## [1] "culture" "sport"   NA
 ```
@@ -188,7 +188,7 @@ futile.logger::flog.info("Finished checks.")
 ```
 
 ```
-## INFO [2017-11-20 19:43:58] Finished checks.
+## INFO [2017-11-20 22:29:00] Finished checks.
 ```
 
 The above example can help the user identify where the pipeline is going wrong by logging the error and capturing the object `x` where the data is missing. This allows us to more quickly track down what's going wrong.  
@@ -209,3 +209,26 @@ futile.logger::appender.file("rap_companion.log")
 futile.logger::appender.tee("rap_companion.log")
 ```
 
+## Proof calculation
+
+Regardless of how the results are published or the methodology used, the results need to be checked for correctness. Here we explore how we can use statistics to help us validate the correctness of results in a RAP.  
+
+The scientific method of choice to address validity is peer review. This can go as far as having the reviewer implement the analysis as a completely separate and independent process in order to check that results agree. Such a co-pilot approach fits nicely to the fact that real-life statistical analysis rarely is a one-person activity anymore.  
+
+In practice, there might neither be a need nor the resources to rebuild entire analyses, but critical parts need to be double-checked. There a variety of appraoches you could try that will suit different problems.    
+
+* Pair [programming](https://en.wikipedia.org/wiki/Pair_programming) is one technique from the agile programming world to accomodate this.  
+* Single programmers coding independently and then comparing results.
+* Peer [review](https://help.github.com/articles/about-pull-request-reviews/) of code and tests throughout the development process using Github.  
+
+In our RAP projects to date we have opted for the third choice, as often our aim is to build programming capability as well as correct and reproducible results through code. We also use [unit tests](#test) to check the critical areas of code by providing an expectation. However, unit tests are more useful for detecting errors with a code during development, as they are a manifestation of our expert domain knowledge. They are only as comprehensive as the work invested in writing them, conversely one does not need infinite tests.  
+
+If you are interested in taking these ideas further and using statistics to help you estimate the number of wrong results in your report as part of your QA process, then read this [blog](https://www.r-bloggers.com/right-or-wrong-validate-numbers-like-a-boss/).  
+
+## When should one stop testing software?
+
+Imagine that a team of developers of a new RAP R package needs to structure a test plan before the publication of their report. There is an (unknown) number of bugs in the package. The team starts their testing at time zero and subsequently find an increasing number of bugs as the test period passes by. The figure below shows such a testing process mimicking the example of [Dalal and Mallows](http://www.jstor.org/stable/2289319) (1988) from the testing of a large software system at a telecommunications research company.
+
+<a href="http://staff.math.su.se/hoehle/blog/2016/05/06/when2stop.html" target="_blank"><img src="images/bugs.png" style="display: block; margin: auto;" /></a>
+
+We see that the number of bugs appears to level off. The question is now how long should we continue testing before releasing? For a discussion of this problem, see this [blog](http://staff.math.su.se/hoehle/blog/2016/05/06/when2stop.html), from which we have paraphrased.  

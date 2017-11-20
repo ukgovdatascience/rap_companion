@@ -182,6 +182,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="12.4.2" data-path="qa-data.html"><a href="qa-data.html#error-logging-using-futile.logger"><i class="fa fa-check"></i><b>12.4.2</b> Error logging using <code>futile.logger</code></a></li>
 <li class="chapter" data-level="12.4.3" data-path="qa-data.html"><a href="qa-data.html#logging-to-file"><i class="fa fa-check"></i><b>12.4.3</b> Logging to file</a></li>
 </ul></li>
+<li class="chapter" data-level="12.5" data-path="qa-data.html"><a href="qa-data.html#proof-calculation"><i class="fa fa-check"></i><b>12.5</b> Proof calculation</a></li>
+<li class="chapter" data-level="12.6" data-path="qa-data.html"><a href="qa-data.html#when-should-one-stop-testing-software"><i class="fa fa-check"></i><b>12.6</b> When should one stop testing software?</a></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="pub.html"><a href="pub.html"><i class="fa fa-check"></i><b>13</b> Producing the publication</a><ul>
 <li class="chapter" data-level="13.1" data-path="pub.html"><a href="pub.html#further-reading-1"><i class="fa fa-check"></i><b>13.1</b> Further Reading</a></li>
@@ -300,9 +302,9 @@ figure3<span class="fl">.1</span> &lt;-<span class="st"> </span>function(x, ...)
 
 futile.logger::<span class="kw">flog.debug</span>(<span class="st">&quot;This won&#39;t print&quot;</span>) 
 futile.logger::<span class="kw">flog.info</span>(<span class="st">&quot;But this %s&quot;</span>, <span class="st">&#39;will&#39;</span>) </code></pre></div>
-<pre><code>## INFO [2017-11-20 19:43:58] But this will</code></pre>
+<pre><code>## INFO [2017-11-20 22:29:00] But this will</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">futile.logger::<span class="kw">flog.warn</span>(<span class="st">&quot;As will %s&quot;</span>, <span class="st">&#39;this&#39;</span>)</code></pre></div>
-<pre><code>## WARN [2017-11-20 19:43:58] As will this</code></pre>
+<pre><code>## WARN [2017-11-20 22:29:00] As will this</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;culture&quot;</span>, <span class="st">&quot;sport&quot;</span>, <span class="ot">NA</span>)
 
   <span class="kw">message</span>(<span class="st">&#39;Checking x does not contain missing values...&#39;</span>)
@@ -319,11 +321,11 @@ futile.logger::<span class="kw">flog.trace</span>(<span class="st">&quot;Checkin
     futile.logger::<span class="kw">flog.error</span>(<span class="st">&quot;x cannot contain any missing values.&quot;</span>, 
                x, <span class="dt">capture =</span> <span class="ot">TRUE</span>)
   }</code></pre></div>
-<pre><code>## ERROR [2017-11-20 19:43:58] x cannot contain any missing values.
+<pre><code>## ERROR [2017-11-20 22:29:00] x cannot contain any missing values.
 ## 
 ## [1] &quot;culture&quot; &quot;sport&quot;   NA</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">futile.logger::<span class="kw">flog.info</span>(<span class="st">&quot;Finished checks.&quot;</span>)</code></pre></div>
-<pre><code>## INFO [2017-11-20 19:43:58] Finished checks.</code></pre>
+<pre><code>## INFO [2017-11-20 22:29:00] Finished checks.</code></pre>
 <p>The above example can help the user identify where the pipeline is going wrong by logging the error and capturing the object <code>x</code> where the data is missing. This allows us to more quickly track down what’s going wrong.</p>
 </div>
 <div id="logging-to-file" class="section level3">
@@ -337,8 +339,28 @@ futile.logger::<span class="kw">appender.file</span>(<span class="st">&quot;rap_
 
 <span class="co"># Write log messages to console and a file</span>
 futile.logger::<span class="kw">appender.tee</span>(<span class="st">&quot;rap_companion.log&quot;</span>)</code></pre></div>
-
 </div>
+</div>
+<div id="proof-calculation" class="section level2">
+<h2><span class="header-section-number">12.5</span> Proof calculation</h2>
+<p>Regardless of how the results are published or the methodology used, the results need to be checked for correctness. Here we explore how we can use statistics to help us validate the correctness of results in a RAP.</p>
+<p>The scientific method of choice to address validity is peer review. This can go as far as having the reviewer implement the analysis as a completely separate and independent process in order to check that results agree. Such a co-pilot approach fits nicely to the fact that real-life statistical analysis rarely is a one-person activity anymore.</p>
+<p>In practice, there might neither be a need nor the resources to rebuild entire analyses, but critical parts need to be double-checked. There a variety of appraoches you could try that will suit different problems.</p>
+<ul>
+<li>Pair <a href="https://en.wikipedia.org/wiki/Pair_programming">programming</a> is one technique from the agile programming world to accomodate this.<br />
+</li>
+<li>Single programmers coding independently and then comparing results.</li>
+<li>Peer <a href="https://help.github.com/articles/about-pull-request-reviews/">review</a> of code and tests throughout the development process using Github.</li>
+</ul>
+<p>In our RAP projects to date we have opted for the third choice, as often our aim is to build programming capability as well as correct and reproducible results through code. We also use <a href="test.html#test">unit tests</a> to check the critical areas of code by providing an expectation. However, unit tests are more useful for detecting errors with a code during development, as they are a manifestation of our expert domain knowledge. They are only as comprehensive as the work invested in writing them, conversely one does not need infinite tests.</p>
+<p>If you are interested in taking these ideas further and using statistics to help you estimate the number of wrong results in your report as part of your QA process, then read this <a href="https://www.r-bloggers.com/right-or-wrong-validate-numbers-like-a-boss/">blog</a>.</p>
+</div>
+<div id="when-should-one-stop-testing-software" class="section level2">
+<h2><span class="header-section-number">12.6</span> When should one stop testing software?</h2>
+<p>Imagine that a team of developers of a new RAP R package needs to structure a test plan before the publication of their report. There is an (unknown) number of bugs in the package. The team starts their testing at time zero and subsequently find an increasing number of bugs as the test period passes by. The figure below shows such a testing process mimicking the example of <a href="http://www.jstor.org/stable/2289319">Dalal and Mallows</a> (1988) from the testing of a large software system at a telecommunications research company.</p>
+<p><a href="http://staff.math.su.se/hoehle/blog/2016/05/06/when2stop.html" target="_blank"><img src="images/bugs.png" style="display: block; margin: auto;" /></a></p>
+<p>We see that the number of bugs appears to level off. The question is now how long should we continue testing before releasing? For a discussion of this problem, see this <a href="http://staff.math.su.se/hoehle/blog/2016/05/06/when2stop.html">blog</a>, from which we have paraphrased.</p>
+
 </div>
 </div>
             </section>
