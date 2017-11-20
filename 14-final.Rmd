@@ -47,6 +47,7 @@ You're welcome to dip into the previous chapters as and when you need, but you m
     + [Data carpentry](http://www.datacarpentry.org/)  
     + [DevOps](https://en.wikipedia.org/wiki/DevOps)
     + [DataOps](https://en.wikipedia.org/wiki/DataOps)  
+    + [Awesome R packages for DevOps](https://awesome-r.com/#awesome-r-r-development)  
     + [R for Data Science](http://r4ds.had.co.nz/)  
     + [Evidence based data analysis](http://www.pnas.org/content/112/6/1645.full)  
     
