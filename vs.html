@@ -161,7 +161,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.2.3" data-path="vs.html"><a href="vs.html#command-line-focus"><i class="fa fa-check"></i><b>6.2.3</b> Command line focus</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="vs.html"><a href="vs.html#typical-workflow"><i class="fa fa-check"></i><b>6.3</b> Typical workflow</a></li>
-<li class="chapter" data-level="6.4" data-path="vs.html"><a href="vs.html#watermarking"><i class="fa fa-check"></i><b>6.4</b> Watermarking</a></li>
+<li class="chapter" data-level="6.4" data-path="vs.html"><a href="vs.html#branch-naming-etiquette"><i class="fa fa-check"></i><b>6.4</b> Branch naming etiquette</a></li>
+<li class="chapter" data-level="6.5" data-path="vs.html"><a href="vs.html#watermarking"><i class="fa fa-check"></i><b>6.5</b> Watermarking</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="package.html"><a href="package.html"><i class="fa fa-check"></i><b>7</b> Packaging Code</a><ul>
 <li class="chapter" data-level="7.1" data-path="package.html"><a href="package.html#essential-reading"><i class="fa fa-check"></i><b>7.1</b> Essential reading</a></li>
@@ -269,13 +270,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ol>
 <p>CAVEAT: this workflow is not appropriate for large open collaborations, where fork and pull is preferred.</p>
 </div>
+<div id="branch-naming-etiquette" class="section level2">
+<h2><span class="header-section-number">6.4</span> Branch naming etiquette</h2>
+<p>Generally I will start a new branch to either add a new feature <code>git branch feature/cool_new_feature</code> such as for testing or adding a new function <code>git branch feature/sen_function_name</code>. Or if fixing a bug or problem. We should be writing these on the Github <a href="https://github.com/ukgovdatascience/rap_companion/issues">issues page for the package</a>. We can then title our branches to tackle specific issues <code>git branch fix/issue_number</code>.<br />
+It’s good to push your branches to Github if your working on it prior to it being finished so we all know what everyone is working on. You can simply put [WIP] (Work in progress) in the title of the PR on Github to let people know its not ready for review yet.</p>
+</div>
 <div id="watermarking" class="section level2">
-<h2><span class="header-section-number">6.4</span> Watermarking</h2>
+<h2><span class="header-section-number">6.5</span> Watermarking</h2>
 <p>Imagine if someone asks you to reproduce some historic analysis further down the line. This will be easy if you’ve used git as long as you know which version of your code was used to produce the report (packrat also facilitates this). You can then load that <a href="http://r-pkgs.had.co.nz/description.html#version">version</a> of the code to repeat the analysis and reproduce the report.</p>
 <p>As an additional measure, or if you find versioning intimidating, you could watermark your report by citing the git commit used to generate it, as demonstrated below and in the stackoverflow answer by <a href="https://stackoverflow.com/questions/32260956/show-git-version-in-r-code">Wander Nauta, 2015</a>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">system</span>(<span class="st">&quot;git rev-parse --short HEAD&quot;</span>,
              <span class="dt">intern =</span> <span class="ot">TRUE</span>))</code></pre></div>
-<pre><code>## [1] &quot;d1da394&quot;</code></pre>
+<pre><code>## [1] &quot;9126af9&quot;</code></pre>
 <p>This commit hash can be used to “revert” back to the code at the time the report was produced, fool around and reproduce the original report. You also have the flexibility to do other things which are explored in this <a href="https://stackoverflow.com/questions/4114095/how-to-revert-git-repository-to-a-previous-commit">Stack Overflow answer</a>. This feature of version control is what makes our analytical pipelines reproducible.</p>
 
 </div>

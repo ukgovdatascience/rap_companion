@@ -78,6 +78,11 @@ We give a simple workflow here (assuming you are collaborating on Github with a 
 
 CAVEAT: this workflow is not appropriate for large open collaborations, where fork and pull is preferred.  
 
+## Branch naming etiquette
+
+Generally I will start a new branch to either add a new feature `git branch feature/cool_new_feature` such as for testing or adding a new function `git branch feature/sen_function_name`. Or if fixing a bug or problem. We should be writing these on the Github [issues page for the package](https://github.com/ukgovdatascience/rap_companion/issues). We can then title our branches to tackle specific issues `git branch fix/issue_number`.  
+It's good to push your branches to Github if your working on it prior to it being finished so we all know what everyone is working on. You can simply put [WIP] (Work in progress) in the title of the PR on Github to let people know its not ready for review yet.
+
 ## Watermarking
 
 Imagine if someone asks you to reproduce some historic analysis further down the line. This will be easy if you've used git as long as you know which version of your code was used to produce the report (packrat also facilitates this). You can then load that [version](http://r-pkgs.had.co.nz/description.html#version) of the code to repeat the analysis and reproduce the report.  
@@ -91,7 +96,7 @@ print(system("git rev-parse --short HEAD",
 ```
 
 ```
-## [1] "d1da394"
+## [1] "9126af9"
 ```
 
 This commit hash can be used to "revert" back to the code at the time the report was produced, fool around and reproduce the original report. You also have the flexibility to do other things which are explored in this [Stack Overflow answer](https://stackoverflow.com/questions/4114095/how-to-revert-git-repository-to-a-previous-commit). This feature of version control is what makes our analytical pipelines reproducible.  
