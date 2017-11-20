@@ -161,6 +161,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.2.3" data-path="vs.html"><a href="vs.html#command-line-focus"><i class="fa fa-check"></i><b>6.2.3</b> Command line focus</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="vs.html"><a href="vs.html#typical-workflow"><i class="fa fa-check"></i><b>6.3</b> Typical workflow</a></li>
+<li class="chapter" data-level="6.4" data-path="vs.html"><a href="vs.html#watermarking"><i class="fa fa-check"></i><b>6.4</b> Watermarking</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="package.html"><a href="package.html"><i class="fa fa-check"></i><b>7</b> Packaging Code</a><ul>
 <li class="chapter" data-level="7.1" data-path="package.html"><a href="package.html#essential-reading"><i class="fa fa-check"></i><b>7.1</b> Essential reading</a></li>
@@ -226,7 +227,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">6.2</span> Useful resources</h2>
 <div id="graphical-user-interface-focus" class="section level3">
 <h3><span class="header-section-number">6.2.1</span> Graphical user interface focus</h3>
-<p>A <a href="http://happygitwithr.com/">useful book</a> on Git and Github that should cover all your needs for those who are uncomfortable working in a command line interface. This will cover most of your Git and Github workflow needs for collaborating in a team.</p>
+<p>A <a href="http://happygitwithr.com/">useful book</a> on Git and Github that should cover all your needs for those who are uncomfortable working in a command line interface. This will cover most of your Git and Github workflow needs for collaborating in a team. However, we recommend putting the effort into learning git without a GUI, so that you benefit from the full funcitonality on offer.</p>
 </div>
 <div id="git-and-rstudio" class="section level3">
 <h3><span class="header-section-number">6.2.2</span> Git and RStudio</h3>
@@ -250,7 +251,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#  git checkout master</span>
 <span class="co">#  git pull</span></code></pre></div>
 <ol start="4" style="list-style-type: decimal">
-<li>Create your new feature branch to work on and get to work:</li>
+<li>Create your new feature branch to work on and get to work (track changes by adding and comitting locally as usual):</li>
 </ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#  git checkout -b feature/post_name</span></code></pre></div>
 <ol start="5" style="list-style-type: decimal">
@@ -267,6 +268,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>You have a new master on Github. Pull it to your local machine and the development cycle starts again!</li>
 </ol>
 <p>CAVEAT: this workflow is not appropriate for large open collaborations, where fork and pull is preferred.</p>
+</div>
+<div id="watermarking" class="section level2">
+<h2><span class="header-section-number">6.4</span> Watermarking</h2>
+<p>Imagine if someone asks you to reproduce some historic analysis further down the line. This will be easy if you’ve used git as long as you know which version of your code was used to produce the report (packrat also facilitates this). You can then load that <a href="http://r-pkgs.had.co.nz/description.html#version">version</a> of the code to repeat the analysis and reproduce the report.</p>
+<p>As an additional measure, or if you find versioning intimidating, you could watermark your report by citing the git commit used to generate it, as demonstrated below and in the stackoverflow answer by <a href="https://stackoverflow.com/questions/32260956/show-git-version-in-r-code">Wander Nauta, 2015</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">system</span>(<span class="st">&quot;git rev-parse --short HEAD&quot;</span>,
+             <span class="dt">intern =</span> <span class="ot">TRUE</span>))</code></pre></div>
+<pre><code>## [1] &quot;1902058&quot;</code></pre>
+<p>This commit hash can be used to “revert” back to the code at the time the report was produced, fool around and reproduce the original report. You also have the flexibility to do other things which are explored in this <a href="https://stackoverflow.com/questions/4114095/how-to-revert-git-repository-to-a-previous-commit">Stack Overflow answer</a>. This feature of version control is what makes our analytical pipelines reproducible.</p>
 
 </div>
 </div>
