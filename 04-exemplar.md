@@ -106,8 +106,303 @@ Installation means the package is on our computer but it is not loaded into the 
 ```
 
 ```
-## Skipping install of 'eesectors' from a github remote, the SHA1 (5e91f359) has not changed since last install.
-##   Use `force = TRUE` to force installation
+## Downloading GitHub repo ukgovdatascience/eesectors@master
+## from URL https://api.github.com/repos/ukgovdatascience/eesectors/zipball/master
+```
+
+```
+## Installing eesectors
+```
+
+```
+## Using GitHub PAT from envvar GITHUB_PAT
+## Using GitHub PAT from envvar GITHUB_PAT
+```
+
+```
+## Installing dplyr
+```
+
+```
+## Installing BH
+```
+
+```
+## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
+##   --no-restore --quiet CMD INSTALL  \
+##   '/tmp/RtmphZqHAv/devtools503b65797584/BH'  \
+##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
+##   --install-tests
+```
+
+```
+## 
+```
+
+```
+## Installing glue
+```
+
+```
+## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
+##   --no-restore --quiet CMD INSTALL  \
+##   '/tmp/RtmphZqHAv/devtools503b779ab4c6/glue'  \
+##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
+##   --install-tests
+```
+
+```
+## 
+```
+
+```
+## Installing Rcpp
+```
+
+```
+## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
+##   --no-restore --quiet CMD INSTALL  \
+##   '/tmp/RtmphZqHAv/devtools503b2270970d/Rcpp'  \
+##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
+##   --install-tests
+```
+
+```
+## 
+```
+
+```
+## Installing rlang
+```
+
+```
+## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
+##   --no-restore --quiet CMD INSTALL  \
+##   '/tmp/RtmphZqHAv/devtools503b2c3285d1/rlang'  \
+##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
+##   --install-tests
+```
+
+```
+## 
+```
+
+```
+## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
+##   --no-restore --quiet CMD INSTALL  \
+##   '/tmp/RtmphZqHAv/devtools503b57f72502/dplyr'  \
+##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
+##   --install-tests
+```
+
+```
+## 
+```
+
+```
+## Installing lazyeval
+```
+
+```
+## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
+##   --no-restore --quiet CMD INSTALL  \
+##   '/tmp/RtmphZqHAv/devtools503b6e135561/lazyeval'  \
+##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
+##   --install-tests
+```
+
+```
+## 
+```
+
+```
+## Installing scales
+```
+
+```
+## Installing viridisLite
+```
+
+```
+## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
+##   --no-restore --quiet CMD INSTALL  \
+##   '/tmp/RtmphZqHAv/devtools503b4dc495a4/viridisLite'  \
+##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
+##   --install-tests
+```
+
+```
+## 
+```
+
+```
+## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
+##   --no-restore --quiet CMD INSTALL  \
+##   '/tmp/RtmphZqHAv/devtools503b3c4219c1/scales'  \
+##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
+##   --install-tests
+```
+
+```
+## 
+```
+
+```
+## Installing tidyr
+```
+
+```
+## Installing purrr
+```
+
+```
+## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
+##   --no-restore --quiet CMD INSTALL  \
+##   '/tmp/RtmphZqHAv/devtools503b720dcfa6/purrr'  \
+##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
+##   --install-tests
+```
+
+```
+## 
+```
+
+```
+## Installing stringi
+```
+
+```
+## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
+##   --no-restore --quiet CMD INSTALL  \
+##   '/tmp/RtmphZqHAv/devtools503b3432521e/stringi'  \
+##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
+##   --install-tests
+```
+
+```
+## 
+```
+
+```
+## Installing tidyselect
+```
+
+```
+## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
+##   --no-restore --quiet CMD INSTALL  \
+##   '/tmp/RtmphZqHAv/devtools503b60f828dd/tidyselect'  \
+##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
+##   --install-tests
+```
+
+```
+## 
+```
+
+```
+## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
+##   --no-restore --quiet CMD INSTALL  \
+##   '/tmp/RtmphZqHAv/devtools503b68a84194/tidyr'  \
+##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
+##   --install-tests
+```
+
+```
+## 
+```
+
+```
+## Downloading GitHub repo ukgovdatascience/govstyle@master
+## from URL https://api.github.com/repos/ukgovdatascience/govstyle/zipball/master
+```
+
+```
+## Installing govstyle
+```
+
+```
+## Using GitHub PAT from envvar GITHUB_PAT
+```
+
+```
+## Installing devtools
+```
+
+```
+## Installing rstudioapi
+```
+
+```
+## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
+##   --no-restore --quiet CMD INSTALL  \
+##   '/tmp/RtmphZqHAv/devtools503b42a85840/rstudioapi'  \
+##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
+##   --install-tests
+```
+
+```
+## 
+```
+
+```
+## Installing withr
+```
+
+```
+## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
+##   --no-restore --quiet CMD INSTALL  \
+##   '/tmp/RtmphZqHAv/devtools503b30bbada1/withr'  \
+##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
+##   --install-tests
+```
+
+```
+## 
+```
+
+```
+## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
+##   --no-restore --quiet CMD INSTALL  \
+##   '/tmp/RtmphZqHAv/devtools503b1675d26f/devtools'  \
+##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
+##   --install-tests
+```
+
+```
+## 
+```
+
+```
+## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
+##   --no-restore --quiet CMD INSTALL  \
+##   '/tmp/RtmphZqHAv/devtools503b13a06b18/ukgovdatascience-govstyle-a58c163'  \
+##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
+##   --install-tests
+```
+
+```
+## 
+```
+
+```
+## Using GitHub PAT from envvar GITHUB_PAT
+```
+
+```
+## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
+##   --no-restore --quiet CMD INSTALL  \
+##   '/tmp/RtmphZqHAv/devtools503b4a8d51c3/ukgovdatascience-eesectors-5e91f35'  \
+##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
+##   --install-tests
+```
+
+```
+## 
+```
+
+```
+## Using GitHub PAT from envvar GITHUB_PAT
+## Using GitHub PAT from envvar GITHUB_PAT
 ```
 
 ```

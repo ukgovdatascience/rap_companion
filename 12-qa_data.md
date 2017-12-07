@@ -140,7 +140,7 @@ futile.logger::flog.info("But this %s", 'will')
 ```
 
 ```
-## INFO [2017-11-20 22:34:13] But this will
+## INFO [2017-12-07 14:51:57] But this will
 ```
 
 ```r
@@ -148,7 +148,7 @@ futile.logger::flog.warn("As will %s", 'this')
 ```
 
 ```
-## WARN [2017-11-20 22:34:13] As will this
+## WARN [2017-12-07 14:51:57] As will this
 ```
 
 
@@ -178,7 +178,7 @@ futile.logger::flog.trace("Checking x does not contain missing values...")
 ```
 
 ```
-## ERROR [2017-11-20 22:34:13] x cannot contain any missing values.
+## ERROR [2017-12-07 14:51:57] x cannot contain any missing values.
 ## 
 ## [1] "culture" "sport"   NA
 ```
@@ -188,7 +188,7 @@ futile.logger::flog.info("Finished checks.")
 ```
 
 ```
-## INFO [2017-11-20 22:34:13] Finished checks.
+## INFO [2017-12-07 14:51:57] Finished checks.
 ```
 
 The above example can help the user identify where the pipeline is going wrong by logging the error and capturing the object `x` where the data is missing. This allows us to more quickly track down what's going wrong.  
