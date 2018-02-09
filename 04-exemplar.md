@@ -130,7 +130,7 @@ Installation means the package is on our computer but it is not loaded into the 
 ```
 ## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
 ##   --no-restore --quiet CMD INSTALL  \
-##   '/tmp/RtmpeoO6lm/devtools46634b05c226/BH'  \
+##   '/tmp/Rtmpb1SIua/devtools46671e2b91f/BH'  \
 ##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
 ##   --install-tests
 ```
@@ -146,7 +146,7 @@ Installation means the package is on our computer but it is not loaded into the 
 ```
 ## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
 ##   --no-restore --quiet CMD INSTALL  \
-##   '/tmp/RtmpeoO6lm/devtools46635358ac13/glue'  \
+##   '/tmp/Rtmpb1SIua/devtools4667200a83ef/glue'  \
 ##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
 ##   --install-tests
 ```
@@ -162,7 +162,7 @@ Installation means the package is on our computer but it is not loaded into the 
 ```
 ## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
 ##   --no-restore --quiet CMD INSTALL  \
-##   '/tmp/RtmpeoO6lm/devtools46635ed89b47/Rcpp'  \
+##   '/tmp/Rtmpb1SIua/devtools466774baa61d/Rcpp'  \
 ##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
 ##   --install-tests
 ```
@@ -178,7 +178,7 @@ Installation means the package is on our computer but it is not loaded into the 
 ```
 ## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
 ##   --no-restore --quiet CMD INSTALL  \
-##   '/tmp/RtmpeoO6lm/devtools466361316fd/rlang'  \
+##   '/tmp/Rtmpb1SIua/devtools46671ad86c0c/rlang'  \
 ##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
 ##   --install-tests
 ```
@@ -202,7 +202,7 @@ Installation means the package is on our computer but it is not loaded into the 
 ```
 ## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
 ##   --no-restore --quiet CMD INSTALL  \
-##   '/tmp/RtmpeoO6lm/devtools46634f9b5513/crayon'  \
+##   '/tmp/Rtmpb1SIua/devtools46674c2c5d43/crayon'  \
 ##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
 ##   --install-tests
 ```
@@ -214,7 +214,7 @@ Installation means the package is on our computer but it is not loaded into the 
 ```
 ## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
 ##   --no-restore --quiet CMD INSTALL  \
-##   '/tmp/RtmpeoO6lm/devtools46632f29cdc3/cli'  \
+##   '/tmp/Rtmpb1SIua/devtools4667301d8655/cli'  \
 ##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
 ##   --install-tests
 ```
@@ -239,7 +239,7 @@ Installation means the package is on our computer but it is not loaded into the 
 ```
 ## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
 ##   --no-restore --quiet CMD INSTALL  \
-##   '/tmp/RtmpeoO6lm/devtools46636a2fa7ba/utf8'  \
+##   '/tmp/Rtmpb1SIua/devtools46675974eaf6/utf8'  \
 ##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
 ##   --install-tests
 ```
@@ -251,7 +251,7 @@ Installation means the package is on our computer but it is not loaded into the 
 ```
 ## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
 ##   --no-restore --quiet CMD INSTALL  \
-##   '/tmp/RtmpeoO6lm/devtools466379bb2c0e/pillar'  \
+##   '/tmp/Rtmpb1SIua/devtools4667606f2223/pillar'  \
 ##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
 ##   --install-tests
 ```
@@ -263,7 +263,7 @@ Installation means the package is on our computer but it is not loaded into the 
 ```
 ## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
 ##   --no-restore --quiet CMD INSTALL  \
-##   '/tmp/RtmpeoO6lm/devtools466349b0f6f5/tibble'  \
+##   '/tmp/Rtmpb1SIua/devtools46671cbc5865/tibble'  \
 ##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
 ##   --install-tests
 ```
@@ -275,7 +275,7 @@ Installation means the package is on our computer but it is not loaded into the 
 ```
 ## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
 ##   --no-restore --quiet CMD INSTALL  \
-##   '/tmp/RtmpeoO6lm/devtools46632433afc0/dplyr'  \
+##   '/tmp/Rtmpb1SIua/devtools46674a179b38/dplyr'  \
 ##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
 ##   --install-tests
 ```
@@ -295,7 +295,7 @@ Installation means the package is on our computer but it is not loaded into the 
 ```
 ## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
 ##   --no-restore --quiet CMD INSTALL  \
-##   '/tmp/RtmpeoO6lm/devtools46635e2ba15c/hms'  \
+##   '/tmp/Rtmpb1SIua/devtools46676dcd9c80/hms'  \
 ##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
 ##   --install-tests
 ```
@@ -307,7 +307,7 @@ Installation means the package is on our computer but it is not loaded into the 
 ```
 ## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
 ##   --no-restore --quiet CMD INSTALL  \
-##   '/tmp/RtmpeoO6lm/devtools466369c986fd/haven'  \
+##   '/tmp/Rtmpb1SIua/devtools466761d5f5b9/haven'  \
 ##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
 ##   --install-tests
 ```
@@ -323,7 +323,7 @@ Installation means the package is on our computer but it is not loaded into the 
 ```
 ## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
 ##   --no-restore --quiet CMD INSTALL  \
-##   '/tmp/RtmpeoO6lm/devtools46636db397fb/lazyeval'  \
+##   '/tmp/Rtmpb1SIua/devtools466762fa9591/lazyeval'  \
 ##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
 ##   --install-tests
 ```
@@ -343,7 +343,7 @@ Installation means the package is on our computer but it is not loaded into the 
 ```
 ## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
 ##   --no-restore --quiet CMD INSTALL  \
-##   '/tmp/RtmpeoO6lm/devtools46632aecf8fa/viridisLite'  \
+##   '/tmp/Rtmpb1SIua/devtools46673055aea5/viridisLite'  \
 ##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
 ##   --install-tests
 ```
@@ -355,7 +355,7 @@ Installation means the package is on our computer but it is not loaded into the 
 ```
 ## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
 ##   --no-restore --quiet CMD INSTALL  \
-##   '/tmp/RtmpeoO6lm/devtools46633d06be67/scales'  \
+##   '/tmp/Rtmpb1SIua/devtools46673e838ef8/scales'  \
 ##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
 ##   --install-tests
 ```
@@ -375,7 +375,7 @@ Installation means the package is on our computer but it is not loaded into the 
 ```
 ## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
 ##   --no-restore --quiet CMD INSTALL  \
-##   '/tmp/RtmpeoO6lm/devtools466348179ff9/purrr'  \
+##   '/tmp/Rtmpb1SIua/devtools466778500e96/purrr'  \
 ##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
 ##   --install-tests
 ```
@@ -391,7 +391,7 @@ Installation means the package is on our computer but it is not loaded into the 
 ```
 ## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
 ##   --no-restore --quiet CMD INSTALL  \
-##   '/tmp/RtmpeoO6lm/devtools46634a75deee/stringi'  \
+##   '/tmp/Rtmpb1SIua/devtools46679bd9ead/stringi'  \
 ##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
 ##   --install-tests
 ```
@@ -407,7 +407,7 @@ Installation means the package is on our computer but it is not loaded into the 
 ```
 ## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
 ##   --no-restore --quiet CMD INSTALL  \
-##   '/tmp/RtmpeoO6lm/devtools4663391c3dcc/tidyselect'  \
+##   '/tmp/Rtmpb1SIua/devtools466729b85c7d/tidyselect'  \
 ##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
 ##   --install-tests
 ```
@@ -419,7 +419,7 @@ Installation means the package is on our computer but it is not loaded into the 
 ```
 ## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
 ##   --no-restore --quiet CMD INSTALL  \
-##   '/tmp/RtmpeoO6lm/devtools466359a83a9b/tidyr'  \
+##   '/tmp/Rtmpb1SIua/devtools46677df34628/tidyr'  \
 ##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
 ##   --install-tests
 ```
@@ -452,7 +452,7 @@ Installation means the package is on our computer but it is not loaded into the 
 ```
 ## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
 ##   --no-restore --quiet CMD INSTALL  \
-##   '/tmp/RtmpeoO6lm/devtools46633c8598e3/digest'  \
+##   '/tmp/Rtmpb1SIua/devtools4667585fb26f/digest'  \
 ##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
 ##   --install-tests
 ```
@@ -468,7 +468,7 @@ Installation means the package is on our computer but it is not loaded into the 
 ```
 ## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
 ##   --no-restore --quiet CMD INSTALL  \
-##   '/tmp/RtmpeoO6lm/devtools46632a3930de/git2r'  \
+##   '/tmp/Rtmpb1SIua/devtools46673b5a4800/git2r'  \
 ##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
 ##   --install-tests
 ```
@@ -484,7 +484,7 @@ Installation means the package is on our computer but it is not loaded into the 
 ```
 ## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
 ##   --no-restore --quiet CMD INSTALL  \
-##   '/tmp/RtmpeoO6lm/devtools4663673fef45/rstudioapi'  \
+##   '/tmp/Rtmpb1SIua/devtools466779ddd6f8/rstudioapi'  \
 ##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
 ##   --install-tests
 ```
@@ -500,7 +500,7 @@ Installation means the package is on our computer but it is not loaded into the 
 ```
 ## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
 ##   --no-restore --quiet CMD INSTALL  \
-##   '/tmp/RtmpeoO6lm/devtools4663122ce840/withr'  \
+##   '/tmp/Rtmpb1SIua/devtools46672a33859d/withr'  \
 ##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
 ##   --install-tests
 ```
@@ -512,7 +512,7 @@ Installation means the package is on our computer but it is not loaded into the 
 ```
 ## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
 ##   --no-restore --quiet CMD INSTALL  \
-##   '/tmp/RtmpeoO6lm/devtools46635e59f787/devtools'  \
+##   '/tmp/Rtmpb1SIua/devtools46676a9215ef/devtools'  \
 ##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
 ##   --install-tests
 ```
@@ -528,7 +528,7 @@ Installation means the package is on our computer but it is not loaded into the 
 ```
 ## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
 ##   --no-restore --quiet CMD INSTALL  \
-##   '/tmp/RtmpeoO6lm/devtools46636bd522db/testthat'  \
+##   '/tmp/Rtmpb1SIua/devtools46672826cbc6/testthat'  \
 ##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
 ##   --install-tests
 ```
@@ -540,7 +540,7 @@ Installation means the package is on our computer but it is not loaded into the 
 ```
 ## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
 ##   --no-restore --quiet CMD INSTALL  \
-##   '/tmp/RtmpeoO6lm/devtools4663561e6590/ukgovdatascience-govstyle-a58c163'  \
+##   '/tmp/Rtmpb1SIua/devtools466733338fe8/ukgovdatascience-govstyle-a58c163'  \
 ##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
 ##   --install-tests
 ```
@@ -556,7 +556,7 @@ Installation means the package is on our computer but it is not loaded into the 
 ```
 ## '/home/travis/R-bin/lib/R/bin/R' --no-site-file --no-environ --no-save  \
 ##   --no-restore --quiet CMD INSTALL  \
-##   '/tmp/RtmpeoO6lm/devtools4663687241ac/ukgovdatascience-eesectors-5e91f35'  \
+##   '/tmp/Rtmpb1SIua/devtools46673fa9eecc/ukgovdatascience-eesectors-5e91f35'  \
 ##   --library='/home/travis/build/ukgovdatascience/rap_companion/packrat/lib/x86_64-pc-linux-gnu/3.4.2'  \
 ##   --install-tests
 ```
