@@ -8,6 +8,6 @@ This [bookdown](https://bookdown.org/yihui/bookdown/) manual uses the *eesectors
 
 ## Objectives
 
-* Questions to ask oneself before you RAP?
-* Why RAP?
-* How to RAP?
+* Questions to ask oneself before you RAP?  
+* Why RAP?  
+* How to RAP?  
