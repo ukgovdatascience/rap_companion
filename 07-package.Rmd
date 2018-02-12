@@ -19,4 +19,21 @@ Linking the documentation to the code makes everything much easier to understand
 
 ## Essential reading
 
-Hadley Wickham's [R Packages](http://r-pkgs.had.co.nz/) book is an excellent and comprehensive introduction to developing your own package in R. It encourages you to start with the basics and improve over time; good advice.
+Hadley Wickham's [R Packages](http://r-pkgs.had.co.nz/) book is an excellent and comprehensive introduction to developing your own package in R. It encourages you to start with the basics and improve over time; good advice.  
+
+## Development best practices for your package
+
+### Licensing your code  
+
+Developing your code as an R package will require you to specify a license for your code in the DESCRIPTION file (for example the [eesectors](https://github.com/DCMSstats/eesectors/blob/master/DESCRIPTION) package uses the GPL-3 license). We quote the [GDS Service Manual](https://www.gov.uk/service-manual/technology/making-source-code-open-and-reusable#licensing-your-code) by encouraging the use of an [Open Source Initiative](https://opensource.org/licenses) compatible licence. For example, GDS uses the [MIT licence](https://github.com/alphagov/styleguides/blob/master/licensing.md).  
+
+It is also of note that all code produced by civil servants is automatically covered by [Crown Copyright](http://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/).  
+
+### Acting as the custodian for your code  
+
+When you make your code open, you should:
+
+* use [Semantic Versioning](https://semver.org/) to make it clear when you release an update to your code  
+* be clear about how you’ll communicate with users of your code, for example on support channels and email lists  
+
+Encouraging contributions from people who use your code can help make your code more robust, as people will spot bugs and suggest new features. If you would like to encourage contributions, you can create a [CONTRIBUTING.md](https://github.com/blog/1184-contributing-guidelines) file on Github, like we [demonstrate for this book](https://github.com/ukgovdatascience/rap_companion/blob/master/CONTRIBUTING.md).  
