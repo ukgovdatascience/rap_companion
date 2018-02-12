@@ -166,6 +166,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="7" data-path="package.html"><a href="package.html"><i class="fa fa-check"></i><b>7</b> Packaging Code</a><ul>
 <li class="chapter" data-level="7.1" data-path="package.html"><a href="package.html#essential-reading"><i class="fa fa-check"></i><b>7.1</b> Essential reading</a></li>
+<li class="chapter" data-level="7.2" data-path="package.html"><a href="package.html#development-best-practices-for-your-package"><i class="fa fa-check"></i><b>7.2</b> Development best practices for your package</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="package.html"><a href="package.html#licensing-your-code"><i class="fa fa-check"></i><b>7.2.1</b> Licensing your code</a></li>
+<li class="chapter" data-level="7.2.2" data-path="package.html"><a href="package.html#acting-as-the-custodian-for-your-code"><i class="fa fa-check"></i><b>7.2.2</b> Acting as the custodian for your code</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="test.html"><a href="test.html"><i class="fa fa-check"></i><b>8</b> Unit test</a><ul>
 <li class="chapter" data-level="8.1" data-path="test.html"><a href="test.html#further-reading"><i class="fa fa-check"></i><b>8.1</b> Further Reading</a></li>
@@ -227,7 +231,25 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="essential-reading" class="section level2">
 <h2><span class="header-section-number">7.1</span> Essential reading</h2>
 <p>Hadley Wickham’s <a href="http://r-pkgs.had.co.nz/">R Packages</a> book is an excellent and comprehensive introduction to developing your own package in R. It encourages you to start with the basics and improve over time; good advice.</p>
+</div>
+<div id="development-best-practices-for-your-package" class="section level2">
+<h2><span class="header-section-number">7.2</span> Development best practices for your package</h2>
+<div id="licensing-your-code" class="section level3">
+<h3><span class="header-section-number">7.2.1</span> Licensing your code</h3>
+<p>Developing your code as an R package will require you to specify a license for your code in the DESCRIPTION file (for example the <a href="https://github.com/DCMSstats/eesectors/blob/master/DESCRIPTION">eesectors</a> package uses the GPL-3 license). We quote the <a href="https://www.gov.uk/service-manual/technology/making-source-code-open-and-reusable#licensing-your-code">GDS Service Manual</a> by encouraging the use of an <a href="https://opensource.org/licenses">Open Source Initiative</a> compatible licence. For example, GDS uses the <a href="https://github.com/alphagov/styleguides/blob/master/licensing.md">MIT licence</a>.</p>
+<p>It is also of note that all code produced by civil servants is automatically covered by <a href="http://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/">Crown Copyright</a>.</p>
+</div>
+<div id="acting-as-the-custodian-for-your-code" class="section level3">
+<h3><span class="header-section-number">7.2.2</span> Acting as the custodian for your code</h3>
+<p>When you make your code open, you should:</p>
+<ul>
+<li>use <a href="https://semver.org/">Semantic Versioning</a> to make it clear when you release an update to your code<br />
+</li>
+<li>be clear about how you’ll communicate with users of your code, for example on support channels and email lists</li>
+</ul>
+<p>Encouraging contributions from people who use your code can help make your code more robust, as people will spot bugs and suggest new features. If you would like to encourage contributions, you can create a <a href="https://github.com/blog/1184-contributing-guidelines">CONTRIBUTING.md</a> file on Github, like we <a href="https://github.com/ukgovdatascience/rap_companion/blob/master/CONTRIBUTING.md">demonstrate for this book</a>.</p>
 
+</div>
 </div>
 </div>
             </section>
