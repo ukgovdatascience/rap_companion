@@ -85,6 +85,52 @@ cat(tabl) # output the table in a format good for HTML/PDF/docx conversion
 
 *This data is for demonstration purposes only.*
 
+#### Another worked example - what does our SEN tidy data look like?
+
+We repeat the process above for a different publication related to [Special Educational Needs data](https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/633031/SFR37_2017_Main_Text.pdf) to demonstrate the thought process. We suggest you attempt to do this independently without peeking at the solution below, that way you can test your understanding.  
+
+Look at the final report; work through and think about what data you need to produce each figure or table (write out the variables then sketch the minimal tidy data set required to build it). Ideally there will be one minimal tidy data set that we can build as input for our functions to produce these figures, tables or statistics. If a report covers a broad topic it might not be possible to have one minimal tidy data set (it’s OK to have more than one). We can create our own [custom class](http://adv-r.had.co.nz/OO-essentials.html) of object to cope and keep things simple for the user of our package.  
+
+Here we draw our tables in a pseudo csv format to digitise for sharing. Sketching with pencil and paper is also fine and much clearer! I also use shorthand for some of the variable names given in the publication.
+
+##### Figure A
+
+year, all students, total sen, sen without statement or EHC plan, sen with statement or EHC plan ...  
+
+##### Figure B
+
+This digs deeper than Fig A by counting and categorising students (converted into percentage) by their primary type of need. Thus our minimal table above will not meet the needs for Figure B. We’ll add in some example made-up data to check I understand the data correctly (the type of the data is the important thing e.g. date, integer, string). It’s important here to have expert domain knowledge as one might misunderstand due to esoteric language use.  
+
+year, sen_status, sen_category, sen_primary_type_need, count  
+2016, 0, NA, NA, 3e6  
+2016, 1, “SEN Support", “Specific Learning Difficulty", 5000  
+2016, 1, “Statement or EHC Plan", “Specific Learning Difficulty", 1500 2016, 1, “SEN Support", “Moderate Learning Difficulty", 5000  
+2017, ...    
+
+** Question: using the data table above can you produce both Figure A and B? **
+
+With our data structured like this we have all the data we need to produce Figure B and Figure A.  
+
+##### Figure C
+
+Again we dig deeper and ask what’s their school type? We don’t have this in our previous minimal data table so we need to include this variable in our dataframe.  
+
+year, school_type, sen_status, sen_category, sen_primary_type_need, count  
+2016, “State-funded primary”, 0, NA, NA, 3e6  
+2016, “State-funded primary”, 1, “SEN Support", “Specific Learning Difficulty", 5000  
+2016, “State-funded primary”, 1, “Statement or EHC Plan", “Specific Learning Difficulty", 1500   2016, “State-funded primary”, 1, “SEN Support", “Moderate Learning Difficulty", 5000  
+...    
+
+As you can imagine the table can end up being quite long!  
+
+** Question: using the data table above can you produce both Figure A, B and C? **  
+
+Yes.  
+
+Continue this thought process for the rest of the document. However, bear in mind that you have the added insight of where the data comes from and in what format, this might affect your using more than one data class for the package. For example you could call the one we described above as your "year-sch-sen” class, and have another data class dedicated to being the input for some of the other figures in the chapter.  
+
+The data might come from an SQL query or a bunch of disparate spreadsheets. In the later case we can write some functions to extract and combine the data into a minimal tidy data table for use in our package. See eesectors [README](https://github.com/DCMSstats/eesectors/blob/master/README.md) for an example.  
+
 ### How to build your tidy data?
 
 With the minimal tidy dataset idea in place, you can begin to think about how you might construct this tidy dataset from the data stores you have availiable.
