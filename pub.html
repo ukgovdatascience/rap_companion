@@ -190,7 +190,23 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="12.6" data-path="qa-data.html"><a href="qa-data.html#when-should-one-stop-testing-software"><i class="fa fa-check"></i><b>12.6</b> When should one stop testing software?</a></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="pub.html"><a href="pub.html"><i class="fa fa-check"></i><b>13</b> Producing the publication</a><ul>
-<li class="chapter" data-level="13.1" data-path="pub.html"><a href="pub.html#further-reading-1"><i class="fa fa-check"></i><b>13.1</b> Further Reading</a></li>
+<li class="chapter" data-level="13.1" data-path="pub.html"><a href="pub.html#r-markdown-overview"><i class="fa fa-check"></i><b>13.1</b> R Markdown overview</a><ul>
+<li class="chapter" data-level="13.1.1" data-path="pub.html"><a href="pub.html#prerequisites"><i class="fa fa-check"></i><b>13.1.1</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="pub.html"><a href="pub.html#r-markdown-basics"><i class="fa fa-check"></i><b>13.2</b> R Markdown basics</a></li>
+<li class="chapter" data-level="13.3" data-path="pub.html"><a href="pub.html#text-formatting-with-markdown"><i class="fa fa-check"></i><b>13.3</b> Text formatting with Markdown</a></li>
+<li class="chapter" data-level="13.4" data-path="pub.html"><a href="pub.html#code-chunks"><i class="fa fa-check"></i><b>13.4</b> Code chunks</a><ul>
+<li class="chapter" data-level="13.4.1" data-path="pub.html"><a href="pub.html#chunking-code-in-rap"><i class="fa fa-check"></i><b>13.4.1</b> Chunking code in RAP</a></li>
+<li class="chapter" data-level="13.4.2" data-path="pub.html"><a href="pub.html#chunk-name"><i class="fa fa-check"></i><b>13.4.2</b> Chunk name</a></li>
+<li class="chapter" data-level="13.4.3" data-path="pub.html"><a href="pub.html#chunk-options"><i class="fa fa-check"></i><b>13.4.3</b> Chunk options</a></li>
+<li class="chapter" data-level="13.4.4" data-path="pub.html"><a href="pub.html#global-options"><i class="fa fa-check"></i><b>13.4.4</b> Global options</a></li>
+<li class="chapter" data-level="13.4.5" data-path="pub.html"><a href="pub.html#inline-code"><i class="fa fa-check"></i><b>13.4.5</b> Inline code</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="pub.html"><a href="pub.html#yaml-header"><i class="fa fa-check"></i><b>13.5</b> YAML header</a><ul>
+<li class="chapter" data-level="13.5.1" data-path="pub.html"><a href="pub.html#output-style"><i class="fa fa-check"></i><b>13.5.1</b> Output style</a></li>
+<li class="chapter" data-level="13.5.2" data-path="pub.html"><a href="pub.html#parameters"><i class="fa fa-check"></i><b>13.5.2</b> Parameters</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6" data-path="pub.html"><a href="pub.html#further-reading-1"><i class="fa fa-check"></i><b>13.6</b> Further Reading</a></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="final.html"><a href="final.html"><i class="fa fa-check"></i><b>14</b> Final Thoughts</a><ul>
 <li class="chapter" data-level="14.1" data-path="final.html"><a href="final.html#a-structured-rap-course"><i class="fa fa-check"></i><b>14.1</b> A Structured RAP Course</a></li>
@@ -224,8 +240,187 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </blockquote>
 <p>Everything I have talked about so far is to do with the production of the statistics themselves, not preparation of the final publication, but there are tools that can help with this too. In our project with DCMS we plan to use <a href="http://rmarkdown.rstudio.com/">Rmarkdown</a> (a flavour of <a href="https://en.wikipedia.org/wiki/Markdown">markdown</a>) to incorporate the R code into the same document as the text of the publication.</p>
 <p>Working in this way means that we can do all of the operations in a single file, so we have no problems with ensuring that our tables or figures are synced with the latest version of the text: everything can be produced in a single file. We can even produce templates with boilerplate text like: ‘this measure increased by X%’, and then automatically populate the X with the correct values when we run the code.</p>
+<div id="r-markdown-overview" class="section level2">
+<h2><span class="header-section-number">13.1</span> R Markdown overview</h2>
+<p>Copied and paraphrased from <a href="https://github.com/hadley/r4ds">Hadley Wickham’s R for Data Science</a>:</p>
+<p>R Markdown provides an unified authoring framework for analytical reporting, combining your code, its results, and your prose commentary. R Markdown documents are fully reproducible and support dozens of output formats, like PDFs, Word files, slideshows, and more.</p>
+<p>R Markdown files as a data product of RAP are designed to be used:</p>
+<ol style="list-style-type: decimal">
+<li>For communicating to decision makers or users, who want to focus on the conclusions, not the code behind the analysis.</li>
+</ol>
+<p>R Markdown integrates a number of R packages and external tools. This means that help is, by-and-large, not available through <code>?</code>. Instead you can rely on the Help within RStudio:</p>
+<ul>
+<li><p>R Markdown Cheat Sheet: <em>Help &gt; Cheatsheets &gt; R Markdown Cheat Sheet</em>,</p></li>
+<li><p>R Markdown Reference Guide: <em>Help &gt; Cheatsheets &gt; R Markdown Reference Guide</em>.</p></li>
+</ul>
+<p>Both cheatsheets are also available at <a href="http://rstudio.com/cheatsheets" class="uri">http://rstudio.com/cheatsheets</a>.</p>
+<div id="prerequisites" class="section level3">
+<h3><span class="header-section-number">13.1.1</span> Prerequisites</h3>
+<p>You need the <strong>rmarkdown</strong> package, but you don’t need to explicitly install it or load it, as RStudio automatically does both when needed.</p>
+</div>
+</div>
+<div id="r-markdown-basics" class="section level2">
+<h2><span class="header-section-number">13.2</span> R Markdown basics</h2>
+<p>This file itself is an R Markdown file, a plain text file that has the extension <code>.Rmd</code>. Here’s a screenshot of a R Markdown file:</p>
+<p><img src="images/rmarkdown.png" style="display: block; margin: auto;" /></p>
+<p>It contains three important types of content:</p>
+<ol style="list-style-type: decimal">
+<li>An (optional) <strong>YAML header</strong> surrounded by <code>---</code>s (lines 1-6).</li>
+<li><strong>Chunks</strong> of R code surrounded by <code>```</code> (lines 22-27 and 29-31).</li>
+<li>Text mixed with simple text formatting like <code># heading</code> and <code>_italics_</code> (lines 7-20).</li>
+</ol>
+</div>
+<div id="text-formatting-with-markdown" class="section level2">
+<h2><span class="header-section-number">13.3</span> Text formatting with Markdown</h2>
+<p>Prose in <code>.Rmd</code> files is written in Markdown, a lightweight set of conventions for formatting plain text files. Markdown is designed to be easy to read and easy to write. It is also very easy to learn thus we leave that to the reader to learn themselves through practise.</p>
+</div>
+<div id="code-chunks" class="section level2">
+<h2><span class="header-section-number">13.4</span> Code chunks</h2>
+<p>To run code inside an R Markdown document, you need to insert a chunk. There are three ways to do so:</p>
+<ol style="list-style-type: decimal">
+<li><p>The keyboard shortcut Cmd/Ctrl + Alt + I</p></li>
+<li><p>The “Insert” button icon in the editor toolbar.</p></li>
+<li><p>By manually typing the chunk delimiters <code>```{r}</code> and <code>```</code>.</p></li>
+</ol>
+<p>Obviously, Hadley Wickham recommends you learn the keyboard shortcut. It will save you a lot of time in the long run!</p>
+<p>You can continue to run the code using the keyboard shortcut that by now you know and love: Cmd/Ctrl + Enter. However, chunks get a new keyboard shortcut: Cmd/Ctrl + Shift + Enter, which runs all the code in the chunk (Cmd/Ctrl + Shift + N, runs the next chunk). Think of a chunk like a function. A chunk should be relatively self-contained, and focussed around a single task.</p>
+<div id="chunking-code-in-rap" class="section level3">
+<h3><span class="header-section-number">13.4.1</span> Chunking code in RAP</h3>
+<p>Ask your users what they might prefer; all the code in one chunk at the start, specifying all the variables needed for the rest of the document, to keep the code “out of the way”, or each code chunk occuring adjacent to the relevant statistic, figure or table generated.</p>
+</div>
+<div id="chunk-name" class="section level3">
+<h3><span class="header-section-number">13.4.2</span> Chunk name</h3>
+<p>Chunks can be given an optional name: <code>```{r by-name}</code>. This has three advantages:</p>
+<ol style="list-style-type: decimal">
+<li><p>You can more easily navigate to specific chunks using the drop-down code navigator in the bottom-left of the script editor:</p>
+<p><img src="screenshots/rmarkdown-chunk-nav.png" width="30%" /></p></li>
+<li><p>Graphics produced by the chunks will have useful names that make them easier to use elsewhere.</p></li>
+<li><p>You can set up networks of cached chunks to avoid re-performing expensive computations on every run.</p></li>
+</ol>
+<p>There is one chunk name that imbues special behaviour: <code>setup</code>. When you’re in a notebook mode, the chunk named setup will be run automatically once, before any other code is run. This can be used to set defaut behaviour for all of your chunks as well as a few other special things.</p>
+</div>
+<div id="chunk-options" class="section level3">
+<h3><span class="header-section-number">13.4.3</span> Chunk options</h3>
+<p>Chunk output can be customised with <strong>options</strong>, arguments supplied to chunk header. Knitr provides almost 60 options that you can use to customize your code chunks. Here we’ll cover the most important chunk options that you’ll use frequently. You can see the full list at <a href="http://yihui.name/knitr/options/" class="uri">http://yihui.name/knitr/options/</a>.</p>
+<p>The most important set of options controls if your code block is executed and what results are inserted in the finished report:</p>
+<ul>
+<li><p><code>eval = FALSE</code> prevents code from being evaluated. (And obviously if the code is not run, no results will be generated). This is useful for displaying example code, or for disabling a large block of code without commenting each line.</p></li>
+<li><p><code>include = FALSE</code> runs the code, but doesn’t show the code or results in the final document. Use this for setup code that you don’t want cluttering your report.</p></li>
+<li><p><code>echo = FALSE</code> prevents code, but not the results from appearing in the finished file. Use this when writing reports aimed at people who don’t want to see the underlying R code.</p></li>
+<li><p><code>message = FALSE</code> or <code>warning = FALSE</code> prevents messages or warnings from appearing in the finished file.</p></li>
+<li><p><code>results = 'hide'</code> hides printed output; <code>fig.show = 'hide'</code> hides plots.</p></li>
+<li><p><code>error = TRUE</code> causes the render to continue even if code returns an error. This is rarely something you’ll want to include in the final version of your report, but can be very useful if you need to debug exactly what is going on inside your <code>.Rmd</code>. It’s also useful if you’re teaching R and want to deliberately include an error. The default, <code>error = FALSE</code> causes knitting to fail if there is a single error in the document.</p></li>
+</ul>
+<p>The following table summarises which types of output each option supressess:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Option</th>
+<th>Run code</th>
+<th>Show code</th>
+<th>Output</th>
+<th>Plots</th>
+<th>Messages</th>
+<th>Warnings</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>eval = FALSE</code></td>
+<td>-</td>
+<td></td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr class="even">
+<td><code>include = FALSE</code></td>
+<td></td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td><code>echo = FALSE</code></td>
+<td></td>
+<td>-</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>results = &quot;hide&quot;</code></td>
+<td></td>
+<td></td>
+<td>-</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>fig.show = &quot;hide&quot;</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td>-</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>message = FALSE</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>-</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><code>warning = FALSE</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="global-options" class="section level3">
+<h3><span class="header-section-number">13.4.4</span> Global options</h3>
+<p>As you work more with knitr, you will discover that some of the default chunk options don’t fit your needs and you want to change them. You can do this by calling <code>knitr::opts_chunk$set()</code> in a code chunk. For example, when business reports and statistical publications try:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr::opts_chunk$<span class="kw">set</span>(
+  <span class="dt">echo =</span> <span class="ot">FALSE</span>
+)</code></pre></div>
+<p>That will hide the code by default, so only showing the chunks you deliberately choose to show (with <code>echo = TRUE</code>). You might consider setting <code>message = FALSE</code> and <code>warning = FALSE</code>, but that would make it harder to debug problems because you wouldn’t see any messages in the final document.</p>
+</div>
+<div id="inline-code" class="section level3">
+<h3><span class="header-section-number">13.4.5</span> Inline code</h3>
+<p>Often a report might have statistics within a sentence of prose. There is a way to embed R code into prose, with <a href="https://rmarkdown.rstudio.com/lesson-4.html">inline code</a>. This can be very useful if you mention properties of your data in the text. You might want to write functions that prettify to create the desired kind of output (i.e. rounding to two digits and a % suffixed).</p>
+<p>Inline output is indistinguishable from the surrounding text. Inline expressions do not take knitr options.</p>
+</div>
+</div>
+<div id="yaml-header" class="section level2">
+<h2><span class="header-section-number">13.5</span> YAML header</h2>
+<p>You can control many other “whole document” settings by tweaking the parameters of the YAML header. You might wonder what YAML stands for: it’s “yet another markup language”, which is designed for representing hierarchical data in a way that’s easy for humans to read and write. R Markdown uses it to control many details of the output.</p>
+<div id="output-style" class="section level3">
+<h3><span class="header-section-number">13.5.1</span> Output style</h3>
+<p>You can output in a variety of file formats and customise the <a href="https://rmarkdown.rstudio.com/gallery.html">appearance of your output</a>.</p>
+</div>
+<div id="parameters" class="section level3">
+<h3><span class="header-section-number">13.5.2</span> Parameters</h3>
+<p>R Markdown documents can include one or more parameters whose values can be set when you render the report. Parameters are useful when you want to re-render the same report with distinct values for various key inputs. For example, you might be producing sales reports per branch, exam results by student, or demographic summaries by country. To declare one or more parameters, use the <code>params</code> field.</p>
+<p>In RStudio, you can click the “Knit with Parameters” option in the Knit dropdown menu to set parameters, render, and preview the report in a single user friendly step. You can customise the dialog by setting other options in the header. See <a href="http://rmarkdown.rstudio.com/developer_parameterized_reports.html#parameter_user_interfaces" class="uri">http://rmarkdown.rstudio.com/developer_parameterized_reports.html#parameter_user_interfaces</a> for more details.</p>
+</div>
+</div>
 <div id="further-reading-1" class="section level2">
-<h2><span class="header-section-number">13.1</span> Further Reading</h2>
+<h2><span class="header-section-number">13.6</span> Further Reading</h2>
+<p>R Markdown is still relatively young, and is still growing rapidly. The best place to stay on top of innovations is the official R Markdown website: <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a> and <a href="https://rmarkdown.rstudio.com/articles.html" class="uri">https://rmarkdown.rstudio.com/articles.html</a>.</p>
 <p>You can write individual chapters using <a href="http://r4ds.had.co.nz/r-markdown.html">R markdown</a>, as one file per Chapter.</p>
 <p>Alternatively you can write the whole publication using <a href="https://bookdown.org/yihui/bookdown/">bookdown</a>. For a basic start in bookdown try this <a href="http://seankross.com/2016/11/17/How-to-Start-a-Bookdown-Book.html">blog post</a> (we wrote this book using this to kick things off).</p>
 

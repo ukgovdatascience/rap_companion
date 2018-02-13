@@ -190,7 +190,23 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="12.6" data-path="qa-data.html"><a href="qa-data.html#when-should-one-stop-testing-software"><i class="fa fa-check"></i><b>12.6</b> When should one stop testing software?</a></li>
 </ul></li>
 <li class="chapter" data-level="13" data-path="pub.html"><a href="pub.html"><i class="fa fa-check"></i><b>13</b> Producing the publication</a><ul>
-<li class="chapter" data-level="13.1" data-path="pub.html"><a href="pub.html#further-reading-1"><i class="fa fa-check"></i><b>13.1</b> Further Reading</a></li>
+<li class="chapter" data-level="13.1" data-path="pub.html"><a href="pub.html#r-markdown-overview"><i class="fa fa-check"></i><b>13.1</b> R Markdown overview</a><ul>
+<li class="chapter" data-level="13.1.1" data-path="pub.html"><a href="pub.html#prerequisites"><i class="fa fa-check"></i><b>13.1.1</b> Prerequisites</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="pub.html"><a href="pub.html#r-markdown-basics"><i class="fa fa-check"></i><b>13.2</b> R Markdown basics</a></li>
+<li class="chapter" data-level="13.3" data-path="pub.html"><a href="pub.html#text-formatting-with-markdown"><i class="fa fa-check"></i><b>13.3</b> Text formatting with Markdown</a></li>
+<li class="chapter" data-level="13.4" data-path="pub.html"><a href="pub.html#code-chunks"><i class="fa fa-check"></i><b>13.4</b> Code chunks</a><ul>
+<li class="chapter" data-level="13.4.1" data-path="pub.html"><a href="pub.html#chunking-code-in-rap"><i class="fa fa-check"></i><b>13.4.1</b> Chunking code in RAP</a></li>
+<li class="chapter" data-level="13.4.2" data-path="pub.html"><a href="pub.html#chunk-name"><i class="fa fa-check"></i><b>13.4.2</b> Chunk name</a></li>
+<li class="chapter" data-level="13.4.3" data-path="pub.html"><a href="pub.html#chunk-options"><i class="fa fa-check"></i><b>13.4.3</b> Chunk options</a></li>
+<li class="chapter" data-level="13.4.4" data-path="pub.html"><a href="pub.html#global-options"><i class="fa fa-check"></i><b>13.4.4</b> Global options</a></li>
+<li class="chapter" data-level="13.4.5" data-path="pub.html"><a href="pub.html#inline-code"><i class="fa fa-check"></i><b>13.4.5</b> Inline code</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="pub.html"><a href="pub.html#yaml-header"><i class="fa fa-check"></i><b>13.5</b> YAML header</a><ul>
+<li class="chapter" data-level="13.5.1" data-path="pub.html"><a href="pub.html#output-style"><i class="fa fa-check"></i><b>13.5.1</b> Output style</a></li>
+<li class="chapter" data-level="13.5.2" data-path="pub.html"><a href="pub.html#parameters"><i class="fa fa-check"></i><b>13.5.2</b> Parameters</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6" data-path="pub.html"><a href="pub.html#further-reading-1"><i class="fa fa-check"></i><b>13.6</b> Further Reading</a></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="final.html"><a href="final.html"><i class="fa fa-check"></i><b>14</b> Final Thoughts</a><ul>
 <li class="chapter" data-level="14.1" data-path="final.html"><a href="final.html#a-structured-rap-course"><i class="fa fa-check"></i><b>14.1</b> A Structured RAP Course</a></li>
@@ -287,7 +303,7 @@ It’s good to push your branches to Github if your working on it prior to it be
 <p>As an additional measure, or if you find versioning intimidating, you could watermark your report by citing the git commit used to generate it, as demonstrated below and in the stackoverflow answer by <a href="https://stackoverflow.com/questions/32260956/show-git-version-in-r-code">Wander Nauta, 2015</a>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">system</span>(<span class="st">&quot;git rev-parse --short HEAD&quot;</span>,
              <span class="dt">intern =</span> <span class="ot">TRUE</span>))</code></pre></div>
-<pre><code>## [1] &quot;1fc3abd&quot;</code></pre>
+<pre><code>## [1] &quot;799823a&quot;</code></pre>
 <p>This commit hash can be used to “revert” back to the code at the time the report was produced, fool around and reproduce the original report. You also have the flexibility to do other things which are explored in this <a href="https://stackoverflow.com/questions/4114095/how-to-revert-git-repository-to-a-previous-commit">Stack Overflow answer</a>. This feature of version control is what makes our analytical pipelines reproducible.</p>
 
 </div>
