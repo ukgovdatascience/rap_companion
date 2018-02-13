@@ -303,7 +303,7 @@ It’s good to push your branches to Github if your working on it prior to it be
 <p>As an additional measure, or if you find versioning intimidating, you could watermark your report by citing the git commit used to generate it, as demonstrated below and in the stackoverflow answer by <a href="https://stackoverflow.com/questions/32260956/show-git-version-in-r-code">Wander Nauta, 2015</a>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">system</span>(<span class="st">&quot;git rev-parse --short HEAD&quot;</span>,
              <span class="dt">intern =</span> <span class="ot">TRUE</span>))</code></pre></div>
-<pre><code>## [1] &quot;799823a&quot;</code></pre>
+<pre><code>## [1] &quot;3ab1ae9&quot;</code></pre>
 <p>This commit hash can be used to “revert” back to the code at the time the report was produced, fool around and reproduce the original report. You also have the flexibility to do other things which are explored in this <a href="https://stackoverflow.com/questions/4114095/how-to-revert-git-repository-to-a-previous-commit">Stack Overflow answer</a>. This feature of version control is what makes our analytical pipelines reproducible.</p>
 
 </div>
