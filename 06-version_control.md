@@ -96,7 +96,7 @@ print(system("git rev-parse --short HEAD",
 ```
 
 ```
-## [1] "42bc1f4"
+## [1] "2b6a8c9"
 ```
 
 This commit hash can be used to "revert" back to the code at the time the report was produced, fool around and reproduce the original report. You also have the flexibility to do other things which are explored in this [Stack Overflow answer](https://stackoverflow.com/questions/4114095/how-to-revert-git-repository-to-a-previous-commit). This feature of version control is what makes our analytical pipelines reproducible.  
