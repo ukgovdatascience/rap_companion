@@ -6,6 +6,8 @@ The production of a RAP is not a trivial task given technical, time and knowledg
 
 This [bookdown](https://bookdown.org/yihui/bookdown/) manual uses the *eesectors* package to help elucidate the RAP development process. It attempts to amalgamate the learnings of the early pioneers of RAP into a maintained tome of knowledge to ensure good practice is accessible for RAP newbies.  
 
+To complement this book, one of our RAPpers has developed a [Massive Online Open Course](https://www.udemy.com/reproducible-analytical-pipelines/) to share an approach to learning this technical skill-set. This course is an informal introduction and describes the best practices through the use of screencasts and assignments. It is currently available on Udemy and takes you through the RAP journey using a simple RAP example.  
+
 ## Objectives
 
 * Questions to ask oneself before you RAP?  
