@@ -53,6 +53,10 @@ You're welcome to dip into the previous chapters as and when you need, but you m
     
 It's also worthwhile looking at other Department's RAP efforts. For a good open example see [DCMS's eesectors package](https://github.com/DCMSstats/eesectors).  
 
+## RAP MOOC
+
+To complement this book, one of our RAPpers has developed a [Massive Online Open Course](https://www.udemy.com/reproducible-analytical-pipelines/) to share an approach to learning this technical skill-set. This course is an informal introduction and describes the best practices through the use of screencasts and assignments. It is currently available on Udemy and takes you through the RAP journey using a simple RAP example.  
+
 ## User feedback
 
 The RAP companion is intended to point data scientists in the Civil Service towards the Data Ops toolkit that should be used when attempting to automate some of the boring stuff for their colleagues. Your feedback is welcome and important. It will help us improve the RAP companion through further iterations.  
