@@ -10,6 +10,8 @@ git config --global user.name ${USERNAME}
 
 [ "${TRAVIS_BRANCH}" != "master" ] && exit 0
 
+[ "${TRAVIS_PULL_REQUEST}" != "false" ] && exit 0
+
 # Clone the repository to the book-output directory
 
 git clone -b gh-pages \
