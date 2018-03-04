@@ -1,7 +1,7 @@
 --- 
 title: "RAP Companion"
 author: ["Matthew Gregory, Matthew Upson"]
-date: "2018-02-19"
+date: "2018-03-04"
 site: bookdown::bookdown_site
 documentclass: book
 # bibliography: [book.bib]  #  Causes doc conversion error
