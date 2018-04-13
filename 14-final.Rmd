@@ -24,6 +24,7 @@ You're welcome to dip into the previous chapters as and when you need, but you m
     + HELP: 
 * Rmarkdown  
     + [Passive lesson](http://rmarkdown.rstudio.com/lesson-1.html)  (3 hours)  
+    + [MoJ tutorial](https://github.com/moj-analytical-services/rmarkdown_training)  
     + HELP: Write a book in Rmarkdown using [bookdown](https://bookdown.org/yihui/bookdown/)  
 * R packages  
     + HELP: [Hadley Wickham's R packages](http://r-pkgs.had.co.nz/)  
