@@ -20,8 +20,7 @@ Hash: c0d56cd15034f395874c870141870c25
 
 Package: Rcpp
 Source: CRAN
-Version: 0.12.12
-Hash: 8b3d5ebb9a9a4ab5c86b3a81b0cfb774
+Version: 1.0.0
 
 Package: assertr
 Source: CRAN
