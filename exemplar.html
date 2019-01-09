@@ -25,7 +25,7 @@
 <meta name="author" content="Matthew Gregory, Matthew Upson">
 
 
-<meta name="date" content="2018-03-04">
+<meta name="date" content="2019-01-09">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -372,9 +372,7 @@ Variables: Year, Sector, GVA</p>
 <div id="loading-the-package" class="section level3">
 <h3><span class="header-section-number">4.3.2</span> Loading the package</h3>
 <p>Installation means the package is on our computer but it is not loaded into the computer’s working memory. We also load any additional packages that might be useful for exploring the package or data therein.</p>
-<pre><code>## Using GitHub PAT from envvar GITHUB_PAT</code></pre>
-<pre><code>## Skipping install of &#39;eesectors&#39; from a github remote, the SHA1 (5e91f359) has not changed since last install.
-##   Use `force = TRUE` to force installation</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools::<span class="kw">install_github</span>(<span class="st">&#39;ukgovdatascience/eesectors&#39;</span>)</code></pre></div>
 <pre><code>## eesectors: Reproducible Analytical Pipeline (RAP) for the
 ## Economic Estimates for DCMS Sectors Statistical First Release
 ## (SFR). For more information visit:
@@ -400,7 +398,7 @@ Variables: Year, Sector, GVA</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dplyr::<span class="kw">glimpse</span>(GVA_by_sector_2016)</code></pre></div>
 <pre><code>## Observations: 54
 ## Variables: 3
-## $ sector &lt;fct&gt; creative, culture, digital, gambling, sport, telecoms, ...
+## $ sector &lt;fctr&gt; creative, culture, digital, gambling, sport, telecoms,...
 ## $ year   &lt;int&gt; 2010, 2010, 2010, 2010, 2010, 2010, 2010, 2011, 2011, 2...
 ## $ GVA    &lt;dbl&gt; 65188, 20291, 97303, 8407, 7016, 24738, 49150, 69398, 2...</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span>GVA_by_sector_2016</code></pre></div>
@@ -537,7 +535,7 @@ Variables: Year, Sector, GVA</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">dplyr::<span class="kw">glimpse</span>(GVA_by_sector_2016)</code></pre></div>
 <pre><code>## Observations: 54
 ## Variables: 3
-## $ sector &lt;fct&gt; creative, culture, digital, gambling, sport, telecoms, ...
+## $ sector &lt;fctr&gt; creative, culture, digital, gambling, sport, telecoms,...
 ## $ year   &lt;int&gt; 2010, 2010, 2010, 2010, 2010, 2010, 2010, 2011, 2011, 2...
 ## $ GVA    &lt;dbl&gt; 65188, 20291, 97303, 8407, 7016, 24738, 49150, 69398, 2...</code></pre>
 </div>
@@ -548,7 +546,7 @@ Variables: Year, Sector, GVA</p>
 </blockquote>
 <p>With the data in the appropriate form to be received as an argument or input for the <code>figure</code> family of functions, we can proceed to plot.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">figure3.1</span>(<span class="dt">x =</span> gva)</code></pre></div>
-<p><img src="04-exemplar_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<p><img src="04-exemplar_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 <p>Again we can look at the details of the plot. We could change the body of the function to affect change to the default plot or we can pass additional <code>ggplot</code> arguments to it.</p>
 <p>Reading the code we see it filters the data, makes the variables it needs, refactors the <code>sector</code> variable and then plots it.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">body</span>(figure3<span class="fl">.1</span>)</code></pre></div>

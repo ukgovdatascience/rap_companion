@@ -25,7 +25,7 @@
 <meta name="author" content="Matthew Gregory, Matthew Upson">
 
 
-<meta name="date" content="2018-03-04">
+<meta name="date" content="2019-01-09">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -323,9 +323,9 @@ figure3<span class="fl">.1</span> &lt;-<span class="st"> </span>function(x, ...)
 
 futile.logger::<span class="kw">flog.debug</span>(<span class="st">&quot;This won&#39;t print&quot;</span>) 
 futile.logger::<span class="kw">flog.info</span>(<span class="st">&quot;But this %s&quot;</span>, <span class="st">&#39;will&#39;</span>) </code></pre></div>
-<pre><code>## INFO [2018-03-04 15:16:55] But this will</code></pre>
+<pre><code>## INFO [2019-01-09 10:25:43] But this will</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">futile.logger::<span class="kw">flog.warn</span>(<span class="st">&quot;As will %s&quot;</span>, <span class="st">&#39;this&#39;</span>)</code></pre></div>
-<pre><code>## WARN [2018-03-04 15:16:55] As will this</code></pre>
+<pre><code>## WARN [2019-01-09 10:25:43] As will this</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;culture&quot;</span>, <span class="st">&quot;sport&quot;</span>, <span class="ot">NA</span>)
 
   <span class="kw">message</span>(<span class="st">&#39;Checking x does not contain missing values...&#39;</span>)
@@ -342,11 +342,11 @@ futile.logger::<span class="kw">flog.trace</span>(<span class="st">&quot;Checkin
     futile.logger::<span class="kw">flog.error</span>(<span class="st">&quot;x cannot contain any missing values.&quot;</span>, 
                x, <span class="dt">capture =</span> <span class="ot">TRUE</span>)
   }</code></pre></div>
-<pre><code>## ERROR [2018-03-04 15:16:55] x cannot contain any missing values.
+<pre><code>## ERROR [2019-01-09 10:25:43] x cannot contain any missing values.
 ## 
 ## [1] &quot;culture&quot; &quot;sport&quot;   NA</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">futile.logger::<span class="kw">flog.info</span>(<span class="st">&quot;Finished checks.&quot;</span>)</code></pre></div>
-<pre><code>## INFO [2018-03-04 15:16:55] Finished checks.</code></pre>
+<pre><code>## INFO [2019-01-09 10:25:43] Finished checks.</code></pre>
 <p>The above example can help the user identify where the pipeline is going wrong by logging the error and capturing the object <code>x</code> where the data is missing. This allows us to more quickly track down what’s going wrong.</p>
 </div>
 <div id="logging-to-file" class="section level3">

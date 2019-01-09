@@ -147,14 +147,10 @@ As the code is stored on Github we can access the current master version as well
 Installation means the package is on our computer but it is not loaded into the computer's working memory. We also load any additional packages that might be useful for exploring the package or data therein.    
 
 
-```
-## Using GitHub PAT from envvar GITHUB_PAT
+```r
+devtools::install_github('ukgovdatascience/eesectors')
 ```
 
-```
-## Skipping install of 'eesectors' from a github remote, the SHA1 (5e91f359) has not changed since last install.
-##   Use `force = TRUE` to force installation
-```
 
 ```
 ## eesectors: Reproducible Analytical Pipeline (RAP) for the
@@ -193,7 +189,7 @@ dplyr::glimpse(GVA_by_sector_2016)
 ```
 ## Observations: 54
 ## Variables: 3
-## $ sector <fct> creative, culture, digital, gambling, sport, telecoms, ...
+## $ sector <fctr> creative, culture, digital, gambling, sport, telecoms,...
 ## $ year   <int> 2010, 2010, 2010, 2010, 2010, 2010, 2010, 2011, 2011, 2...
 ## $ GVA    <dbl> 65188, 20291, 97303, 8407, 7016, 24738, 49150, 69398, 2...
 ```
@@ -494,7 +490,7 @@ dplyr::glimpse(GVA_by_sector_2016)
 ```
 ## Observations: 54
 ## Variables: 3
-## $ sector <fct> creative, culture, digital, gambling, sport, telecoms, ...
+## $ sector <fctr> creative, culture, digital, gambling, sport, telecoms,...
 ## $ year   <int> 2010, 2010, 2010, 2010, 2010, 2010, 2010, 2011, 2011, 2...
 ## $ GVA    <dbl> 65188, 20291, 97303, 8407, 7016, 24738, 49150, 69398, 2...
 ```
@@ -510,7 +506,7 @@ With the data in the appropriate form to be received as an argument or input for
 figure3.1(x = gva)
 ```
 
-<img src="04-exemplar_files/figure-html/unnamed-chunk-15-1.png" width="672" />
+<img src="04-exemplar_files/figure-html/unnamed-chunk-16-1.png" width="672" />
 
 Again we can look at the details of the plot. We could change the body of the function to affect change to the default plot or we can pass additional `ggplot` arguments to it.
 
