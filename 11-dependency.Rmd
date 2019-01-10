@@ -10,17 +10,17 @@ Let's say you've used a RAP approach to adhere to the principles laid out in [th
 
 Great. This means you have what you need to reproduce the publication when it's time for the next release. What could possibly go wrong?
 
-### Software changes
+### Dependency hell
 
 A major problem is that you have _dependencies_ on other people's code. For example, you've probably imported packages or modules to perform analyses or create plots. This is powerful and useful, but the maintainers of that code can change it at any time. This means the software you used to produce your last release may have been updated.
 
-This may not always be an issue. Changes may be minimal and might not impact your publication. But a newer version may not behave in the way you expect. 
+A maintainer should update the version number of their package when something changes. This could be a simple patch of an earlier version's bug (e.g. version 3.2.7 replaces 3.2.6), through to a major _breaking_ change (e.g. version 3.2.6 is update to version 4.0.0).
 
-For example, a package maintainer could have updated the way a function works or could have removed it entirely, resulting in a _breaking change_.
+This may not always be an issue. Changes may be minimal and might not impact your publication. But a newer version may not behave in the way you expect. 
 
 At best, your code won't run and you'll get a helpful error message. At worst, your code will execute but an impercetible error may have introduced. Maybe a rounding function now rounds to the nearest 10 instead of the nearest 1000.
 
-If you don't have a way to manage this problem then your workflow isnt truly reproducible. You could run the same code now and in a year's time and the output could be different.
+If you don't have a way to manage this problem then your workflow isn't truly reproducible. You could run the same code now and in a year's time and the output could be different.
 
 The bottom line: your publication is dependent on particular software _and_ its state at a given time. How can you deal with this?
 
@@ -28,17 +28,15 @@ The bottom line: your publication is dependent on particular software _and_ its 
 
 There's a number of ways to protect yourself from dependency issues. Some are simpler and less automated, others are more complex and resolve the problem by improving reproducibility in general. 
 
-RAP is language and tool-agnostic and so this section provides some ideas that you might consider.
+RAP is language and tool-agnostic and so this section provides some ideas that you might consider. Other options are available and you should consider what is best for you based on your infrastructure and the technical knowledge of you, your team and anyone who might work on the project in future.
 
 ### Record version numbers
-
-You need to know the version number of the software you were using when you ran your analysis.
 
 One simple way to do this would be to record the packages and their version numbers. Yes, you could literally inspect every package, but there are functions that allow you to do this automatically.
 
 You could use `sessionInfo()` to do this in R.[^sessionInfo]
 
-```
+```{r, eval=FALSE}
 sessionInfo()
 ```
 ```
@@ -70,9 +68,9 @@ sessionInfo()
 ## [22] htmltools_0.3.6   knitr_1.21        highlight_0.4.7.2
 ```
 
-For Python you can use `pip freeze` in a bash script to achieve a similar thing.
+For Python you can use `pip freeze` in a shell script to achieve a similar thing.[^pip-pin]
 
-```
+```{bash, eval=FALSE}
 pip freeze
 ```
 ```
@@ -97,7 +95,6 @@ Analysts working on the publication's code in future could look at the version n
 This approach is simple but isn't ideal. It:
 
 * is tedious to do this by hand for each package
-* could be difficult to get hold of earlier versions
 * isn't reproducible because the step between reading the version numbers and installing them isn't automated
 * isn't _isolated_, meaning that you'll overwrite any current versions on your machine globally
 
@@ -105,17 +102,47 @@ What's better?
 
 ### Environments for dependency management
 
-We could create a separate, isolated environment into which we install dependencies based on our list of packages and version numbers. This allows you to install packages in a repeatable way on a per-project basis without overwriting packages gloablly.
+Ideally we want to _automate_ the process of recording packages and their version numbers and have them installed in an _isolated environment_ that's specific to our project. Doing this makes the project more _portable_ -- you could run it easily from another machine that's configured differently to your own -- and therfore more _reproducible_ by others.
 
-#### Package managers
+#### Package managers in R
 
-[The `packrat` package](https://rstudio.github.io/packrat/).
+A popular choice in R is [the `packrat` package](https://rstudio.github.io/packrat/). When working in your project's repository, you can call `packrat::init()` to turn on 'Packrat mode' for your project. This means your package dependencies will now be stored in a _private package library_ that's isolated within the project folder. In this mode, any packages you install within your project are stored in the private library. Regular 'snapshots' are taken to record the state of dependencies.
 
-A similar approach is to use [the `checkpoint` package](https://github.com/RevolutionAnalytics/checkpoint/wiki) from Revolution Analytics, which is owned by Microsoft. It works like `packrat` but you simply `checkpoint()` your project for a given date. This allows you to call the packages from that date into your workspace. It works by fetching the packages from the Microsoft R Application Network (MRAN), which is a daily snapshot of [CRAN](https://cran.r-project.org/).
+A similar tool is [the `checkpoint` package](https://github.com/RevolutionAnalytics/checkpoint/wiki) from Microsoft's Revolution Analytics. It works like `packrat` but you simply `checkpoint()` your project for a given _date_. This allows you to call the packages from that date into a private library for that project. It works by fetching the packages from the Microsoft R Application Network (MRAN), which is a daily snapshot of [CRAN](https://cran.r-project.org/). One caveat is that you're dependent on MRAN to continue snapshotting CRAN and for it to continue to be maintained.
 
 #### Virtual environments in Python
 
-[`Pipenv` and `virtualenv`](https://docs.python-guide.org/dev/virtualenvs/) plus a requirements.txt file created using `pip freeze`.
+Setting up an isolated environment -- also called a virtual environment -- is also an option in Python with things like [`virtualenv` and `Pipenv`](https://docs.python-guide.org/dev/virtualenvs/).
+
+We can set up a virtual environment in our project folder, install any modules we need and then record them in a file for people to use in future. A shell script to do this might be:
+
+```{bash, eval=FALSE}
+# 1. Navigate to your project folder
+cd path/to/project/file
+
+# 2. Create a virtual environment (a folder in your home directory)
+virtualenv venv
+
+# 3. 'Activate' the virtual environment
+source venv/bin/activate
+
+# 4. Install the modules you need
+pip install <name>
+
+# 5. Record the package-version list to a file in your home directory
+pip freeze > requirements.txt
+
+# 6. Deactivate the virtual environment when you're done
+deactivate
+```
+
+When another user downloads your version-controlled project folder, the requirements.txt file will be there. Now they can create a virtual environment on their machine following steps 1 to 3 above, but rather than `pip install <module>` they can install based on the instructions from the requirements.txt file:
+
+```{bash, eval=FALSE}
+pip install -r requirements.txt
+```
+
+This will download the modules one by one into the virtual environment.
 
 ## Another problem
 
@@ -130,3 +157,4 @@ A 'container' for our publication is a good idea. We can isolate all the compone
 One way of doing this is to use Docker.
 
 [^sessionInfo]: There's also a `session_info()` function in each of the `devtools`, `xfun` and `sessioninfo` packages, which provide more detail on things like a package's source (e.g. CRAN or GitHub) and give the version number in a separate column.
+[^pip-pin]: These should be 'pinned' meaning that they're in the form `module==1.3.2` rather than `module>=1.3.2`. We're interested in storing _specific versions_, not _specific versions or newer_.
