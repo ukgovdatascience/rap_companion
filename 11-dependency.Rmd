@@ -1,8 +1,132 @@
 # Dependency management {#dep}
 
-> If you want your code to be reproducible in the long-run (i.e. so you can come back to run it next month or next year), you’ll need to track the versions of the packages that your code uses. A rigorous approach is to use packrat, http://rstudio.github.io/packrat/, which store packages in your project directory, or checkpoint, https://github.com/RevolutionAnalytics/checkpoint, which will reinstall packages available on a specified date. A quick and dirty hack is to include a chunk that runs sessionInfo() — that won’t you let easily recreate your packages as they are today, but at least you’ll know what they were. 
-- Hadley Wickham, R for Data Science
+## The trouble with dependencies
 
-One of the problems with working with open source software is that it is quite easy to fall into a trap called ‘[dependency hell](https://en.wikipedia.org/wiki/Dependency_hell)’. Essentially, this occurs when the software we write depends on open source packages, which depend on other open source packages, which can depend on other packages, and on, and on.
+### Scheduled releases
 
-All these packages may be written by many different people, and are updated at vastly different timescales. If we fail to take account of this, then we are likely to fail at the first hurdle of reproducibility, and we may find that in a year’s time we are no longer able to reproduce the work that we previously did - or at least not without a lot of trouble. There are several ways we might get on top of this problem, but in this project we opted for using [packrat](https://rstudio.github.io/packrat/), which creates a cache of all the R packages used in the project which is then version controlled on GitHub. Matt Upson has [blogged about this previously](http://www.machinegurning.com/rstats/latex-phd/) in the context of writing academic works.
+Most statistical publications are updated on a scheduled basis when new data become available. You can see this on the [statistics release calendar on GOV.UK](https://www.gov.uk/government/statistics/announcements).
+
+Let's say you've used a RAP approach to adhere to the principles laid out in [the Code of Practice for Statistics](https://www.statisticsauthority.gov.uk/code-of-practice/): you're using [innovation and improvement](https://www.statisticsauthority.gov.uk/code-of-practice/the-code/value/v4-innovation-and-improvement/) to produce automated [orderly releases](https://www.statisticsauthority.gov.uk/code-of-practice/the-code/trustworthiness/t3-orderly-release/) with [sound methods](https://www.statisticsauthority.gov.uk/code-of-practice/the-code/quality/q2-sound-methods/) and [assured quality](https://www.statisticsauthority.gov.uk/code-of-practice/the-code/quality/q3-assured-quality/). 
+
+Great. This means you have what you need to reproduce the publication when it's time for the next release. What could possibly go wrong?
+
+### Software changes
+
+A major problem is that you have _dependencies_ on other people's code. For example, you've probably imported packages or modules to perform analyses or create plots. This is powerful and useful, but the maintainers of that code can change it at any time. This means the software you used to produce your last release may have been updated.
+
+This may not always be an issue. Changes may be minimal and might not impact your publication. But a newer version may not behave in the way you expect. 
+
+For example, a package maintainer could have updated the way a function works or could have removed it entirely, resulting in a _breaking change_.
+
+At best, your code won't run and you'll get a helpful error message. At worst, your code will execute but an impercetible error may have introduced. Maybe a rounding function now rounds to the nearest 10 instead of the nearest 1000.
+
+If you don't have a way to manage this problem then your workflow isnt truly reproducible. You could run the same code now and in a year's time and the output could be different.
+
+The bottom line: your publication is dependent on particular software _and_ its state at a given time. How can you deal with this?
+
+## Strategies
+
+There's a number of ways to protect yourself from dependency issues. Some are simpler and less automated, others are more complex and resolve the problem by improving reproducibility in general. 
+
+RAP is language and tool-agnostic and so this section provides some ideas that you might consider.
+
+### Record version numbers
+
+You need to know the version number of the software you were using when you ran your analysis.
+
+One simple way to do this would be to record the packages and their version numbers. Yes, you could literally inspect every package, but there are functions that allow you to do this automatically.
+
+You could use `sessionInfo()` to do this in R.[^sessionInfo]
+
+```
+sessionInfo()
+```
+```
+## R version 3.5.1 (2018-07-02)
+## Platform: x86_64-apple-darwin15.6.0 (64-bit)
+## Running under: macOS High Sierra 10.13.6
+## 
+## Matrix products: default
+## BLAS: /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib
+## LAPACK: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRlapack.dylib
+## 
+## locale:
+## [1] en_GB.UTF-8/en_GB.UTF-8/en_GB.UTF-8/C/en_GB.UTF-8/en_GB.UTF-8
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+## [1] packrat_0.4.8-1
+## 
+## loaded via a namespace (and not attached):
+##  [1] bookdown_0.7      Rcpp_1.0.0        later_0.7.5      
+##  [4] digest_0.6.18     mime_0.6          R6_2.3.0         
+##  [7] magrittr_1.5      evaluate_0.11     xaringan_0.8     
+## [10] stringi_1.2.4     promises_1.0.1    rstudioapi_0.8   
+## [13] rmarkdown_1.11    tools_3.5.1       servr_0.10       
+## [16] stringr_1.3.1     httpuv_1.4.5      xfun_0.3         
+## [19] yaml_2.2.0        rsconnect_0.8.10  compiler_3.5.1   
+## [22] htmltools_0.3.6   knitr_1.21        highlight_0.4.7.2
+```
+
+For Python you can use `pip freeze` in a bash script to achieve a similar thing.
+
+```
+pip freeze
+```
+```
+## alabaster==0.7.10
+## anaconda-client==1.6.14
+## anaconda-navigator==1.8.7
+## anaconda-project==0.8.2
+## appnope==0.1.0
+## appscript==1.0.1
+## argcomplete==1.9.4
+## asn1crypto==0.24.0
+## astroid==1.6.3
+## astropy==3.0.2
+## atomicwrites==1.2.1
+## attrs==18.2.0
+## awscli==1.16.31
+...
+```
+
+Analysts working on the publication's code in future could look at the version numbers and ensure they download that version rather than the latest.
+
+This approach is simple but isn't ideal. It:
+
+* is tedious to do this by hand for each package
+* could be difficult to get hold of earlier versions
+* isn't reproducible because the step between reading the version numbers and installing them isn't automated
+* isn't _isolated_, meaning that you'll overwrite any current versions on your machine globally
+
+What's better?
+
+### Environments for dependency management
+
+We could create a separate, isolated environment into which we install dependencies based on our list of packages and version numbers. This allows you to install packages in a repeatable way on a per-project basis without overwriting packages gloablly.
+
+#### Package managers
+
+[The `packrat` package](https://rstudio.github.io/packrat/).
+
+A similar approach is to use [the `checkpoint` package](https://github.com/RevolutionAnalytics/checkpoint/wiki) from Revolution Analytics, which is owned by Microsoft. It works like `packrat` but you simply `checkpoint()` your project for a given date. This allows you to call the packages from that date into your workspace. It works by fetching the packages from the Microsoft R Application Network (MRAN), which is a daily snapshot of [CRAN](https://cran.r-project.org/).
+
+#### Virtual environments in Python
+
+[`Pipenv` and `virtualenv`](https://docs.python-guide.org/dev/virtualenvs/) plus a requirements.txt file created using `pip freeze`.
+
+## Another problem
+
+What about the version of the analytical software you're using? You may have written the original code in R version 3.4.1 but your computer is currently running R version 3.5.1. This is a similar problem to the issue of packages and modules: the functioning of code is also dependent on changes to the scripting tool itself.
+
+You need to think bigger than an isolated environment for package installation. We need some kind of isolated environment for both the packages _and_ the tools. And why stop there? We could put our functions, tests and data in there too.
+
+A 'container' for our publication is a good idea. We can isolate all the components of our RAP publication and make it even more portable.
+
+### Docker
+
+One way of doing this is to use Docker.
+
+[^sessionInfo]: There's also a `session_info()` function in each of the `devtools`, `xfun` and `sessioninfo` packages, which provide more detail on things like a package's source (e.g. CRAN or GitHub) and give the version number in a separate column.
