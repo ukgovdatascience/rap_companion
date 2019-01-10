@@ -159,6 +159,10 @@ R Markdown documents can include one or more parameters whose values can be set 
 
 In RStudio, you can click the "Knit with Parameters" option in the Knit dropdown menu to set parameters, render, and preview the report in a single user friendly step. You can customise the dialog by setting other options in the header. See <http://rmarkdown.rstudio.com/developer_parameterized_reports.html#parameter_user_interfaces> for more details.  
 
+## RMarkdown exercises
+
+MoJ have created this [useful resource](https://github.com/moj-analytical-services/rmarkdown_training) for practising your RMarkdown. Should be relevant to Civil Servants seeking a "real" example to reproduce.  
+
 ## Further Reading
 
 R Markdown is still relatively young, and is still growing rapidly. The best place to stay on top of innovations is the official R Markdown website: <http://rmarkdown.rstudio.com> and <https://rmarkdown.rstudio.com/articles.html>.

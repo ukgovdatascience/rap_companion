@@ -25,7 +25,7 @@
 <meta name="author" content="Matthew Gregory, Matthew Upson">
 
 
-<meta name="date" content="2019-01-09">
+<meta name="date" content="2019-01-10">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -206,7 +206,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="13.5.1" data-path="pub.html"><a href="pub.html#output-style"><i class="fa fa-check"></i><b>13.5.1</b> Output style</a></li>
 <li class="chapter" data-level="13.5.2" data-path="pub.html"><a href="pub.html#parameters"><i class="fa fa-check"></i><b>13.5.2</b> Parameters</a></li>
 </ul></li>
-<li class="chapter" data-level="13.6" data-path="pub.html"><a href="pub.html#further-reading-1"><i class="fa fa-check"></i><b>13.6</b> Further Reading</a></li>
+<li class="chapter" data-level="13.6" data-path="pub.html"><a href="pub.html#rmarkdown-exercises"><i class="fa fa-check"></i><b>13.6</b> RMarkdown exercises</a></li>
+<li class="chapter" data-level="13.7" data-path="pub.html"><a href="pub.html#further-reading-1"><i class="fa fa-check"></i><b>13.7</b> Further Reading</a></li>
 </ul></li>
 <li class="chapter" data-level="14" data-path="final.html"><a href="final.html"><i class="fa fa-check"></i><b>14</b> Final Thoughts</a><ul>
 <li class="chapter" data-level="14.1" data-path="final.html"><a href="final.html#a-structured-rap-course"><i class="fa fa-check"></i><b>14.1</b> A Structured RAP Course</a></li>
@@ -304,7 +305,7 @@ It’s good to push your branches to Github if your working on it prior to it be
 <p>As an additional measure, or if you find versioning intimidating, you could watermark your report by citing the git commit used to generate it, as demonstrated below and in the stackoverflow answer by <a href="https://stackoverflow.com/questions/32260956/show-git-version-in-r-code">Wander Nauta, 2015</a>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">system</span>(<span class="st">&quot;git rev-parse --short HEAD&quot;</span>,
              <span class="dt">intern =</span> <span class="ot">TRUE</span>))</code></pre></div>
-<pre><code>## [1] &quot;07a05c7&quot;</code></pre>
+<pre><code>## [1] &quot;eeca723&quot;</code></pre>
 <p>This commit hash can be used to “revert” back to the code at the time the report was produced, fool around and reproduce the original report. You also have the flexibility to do other things which are explored in this <a href="https://stackoverflow.com/questions/4114095/how-to-revert-git-repository-to-a-previous-commit">Stack Overflow answer</a>. This feature of version control is what makes our analytical pipelines reproducible.</p>
 
 </div>
