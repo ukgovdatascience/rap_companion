@@ -193,7 +193,7 @@ virtualenv venv
 source venv/bin/activate
 ```
 
-You can now tell you're in the virtual environment because your shell prompt starts with `(venv)`, which is what we named our virtual environment folder (by convention) in step 2.
+You can now tell you're in the virtual environment because your shell prompt starts with `(venv)`, which is what we named our virtual environment folder (by convention) in step 2. Lt's continue.
 
 ```{bash, eval=FALSE}
 # 4. Install the modules you need
@@ -225,6 +225,30 @@ A 'container' for our publication is a good idea. We can isolate all the compone
 ### Docker
 
 One way of doing this is to use Docker.
+
+
+General
+
+* [GOV.UK on software dependencies](https://www.gov.uk/service-manual/technology/managing-software-dependencies)
+* [Docker for beginners](https://docker-curriculum.com/) by Docker
+* [Using containers to deliver our data projects](https://dwpdigital.blog.gov.uk/2018/05/18/using-containers-to-deliver-our-data-projects/), a DWP blog by Phil Chapman, and [a more in-depth personal blog](https://chapmandu2.github.io/post/2018/05/26/reproducible-data-science-environments-with-docker/) 
+
+R-focused
+
+* [An introduction to Docker for R users](https://colinfay.me/docker-r-reproducibility/) by Colin Fay
+* [Docker for the useR](https://github.com/noamross/nyhackr-docker-talk) by Noam Ross
+* [Production-ready R: Getting started with R and docker](https://www.youtube.com/watch?v=lfG8cTqRRNA) by Elizabeth Stark at UseR!2018 (YouTube)
+* [Applications with R and Docker](https://www.youtube.com/watch?v=JOIKy_89c-o) by Scott Came at UseR!2018 (YouTube)
+* [Rocker](https://hub.docker.com/u/rocker) on Docker Hub
+* [containerit](https://o2r.info/containerit/) packagedown site
+* [rOpenSci labs tutorial](http://ropenscilabs.github.io/r-docker-tutorial/)
+
+Papers
+
+* [An Introduction to Rocker: Docker Containers for R](https://journal.r-project.org/archive/2017/RJ-2017-065/RJ-2017-065.pdf) in the R Journal, by Carl Boettiger and Dirk Eddelbuettel
+* [Reproducibility of computational workflows is automated using continuous analysis](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6103790/) in Nature Biotechnology
+Google Scholar search results
+
 
 [^sessionInfo]: There's also a `session_info()` function in each of the `devtools`, `xfun` and `sessioninfo` packages, which provide more detail on things like a package's source (e.g. CRAN or GitHub) and give the version number in a separate column.
 [^pip-pin]: These should be 'pinned' meaning that they're in the form `module==1.3.2` rather than `module>=1.3.2`. We're interested in storing _specific versions_, not _specific versions or newer_.
