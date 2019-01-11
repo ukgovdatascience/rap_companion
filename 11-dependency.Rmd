@@ -1,6 +1,10 @@
-# Dependency management {#dep}
+# Dependency and reproducibility {#dep}
+
+_This section is in development. Please [contribute to the discussion](https://github.com/ukgovdatascience/rap_companion/issues/89)._
 
 ## The trouble with dependencies
+
+This section is about managing code written by other people, such as R or Python packages. It's important to consider how you're going to manage this code that your publication is _dependent_ on. Methods for doing this overlap with methods for reproducibility in general.
 
 ### Scheduled releases
 
@@ -12,7 +16,7 @@ Great. This means you have what you need to reproduce the publication when it's 
 
 ### Dependency hell
 
-A major problem is that you have _dependencies_ on other people's code. For example, you've probably imported packages or modules to perform analyses or create plots. This is powerful and useful, but the maintainers of that code can change it at any time. This means the software you used to produce your last release may have been updated.
+A major problem is that you have _dependencies_ on other people's code. For example, you've probably imported packages to perform analyses or create plots. This is powerful and useful, but the maintainers of that code can change it at any time. This means the software you used to produce your last release may have been updated.
 
 A maintainer should update the version number of their package when something changes. This could be a simple patch of an earlier version's bug (e.g. version 3.2.7 replaces 3.2.6), through to a major _breaking_ change (e.g. version 3.2.6 is update to version 4.0.0).
 
@@ -178,9 +182,11 @@ A similar tool to `packrat` is [the `checkpoint` package](https://github.com/Rev
 
 #### Virtual environments in Python
 
-Setting up an isolated environment -- also called a virtual environment -- is also an option in Python with things like [`virtualenv` and `Pipenv`](https://docs.python-guide.org/dev/virtualenvs/).
+In Python we can create an isolated environment for our project and load packages into it.
 
-We can set up a virtual environment in our project folder, install any modules we need and then record them in a file for people to use in future. A shell script to do this might be:
+This is possible with tools like [`virtualenv` and `Pipenv`](https://docs.python-guide.org/dev/virtualenvs/).
+
+We can set up a virtual environment in our project folder, activate it, install any packages we need and then record them in a file for use in future. A shell script to do this might be:
 
 ```{bash, eval=FALSE}
 # 1. Navigate to your project folder
@@ -193,10 +199,10 @@ virtualenv venv
 source venv/bin/activate
 ```
 
-You can now tell you're in the virtual environment because your shell prompt starts with `(venv)`, which is what we named our virtual environment folder (by convention) in step 2. Lt's continue.
+You can now tell you're in the virtual environment because your shell prompt starts with `(venv)`, which is what we named our virtual environment folder (by convention) in step 2. Let's continue.
 
 ```{bash, eval=FALSE}
-# 4. Install the modules you need
+# 4. Install the packages you need, e.g. numpy
 pip install numpy
 
 # 5. Record the package-version list to a file in your home directory
@@ -206,50 +212,42 @@ pip freeze > requirements.txt
 deactivate
 ```
 
-When another user downloads your version-controlled project folder, the requirements.txt file will be there. Now they can create a virtual environment on their machine following steps 1 to 3 above, but rather than `pip install <module>` they can install based on the instructions from the requirements.txt file:
+When another user downloads your version-controlled project folder, the requirements.txt file will be there. Now they can create a virtual environment on their machine following steps 1 to 3 above, but rather than `pip install packageName` for each package they need, they can automate the process by installing everything from the requirements.txt file. From the shell:
 
 ```{bash, eval=FALSE}
 pip install -r requirements.txt
 ```
 
-This will download the modules one by one into the virtual environment.
+This will download the packages one by one into the virtual environment in their copy of the project virtual environment.
 
-## Another problem
+## Containers
 
-What about the version of the analytical software you're using? You may have written the original code in R version 3.4.1 but your computer is currently running R version 3.5.1. This is a similar problem to the issue of packages and modules: the functioning of code is also dependent on changes to the scripting tool itself.
+### Theory
 
-You can think bigger than an isolated environment for package installation. We need some kind of isolated environment for both the packages _and_ the tools. And why stop there? We could put our functions, tests and data in there too.
+Storing information about third-party packages is great, but there are still dependency management and reproduciblity issues. Collaborators could still encounter errors if they: 
 
-A 'container' for our publication is a good idea. We can isolate all the components of our RAP publication and make it even more reproducible and portable.
+* try to run your code in an later version of the language you used during development
+* use a different or updated Integrated Development Environment (IDE, like RStudio or Jupyter Notebooks)
+* try to re-run the analysis on a Linux machine but the original was developed on Windows, for example
 
-### Docker
+Fortunately, there are options to deal with this. One is [Docker](https://www.docker.com/), which effectively allows you to create a virtual computer inside your computer -- a _container_ -- with everything you need to recreate the anlysis under consistent conditions, regardless of who you are and what equipment you're using.
 
-One way of doing this is to use Docker.
+It works like this:
 
+1. Create a _dockerfile_. This is like a recipe that will build from scratch everything you need for your project to run. It's just a textfile that you can put under version control.
+2. Run the dockerfile to generate a Docker _image_. The image is an instance of the environment and everything you need to recreate your analysis. It's a delicious cake you made following the recipe.
+3. Other people can follow the dockerfile recipe to make their own copies of the delicious image cake. Each running instance of an image is called a _container_.
 
-General
+You can learn more about this process by [following the curriculum on Docker's website](https://docker-curriculum.com/). You can also read about the use of Docker [in the Department for Work and Pensions](https://dwpdigital.blog.gov.uk/2018/05/18/using-containers-to-deliver-our-data-projects/) (DWP). Phil Chapman [wrote more about the technical side of this process](https://chapmandu2.github.io/post/2018/05/26/reproducible-data-science-environments-with-docker/).
 
-* [GOV.UK on software dependencies](https://www.gov.uk/service-manual/technology/managing-software-dependencies)
-* [Docker for beginners](https://docker-curriculum.com/) by Docker
-* [Using containers to deliver our data projects](https://dwpdigital.blog.gov.uk/2018/05/18/using-containers-to-deliver-our-data-projects/), a DWP blog by Phil Chapman, and [a more in-depth personal blog](https://chapmandu2.github.io/post/2018/05/26/reproducible-data-science-environments-with-docker/) 
+### Make your life easier
 
-R-focused
+You don't have to build everything from scratch. [Docker hub](https://hub.docker.com/) is a big library of pre-prepared container images. For example, the [rocker project on Docker hub](https://hub.docker.com/u/rocker) lists a number of images containing R-specific tools like [rocker/tidyverse](https://hub.docker.com/r/rocker/tidyverse) that contains R, RStudio and [the tidyverse packages](https://tidyverse.tidyverse.org/). You can specify a rocker image in your dockerfile to make your life easier. Learn more about [rOpenSci labs tutorial](http://ropenscilabs.github.io/r-docker-tutorial/)
 
-* [An introduction to Docker for R users](https://colinfay.me/docker-r-reproducibility/) by Colin Fay
-* [Docker for the useR](https://github.com/noamross/nyhackr-docker-talk) by Noam Ross
-* [Production-ready R: Getting started with R and docker](https://www.youtube.com/watch?v=lfG8cTqRRNA) by Elizabeth Stark at UseR!2018 (YouTube)
-* [Applications with R and Docker](https://www.youtube.com/watch?v=JOIKy_89c-o) by Scott Came at UseR!2018 (YouTube)
-* [Rocker](https://hub.docker.com/u/rocker) on Docker Hub
-* [containerit](https://o2r.info/containerit/) packagedown site
-* [rOpenSci labs tutorial](http://ropenscilabs.github.io/r-docker-tutorial/)
+As well as rocker, R users can set up Docker from within an interactive R session: [the `containerit` package](https://o2r.info/containerit/index.html) lets you create a dockerfile given the current state of your session. This simplifies the process a great deal.
 
-Papers
-
-* [An Introduction to Rocker: Docker Containers for R](https://journal.r-project.org/archive/2017/RJ-2017-065/RJ-2017-065.pdf) in the R Journal, by Carl Boettiger and Dirk Eddelbuettel
-* [Reproducibility of computational workflows is automated using continuous analysis](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6103790/) in Nature Biotechnology
-Google Scholar search results
-
+R users can also read [Docker for the useR](https://github.com/noamross/nyhackr-docker-talk) by Noam Ross and [an introduction to Docker for R users](https://colinfay.me/docker-r-reproducibility/) by Colin Fay.
 
 [^sessionInfo]: There's also a `session_info()` function in each of the `devtools`, `xfun` and `sessioninfo` packages, which provide more detail on things like a package's source (e.g. CRAN or GitHub) and give the version number in a separate column.
-[^pip-pin]: These should be 'pinned' meaning that they're in the form `module==1.3.2` rather than `module>=1.3.2`. We're interested in storing _specific versions_, not _specific versions or newer_.
+[^pip-pin]: These should be 'pinned' meaning that they're in the form `packageName==1.3.2` rather than `packageName>=1.3.2`. We're interested in storing _specific versions_, not _specific versions or newer_.
 [^save-session]: With something like `writeLines(capture.output(sessionInfo()), "sessionInfo.txt")` within R and `pip freeze > requirements.txt` in the shell for Python.
