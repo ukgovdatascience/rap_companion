@@ -30,11 +30,11 @@ There's a number of ways to protect yourself from dependency issues. Some are si
 
 RAP is language and tool-agnostic and so this section provides some ideas that you might consider. Other options are available and you should consider what is best for you based on your infrastructure and the technical knowledge of you, your team and anyone who might work on the project in future.
 
-### Record version numbers
+### Version numbers
 
-One simple way to do this would be to record the packages and their version numbers. Yes, you could literally inspect every package, but there are functions that allow you to do this automatically.
+We can record each package and the version we used during the analysis.
 
-You could use `sessionInfo()` to do this in R.[^sessionInfo]
+For example, you could use `sessionInfo()` in R.[^sessionInfo]
 
 ```{r, eval=FALSE}
 sessionInfo()
@@ -68,7 +68,7 @@ sessionInfo()
 ## [22] htmltools_0.3.6   knitr_1.21        highlight_0.4.7.2
 ```
 
-For Python you can use `pip freeze` in a shell script to achieve a similar thing.[^pip-pin]
+You can achieve a similar thing in Python with `pip freeze` in a shell script.[^pip-pin]
 
 ```{bash, eval=FALSE}
 pip freeze
@@ -83,32 +83,98 @@ pip freeze
 ## argcomplete==1.9.4
 ## asn1crypto==0.24.0
 ## astroid==1.6.3
-## astropy==3.0.2
-## atomicwrites==1.2.1
-## attrs==18.2.0
-## awscli==1.16.31
 ...
 ```
 
-Analysts working on the publication's code in future could look at the version numbers and ensure they download that version rather than the latest.
+But simply saving this information[^save-session] isn't good dependency control. It:
 
-This approach is simple but isn't ideal. It:
-
-* is tedious to do this by hand for each package
-* isn't reproducible because the step between reading the version numbers and installing them isn't automated
-* isn't _isolated_, meaning that you'll overwrite any current versions on your machine globally
-
-What's better?
+* would be tedious for analysts to download each recorded package version one-by-one
+* records _every_ package and its version _on your whole system_; not just the ones relevant to your project
+* isn't a reproducible or automated process
 
 ### Environments for dependency management
 
-Ideally we want to _automate_ the process of recording packages and their version numbers and have them installed in an _isolated environment_ that's specific to our project. Doing this makes the project more _portable_ -- you could run it easily from another machine that's configured differently to your own -- and therfore more _reproducible_ by others.
+Ideally we want to _automate_ the process of recording packages and their version numbers and have them installed in an _isolated environment_ that's specific to our project. Doing this makes the project more _portable_ -- you could run it easily from another machine that's configured differently to your own -- and therfore it would be more _reproducible_.
 
 #### Package managers in R
 
-A popular choice in R is [the `packrat` package](https://rstudio.github.io/packrat/). When working in your project's repository, you can call `packrat::init()` to turn on 'Packrat mode' for your project. This means your package dependencies will now be stored in a _private package library_ that's isolated within the project folder. In this mode, any packages you install within your project are stored in the private library. Regular 'snapshots' are taken to record the state of dependencies.
+A popular choice in R is [the `packrat` package](https://rstudio.github.io/packrat/).
 
-A similar tool is [the `checkpoint` package](https://github.com/RevolutionAnalytics/checkpoint/wiki) from Microsoft's Revolution Analytics. It works like `packrat` but you simply `checkpoint()` your project for a given _date_. This allows you to call the packages from that date into a private library for that project. It works by fetching the packages from the Microsoft R Application Network (MRAN), which is a daily snapshot of [CRAN](https://cran.r-project.org/). One caveat is that you're dependent on MRAN to continue snapshotting CRAN and for it to continue to be maintained.
+In this example from [Packrat's walkthrough](https://rstudio.github.io/packrat/walkthrough.html) you can see that calling `packrat::init()` in your project's repository causes 'Packrat mode' to activate for that project.
+
+```{r, eval=FALSE}
+packrat::init("~/projects/rap-project")
+```
+```
+Adding these packages to packrat:
+            _         
+    packrat   0.2.0.128
+
+Fetching sources for packrat (0.2.0.128) ... OK (GitHub)
+Snapshot written to '/Users/matt/projects/rap-project/packrat/packrat.lock'
+Installing packrat (0.2.0.128) ... OK (built source)
+init complete!
+Packrat mode on. Using library in directory:
+- "~/projects/rap-project/packrat/lib" 
+```
+
+What happened here? Packrat:
+
+* found a specific version of package in use in the project (itself!)
+* downloaded it to a _private package library_, a new folder within the project for storing packages isolated within that project
+* recorded a snapshot (a bit like saving `sessionInfo()`)
+
+With Packrat mode on, any newly-downloaded packages are saved _within_ your project in the private library. By default, regular snapshots are taken to record the state of dependencies. You can force this with `packrat::snapshot()`. [This example](https://rstudio.github.io/packrat/walkthrough.html) shows a user-initiated snapshot after installing a few packages (`plyr`, `Rcpp`, `reshape2` and `stringr`). You can see that Packrat fetcches the sources and records a snapshot.
+
+```{r, eval=FALSE}
+packrat::snapshot()
+```
+```
+Adding these packages to packrat:
+             _       
+    plyr       1.8.1 
+    Rcpp       0.11.2
+    reshape2   1.4   
+    stringr    0.6.2 
+
+Fetching sources for plyr (1.8.1) ... OK (CRAN current)
+Fetching sources for Rcpp (0.11.2) ... OK (CRAN current)
+Fetching sources for reshape2 (1.4) ... OK (CRAN current)
+Fetching sources for stringr (0.6.2) ... OK (CRAN current)
+Snapshot written to '/Users/matt/projects/rap-project/packrat/packrat.lock'
+```
+
+So far this loooks like an automated version of recording the output of 'sessionInfo()` with a special private library so you're only using specific package versions for your project. When you run this again in future, you'll have the exact versions you need to recreate the analysis. 
+
+Great, but what if a collaborator downloads the package? This is where we see the power of the snapshot. When opening the project fresh on a new machine, Packrat automates the process of fetching the packages -- with their recorded version numbers -- and storing them in a private package library. created on that collaborator's machine.
+
+```
+Packrat is not installed in the local library -- attempting to bootstrap an installation...
+> Installing packrat into project private library:
+- '/Users/matt/projects/rap-project/packrat/lib/x86_64-apple-darwin13.1.0/3.2.0'
+* installing *source* package ‘packrat’ ...
+** R
+** inst
+** preparing package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** testing if installed package can be loaded
+* DONE (packrat)
+> Attaching packrat
+> Restoring library
+Installing plyr (1.8.1) ... OK (built source)
+Installing Rcpp (0.11.2) ... OK (built source)
+Installing reshape2 (1.4) ... OK (built source)
+Installing stringr (0.6.2) ... OK (built source)
+> Packrat bootstrap successfully completed. Entering packrat mode...
+Packrat mode on. Using library in directory:
+- "~/projects/babynames/packrat/lib"
+```
+
+Note that [there are some caveats](https://rstudio.github.io/packrat/limitations.html) to using Packrat.
+
+A similar tool to `packrat` is [the `checkpoint` package](https://github.com/RevolutionAnalytics/checkpoint/wiki) from Microsoft's Revolution Analytics. It works like `packrat` but you simply `checkpoint()` your project for a given _date_. This allows you to call the packages from that date into a private library for that project. It works by fetching the packages from the Microsoft R Application Network (MRAN), which is a daily snapshot of [CRAN](https://cran.r-project.org/). One caveat is that you're dependent on MRAN to continue snapshotting CRAN and for it to continue to be maintained.
 
 #### Virtual environments in Python
 
@@ -118,16 +184,20 @@ We can set up a virtual environment in our project folder, install any modules w
 
 ```{bash, eval=FALSE}
 # 1. Navigate to your project folder
-cd path/to/project/file
+cd ~/projects/rap-project/
 
-# 2. Create a virtual environment (a folder in your home directory)
+# 2. Create a virtual environment folder there
 virtualenv venv
 
 # 3. 'Activate' the virtual environment
 source venv/bin/activate
+```
 
+You can now tell you're in the virtual environment because your shell prompt starts with `(venv)`, which is what we named our virtual environment folder (by convention) in step 2.
+
+```{bash, eval=FALSE}
 # 4. Install the modules you need
-pip install <name>
+pip install numpy
 
 # 5. Record the package-version list to a file in your home directory
 pip freeze > requirements.txt
@@ -148,9 +218,9 @@ This will download the modules one by one into the virtual environment.
 
 What about the version of the analytical software you're using? You may have written the original code in R version 3.4.1 but your computer is currently running R version 3.5.1. This is a similar problem to the issue of packages and modules: the functioning of code is also dependent on changes to the scripting tool itself.
 
-You need to think bigger than an isolated environment for package installation. We need some kind of isolated environment for both the packages _and_ the tools. And why stop there? We could put our functions, tests and data in there too.
+You can think bigger than an isolated environment for package installation. We need some kind of isolated environment for both the packages _and_ the tools. And why stop there? We could put our functions, tests and data in there too.
 
-A 'container' for our publication is a good idea. We can isolate all the components of our RAP publication and make it even more portable.
+A 'container' for our publication is a good idea. We can isolate all the components of our RAP publication and make it even more reproducible and portable.
 
 ### Docker
 
@@ -158,3 +228,4 @@ One way of doing this is to use Docker.
 
 [^sessionInfo]: There's also a `session_info()` function in each of the `devtools`, `xfun` and `sessioninfo` packages, which provide more detail on things like a package's source (e.g. CRAN or GitHub) and give the version number in a separate column.
 [^pip-pin]: These should be 'pinned' meaning that they're in the form `module==1.3.2` rather than `module>=1.3.2`. We're interested in storing _specific versions_, not _specific versions or newer_.
+[^save-session]: With something like `writeLines(capture.output(sessionInfo()), "sessionInfo.txt")` within R and `pip freeze > requirements.txt` in the shell for Python.
