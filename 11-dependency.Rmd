@@ -4,41 +4,55 @@ _This section is in development. Please [contribute to the discussion](https://g
 
 ## The trouble with dependencies
 
-This section is about managing code written by other people, such as R or Python packages. It's important to consider how you're going to manage this code that your publication is _dependent_ on. Methods for doing this overlap with methods for reproducibility in general.
+This section is about the code in your project that was written by other people, like R or Python packages. Management of these dependencies goes hand-in-hand with reproducibility. You can't recreate your outputs or update them if there are problems with your dependencies.
 
 ### Scheduled releases
 
-Most statistical publications are updated on a scheduled basis when new data become available. You can see this on the [statistics release calendar on GOV.UK](https://www.gov.uk/government/statistics/announcements).
+Most statistical publications are updated on a scheduled basis when new data become available. You can see this on the [statistics release calendar on GOV.UK](https://www.gov.uk/government/statistics/announcements) and it's enshrined in [the Statistics Code of Practice](https://www.statisticsauthority.gov.uk/code-of-practice/the-code/trustworthiness/t3-orderly-release/).
 
-Let's say you've used a RAP approach to adhere to the principles laid out in [the Code of Practice for Statistics](https://www.statisticsauthority.gov.uk/code-of-practice/): you're using [innovation and improvement](https://www.statisticsauthority.gov.uk/code-of-practice/the-code/value/v4-innovation-and-improvement/) to produce automated [orderly releases](https://www.statisticsauthority.gov.uk/code-of-practice/the-code/trustworthiness/t3-orderly-release/) with [sound methods](https://www.statisticsauthority.gov.uk/code-of-practice/the-code/quality/q2-sound-methods/) and [assured quality](https://www.statisticsauthority.gov.uk/code-of-practice/the-code/quality/q3-assured-quality/). 
-
-Great. This means you have what you need to reproduce the publication when it's time for the next release. What could possibly go wrong?
+Let's say you've used a RAP approach for your publication so that minimal effort is required to reproduce your outputs with the latest data. When the day comes to re-run your code to produce the latest update, you get a cryptic error. Hang on, this worked three months ago. What has gone wrong?
 
 ### Dependency hell
 
-A major problem is that you have _dependencies_ on other people's code. For example, you've probably imported packages to perform analyses or create plots. This is powerful and useful, but the maintainers of that code can change it at any time. This means the software you used to produce your last release may have been updated.
+Using other people's code in your code can take a lot of weight off your shoulders: these _dependencies_ prevent you from having to implement tricky code problems yourself and limit the need for you update and fix problems. For example, you've probably imported packages to prevent you writing something from scratch, like the implementation of a statistical test. 
 
-A maintainer should update the version number of their package when something changes. This could be a simple patch of an earlier version's bug (e.g. version 3.2.7 replaces 3.2.6), through to a major _breaking_ change (e.g. version 3.2.6 is update to version 4.0.0).
+This is a powerful and useful concept, but the maintainers of the code _can change it at any time_. This means the software you used to produce your last release may have been updated and no longer works as you expect. Oh, and it's likely that your dependencies have dependencies of their own. You can get in a tangled mess quite easily.
 
-This may not always be an issue. Changes may be minimal and might not impact your publication. But a newer version may not behave in the way you expect. 
-
-At best, your code won't run and you'll get a helpful error message. At worst, your code will execute but an impercetible error may have introduced. Maybe a rounding function now rounds to the nearest 10 instead of the nearest 1000.
-
-If you don't have a way to manage this problem then your workflow isn't truly reproducible. You could run the same code now and in a year's time and the output could be different.
+Changes may be minimal and might not impact your publication. But a newer version may not behave in the way you expect. At best, your code won't run and you'll get a helpful error message. At worst, your code will execute but an impercetible but impactful error may have been introduced. Maybe a rounding function now rounds to the nearest 10 instead of the nearest 1000.
 
 The bottom line: your publication is dependent on particular software _and_ its state at a given time. How can you deal with this?
 
 ## Strategies
 
-There's a number of ways to protect yourself from dependency issues. Some are simpler and less automated, others are more complex and resolve the problem by improving reproducibility in general. 
+There's a number of ways to protect yourself from dependency hell. Some are simpler and less automated, others are more complex and resolve the problem by improving reproducibility in general. 
 
-RAP is language and tool-agnostic and so this section provides some ideas that you might consider. Other options are available and you should consider what is best for you based on your infrastructure and the technical knowledge of you, your team and anyone who might work on the project in future.
+RAP is language and tool-agnostic and so this section provides some ideas that you might consider. Other options are available and you should consider what is best for you based on your infrastructure and the technical knowledge of your team and anyone who might work on the project in future.
+
+### Minimise your dependencies
+
+The convenience and ubiquity of freely-available software packages mean that it's unlikely that you'll have zero dependencies in your code. Rather, the goal should be to:
+
+* minimise the number of dependencies (do you have three packages for string manipulation when one would do?)
+* restrict yourself to stable packages (try to avoid experimental packages or ones that haven't been updated in a long time)
+* bear in mind any replacement packages (you should have an alternative if your dependency is no longer maintained and develops bugs)
+
+This is enshrined in [the tinyverse philosophy of dependency management](http://www.tinyverse.org/)  as:
+
+>Lightweight is the right weight
+
+and
+
+>Every dependency you add to your project is an invitation to break your project
+
+You have been warned!
 
 ### Version numbers
 
-We can record each package and the version we used during the analysis.
+Maintainers signal updates by increasing the version number of their software. This could be a simple patch of an earlier version's bug (e.g. version 3.2.7 replaces 3.2.6), or perhaps a major _breaking_ change (e.g. version 3.2.6 is update to version 4.0.0).
 
-For example, you could use `sessionInfo()` in R.[^sessionInfo]
+There are many ways to record each of the packages used in our analysis and their version numbers.
+
+For example, in R you could use the `sessionInfo()` package.[^sessionInfo] This prints details about the current state of the working environment, including the packages and version numbers. 
 
 ```{r, eval=FALSE}
 sessionInfo()
@@ -72,7 +86,7 @@ sessionInfo()
 ## [22] htmltools_0.3.6   knitr_1.21        highlight_0.4.7.2
 ```
 
-You can achieve a similar thing in Python with `pip freeze` in a shell script.[^pip-pin]
+You can achieve a similar thing for Python with `pip freeze` in a shell script.[^pip-pin] Again, this provides a list of the packages available in the current environment and their version numbers.
 
 ```{bash, eval=FALSE}
 pip freeze
@@ -90,21 +104,21 @@ pip freeze
 ...
 ```
 
-But simply saving this information[^save-session] isn't good dependency control. It:
+But simply saving this information[^save-session] in your project folder isn't good dependency control. It:
 
-* would be tedious for analysts to download each recorded package version one-by-one
-* records _every_ package and its version _on your whole system_; not just the ones relevant to your project
+* would be tedious for analysts to read these reports and download each recorded package version one-by-one
+* records _every_ package and its version _on your whole system_, not just the ones relevant to your project
 * isn't a reproducible or automated process
 
 ### Environments for dependency management
 
-Ideally we want to _automate_ the process of recording packages and their version numbers and have them installed in an _isolated environment_ that's specific to our project. Doing this makes the project more _portable_ -- you could run it easily from another machine that's configured differently to your own -- and therfore it would be more _reproducible_.
+Ideally we want to automate the process of recording packages and their version numbers and have them installed in an isolated environment that's specific to our project. Doing this makes the project more portable -- you could run it easily from another machine that's configured differently to your own -- and it would therefore be more reproducible.
 
 #### Package managers in R
 
-A popular choice in R is [the `packrat` package](https://rstudio.github.io/packrat/).
+A popular choice for automated package management in R is [the `packrat` package](https://rstudio.github.io/packrat/). The Packrat developers have created [a walkthrough on their website](https://rstudio.github.io/packrat/walkthrough.html).
 
-In this example from [Packrat's walkthrough](https://rstudio.github.io/packrat/walkthrough.html) you can see that calling `packrat::init()` in your project's repository causes 'Packrat mode' to activate for that project.
+You need only run one line to activate 'Packrat mode' for your project. 
 
 ```{r, eval=FALSE}
 packrat::init("~/projects/rap-project")
@@ -124,11 +138,12 @@ Packrat mode on. Using library in directory:
 
 What happened here? Packrat:
 
-* found a specific version of package in use in the project (itself!)
-* downloaded it to a _private package library_, a new folder within the project for storing packages isolated within that project
-* recorded a snapshot (a bit like saving `sessionInfo()`)
+* was initiated within our project folder only
+* found a specific version of a package (`packrat` itself!) in use within the project
+* downloaded the package it found to a _private package library_, a new folder isolated within the project for storing packages
+* recorded a snapshot of the current state of the dependencies
 
-With Packrat mode on, any newly-downloaded packages are saved _within_ your project in the private library. By default, regular snapshots are taken to record the state of dependencies. You can force this with `packrat::snapshot()`. [This example](https://rstudio.github.io/packrat/walkthrough.html) shows a user-initiated snapshot after installing a few packages (`plyr`, `Rcpp`, `reshape2` and `stringr`). You can see that Packrat fetcches the sources and records a snapshot.
+With Packrat mode on, any newly-downloaded packages are saved _within_ your project in the private library. By default, regular snapshots are taken to record the state of dependencies. You can also force this with `packrat::snapshot()`. 
 
 ```{r, eval=FALSE}
 packrat::snapshot()
@@ -148,9 +163,11 @@ Fetching sources for stringr (0.6.2) ... OK (CRAN current)
 Snapshot written to '/Users/matt/projects/rap-project/packrat/packrat.lock'
 ```
 
-So far this loooks like an automated version of recording the output of 'sessionInfo()` with a special private library so you're only using specific package versions for your project. When you run this again in future, you'll have the exact versions you need to recreate the analysis. 
+This shows a user-initiated snapshot after installing a few packages (`plyr`, `Rcpp`, `reshape2` and `stringr`). You can see that Packrat fetches the sources and records a snapshot.
 
-Great, but what if a collaborator downloads the package? This is where we see the power of the snapshot. When opening the project fresh on a new machine, Packrat automates the process of fetching the packages -- with their recorded version numbers -- and storing them in a private package library. created on that collaborator's machine.
+So far this looks like an automated version of recording the output of 'sessionInfo()` with a special private library so you're only using specific package versions for your project. When you run this again in future, you'll have the exact versions you need to recreate the analysis. 
+
+Great, but what if a collaborator downloads the package? This is where we see the power of the snapshot. When opening the project fresh on a new machine, Packrat automates the process of fetching the packages -- with their recorded version numbers -- and storing them in a private package library, created on the collaborator's machine.
 
 ```
 Packrat is not installed in the local library -- attempting to bootstrap an installation...
@@ -193,7 +210,7 @@ We can set up a virtual environment in our project folder, activate it, install 
 cd ~/projects/rap-project/
 
 # 2. Create a virtual environment folder there
-virtualenv venv
+virtualenv venv  # 'venv' will be the folder name
 
 # 3. 'Activate' the virtual environment
 source venv/bin/activate
@@ -224,23 +241,23 @@ This will download the packages one by one into the virtual environment in their
 
 ### Theory
 
-Storing information about third-party packages is great, but there are still dependency management and reproduciblity issues. Collaborators could still encounter errors if they: 
+Storing information about third-party packages is great, but there are still dependency management and reproducibility issues. Collaborators could still encounter errors if they: 
 
 * try to run your code in an later version of the language you used during development
 * use a different or updated Integrated Development Environment (IDE, like RStudio or Jupyter Notebooks)
 * try to re-run the analysis on a Linux machine but the original was developed on Windows, for example
 
-Fortunately, there are options to deal with this. One is [Docker](https://www.docker.com/), which effectively allows you to create a virtual computer inside your computer -- a _container_ -- with everything you need to recreate the anlysis under consistent conditions, regardless of who you are and what equipment you're using.
+Fortunately, there are options to deal with this. One is [Docker](https://www.docker.com/), which effectively allows you to create a virtual computer inside your computer -- a _container_ -- with everything you need to recreate the analysis under consistent conditions, regardless of who you are and what equipment you're using.
 
 It works like this:
 
-1. Create a _dockerfile_. This is like a recipe that will build from scratch everything you need for your project to run. It's just a textfile that you can put under version control.
-2. Run the dockerfile to generate a Docker _image_. The image is an instance of the environment and everything you need to recreate your analysis. It's a delicious cake you made following the recipe.
-3. Other people can follow the dockerfile recipe to make their own copies of the delicious image cake. Each running instance of an image is called a _container_.
+1. Create a 'dockerfile'. This is like a plain-text recipe that will build from scratch everything you need for your project to run. It's just a textfile that you can put under version control.
+2. Run the dockerfile to generate a Docker 'image'. The image is an instance of the environment and everything you need to recreate your analysis. It's a delicious cake you made following the recipe.
+3. Other people can follow the dockerfile recipe to make their own copies of the delicious image cake. Each running instance of an image is called a container.
 
 You can learn more about this process by [following the curriculum on Docker's website](https://docker-curriculum.com/). You can also read about the use of Docker [in the Department for Work and Pensions](https://dwpdigital.blog.gov.uk/2018/05/18/using-containers-to-deliver-our-data-projects/) (DWP). Phil Chapman [wrote more about the technical side of this process](https://chapmandu2.github.io/post/2018/05/26/reproducible-data-science-environments-with-docker/).
 
-### Make your life easier
+### Making it easier
 
 You don't have to build everything from scratch. [Docker hub](https://hub.docker.com/) is a big library of pre-prepared container images. For example, the [rocker project on Docker hub](https://hub.docker.com/u/rocker) lists a number of images containing R-specific tools like [rocker/tidyverse](https://hub.docker.com/r/rocker/tidyverse) that contains R, RStudio and [the tidyverse packages](https://tidyverse.tidyverse.org/). You can specify a rocker image in your dockerfile to make your life easier. Learn more about [rOpenSci labs tutorial](http://ropenscilabs.github.io/r-docker-tutorial/)
 
