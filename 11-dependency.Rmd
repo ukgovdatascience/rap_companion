@@ -6,6 +6,8 @@ _This section is in development. Please [contribute to the discussion](https://g
 
 This section is about the code in your project that was written by other people, like R or Python packages. Management of these dependencies goes hand-in-hand with reproducibility. You can't recreate your outputs or update them if there are problems with your dependencies.
 
+A basic understanding of the command line and R or Python are ideal.
+
 ### Scheduled releases
 
 Most statistical publications are updated on a scheduled basis when new data become available. You can see this on the [statistics release calendar on GOV.UK](https://www.gov.uk/government/statistics/announcements) and it's enshrined in [the Statistics Code of Practice](https://www.statisticsauthority.gov.uk/code-of-practice/the-code/trustworthiness/t3-orderly-release/).
@@ -197,63 +199,61 @@ Note that [there are some caveats](https://rstudio.github.io/packrat/limitations
 
 A similar tool to `packrat` is [the `checkpoint` package](https://github.com/RevolutionAnalytics/checkpoint/wiki) from Microsoft's Revolution Analytics. It works like `packrat` but you simply `checkpoint()` your project for a given _date_. This allows you to call the packages from that date into a private library for that project. It works by fetching the packages from the Microsoft R Application Network (MRAN), which is a daily snapshot of [CRAN](https://cran.r-project.org/). One caveat is that you're dependent on MRAN to continue snapshotting CRAN and for it to continue to be maintained.
 
+
+
 #### Virtual environments in Python
 
 In Python we can create an isolated environment for our project and load packages into it.
 
 This is possible with tools like [`virtualenv` and `Pipenv`](https://docs.python-guide.org/dev/virtualenvs/).
 
-We can set up a virtual environment in our project folder, activate it, install any packages we need and then record them in a file for use in future. A shell script to do this might be:
+You can set up a virtual environment in your project folder, activate it, install any packages you need and then record them in a file for use in future. Install `virtualenv` and navigate to your project's home folder. A shell script to do this might be:
 
 ```{bash, eval=FALSE}
-# 1. Navigate to your project folder
-cd ~/projects/rap-project/
-
-# 2. Create a virtual environment folder there
-virtualenv venv  # 'venv' will be the folder name
-
-# 3. 'Activate' the virtual environment
-source venv/bin/activate
+virtualenv venv  # create virtual environment folder
+source venv/bin/activate  # activate the environment
+pip install packageName  # install packages you need
+pip freeze > requirements.txt  # save package-version list
+deactivate  # deactivate the environment when done
 ```
 
-You can now tell you're in the virtual environment because your shell prompt starts with `(venv)`, which is what we named our virtual environment folder (by convention) in step 2. Let's continue.
-
-```{bash, eval=FALSE}
-# 4. Install the packages you need, e.g. numpy
-pip install numpy
-
-# 5. Record the package-version list to a file in your home directory
-pip freeze > requirements.txt
-
-# 6. Deactivate the virtual environment when you're done
-deactivate
-```
-
-When another user downloads your version-controlled project folder, the requirements.txt file will be there. Now they can create a virtual environment on their machine following steps 1 to 3 above, but rather than `pip install packageName` for each package they need, they can automate the process by installing everything from the requirements.txt file. From the shell:
+When another user downloads your version-controlled project folder, the requirements.txt file will be there. Now they can create a virtual environment on their machine following steps 1 to 3 above, but rather than `pip install packageName` for each package they need, they can automate the process by installing everything from the requirements.txt file with:
 
 ```{bash, eval=FALSE}
 pip install -r requirements.txt
 ```
 
-This will download the packages one by one into the virtual environment in their copy of the project virtual environment.
+This will download the packages one by one into the virtual environment in their copy of the project virtual environment. Now they'll be using the same packages you were when you developed your project.
 
 ## Containers
 
 ### Theory
 
-Storing information about third-party packages is great, but there are still dependency management and reproducibility issues. Collaborators could still encounter errors if they: 
+Good package management deals with one of the major problems of dependency hell. But the problem is bigger.Collaborators could still encounter errors if they: 
 
-* try to run your code in an later version of the language you used during development
+* try to run your code in a later version of the language you used during development
 * use a different or updated Integrated Development Environment (IDE, like RStudio or Jupyter Notebooks)
-* try to re-run the analysis on a Linux machine but the original was developed on Windows, for example
+* try to re-run the analysis on a different system, like if you try to run code on a Linux machine but the original was built on a Microsoft machine
 
-Fortunately, there are options to deal with this. One is [Docker](https://www.docker.com/), which effectively allows you to create a virtual computer inside your computer -- a _container_ -- with everything you need to recreate the analysis under consistent conditions, regardless of who you are and what equipment you're using.
+What you really want to do is create a virtual computer inside your computer -- a _container_ -- with everything you need to recreate the analysis under consistent conditions, regardless of who you are and what equipment you're using.
+
+Imagine one of those ubiquitous [shipping containers](https://en.wikipedia.org/wiki/Intermodal_container). They are:
+
+* capable of holding different cargo
+* can provide an isolated environment from the outside world
+* can be transported by various transport methods
+
+This is what we want for our project as well. We want to put whatever we want inside, we want it to be isolated and we want to be able to run it from anywhere.
+
+### Docker
+
+Docker can seem daunting at first.
 
 It works like this:
 
-1. Create a 'dockerfile'. This is like a plain-text recipe that will build from scratch everything you need for your project to run. It's just a textfile that you can put under version control.
-2. Run the dockerfile to generate a Docker 'image'. The image is an instance of the environment and everything you need to recreate your analysis. It's a delicious cake you made following the recipe.
-3. Other people can follow the dockerfile recipe to make their own copies of the delicious image cake. Each running instance of an image is called a container.
+1. Create a 'dockerfile'. This is like a plain-text recipe that will build from scratch everything you need to recreate a project. It's just a textfile that you can put under version control.
+1. Run the dockerfile to generate a Docker 'image'. The image is an instance of the environment and everything you need to recreate your analysis. It's a delicious cake you made following the recipe.
+1. Other people can follow the dockerfile recipe to make their own copies of the delicious image cake. Each running instance of an image is called a container.
 
 You can learn more about this process by [following the curriculum on Docker's website](https://docker-curriculum.com/). You can also read about the use of Docker [in the Department for Work and Pensions](https://dwpdigital.blog.gov.uk/2018/05/18/using-containers-to-deliver-our-data-projects/) (DWP). Phil Chapman [wrote more about the technical side of this process](https://chapmandu2.github.io/post/2018/05/26/reproducible-data-science-environments-with-docker/).
 
