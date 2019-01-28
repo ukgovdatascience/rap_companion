@@ -2,51 +2,46 @@
 
 _This section is in development. Please [contribute to the discussion](https://github.com/ukgovdatascience/rap_companion/issues/89)._
 
-## The trouble with dependencies
+## Other people's code
 
-This section is about the code in your project that was written by other people, like R or Python packages. Management of these dependencies goes hand-in-hand with reproducibility. You can't recreate your outputs or update them if there are problems with your dependencies.
+You're likely to make use of other people's code when you develop your RAP project. Maybe you've imported packages to perform a statistical test, for example. These dependencies can be extremely helpful. They can:
 
-A basic understanding of the command line and R or Python are ideal.
+* prevent you from recreating code that already exists
+* save you time trying to solve a problem and optimise its solution
+* give you access to code and solutions from experts in the field
+* help to reduce the size of your scripts and make them more human-readable
+* limit the need for you to update and fix problems yourself
 
-### Scheduled releases
+### Limitations
 
-Most statistical publications are updated on a scheduled basis when new data become available. You can see this on the [statistics release calendar on GOV.UK](https://www.gov.uk/government/statistics/announcements) and it's enshrined in [the Statistics Code of Practice](https://www.statisticsauthority.gov.uk/code-of-practice/the-code/trustworthiness/t3-orderly-release/).
+Most statistical publications are [updated on a scheduled basis](https://www.gov.uk/government/statistics/announcements) when new data become available.
 
-Let's say you've used a RAP approach for your publication so that minimal effort is required to reproduce your outputs with the latest data. When the day comes to re-run your code to produce the latest update, you get a cryptic error. Hang on, this worked three months ago. What has gone wrong?
+It's possible that you'll get some errors when you reuse your RAP project code for the next update, even if everything worked perfectly last time. Why? The maintainers of your dependencies may have changed the code and it no longer works as you expect.
 
-### Dependency hell
+Changes might not impact your publication. If not, the best case is that you'll get a helpful error message. At worst, your code will execute with an impercetible but impactful error. Maybe a rounding function now rounds to the nearest 10 instead of the nearest 1000.
 
-Using other people's code in your code can take a lot of weight off your shoulders: these _dependencies_ prevent you from having to implement tricky code problems yourself and limit the need for you update and fix problems. For example, you've probably imported packages to prevent you writing something from scratch, like the implementation of a statistical test. 
-
-This is a powerful and useful concept, but the maintainers of the code _can change it at any time_. This means the software you used to produce your last release may have been updated and no longer works as you expect. Oh, and it's likely that your dependencies have dependencies of their own. You can get in a tangled mess quite easily.
-
-Changes may be minimal and might not impact your publication. But a newer version may not behave in the way you expect. At best, your code won't run and you'll get a helpful error message. At worst, your code will execute but an impercetible but impactful error may have been introduced. Maybe a rounding function now rounds to the nearest 10 instead of the nearest 1000.
+The problem is compounded if your dependencies depend on other dependencies, or if two of your dependencies require conflicting versions of a third dependency. You could get stuck in so-called [dependency hell](https://en.wikipedia.org/wiki/Dependency_hell).
 
 The bottom line: your publication is dependent on particular software _and_ its state at a given time. How can you deal with this?
 
-## Strategies
+### Think lightweight
 
-There's a number of ways to protect yourself from dependency hell. Some are simpler and less automated, others are more complex and resolve the problem by improving reproducibility in general. 
-
-RAP is language and tool-agnostic and so this section provides some ideas that you might consider. Other options are available and you should consider what is best for you based on your infrastructure and the technical knowledge of your team and anyone who might work on the project in future.
-
-### Minimise your dependencies
-
-The convenience and ubiquity of freely-available software packages mean that it's unlikely that you'll have zero dependencies in your code. Rather, the goal should be to:
-
-* minimise the number of dependencies (do you have three packages for string manipulation when one would do?)
-* restrict yourself to stable packages (try to avoid experimental packages or ones that haven't been updated in a long time)
-* bear in mind any replacement packages (you should have an alternative if your dependency is no longer maintained and develops bugs)
-
-This is enshrined in [the tinyverse philosophy of dependency management](http://www.tinyverse.org/)  as:
+First, think about what you can do to reduce the chance of problems. To put it succinctly, [the tinyverse philosophy of dependency management](http://www.tinyverse.org/) suggests that:
 
 >Lightweight is the right weight
 
-and
+To achieve this you could:
 
->Every dependency you add to your project is an invitation to break your project
+* minimise the number of dependencies and remove redundancy where possible
+* avoid depending on packages that in turn have many dependencies
+* restrict yourself to 'stable' packages for which recent changes were restricted to minor updates and bug-fixes
+* review regularly your dependencies to establish if better alternatives exist 
 
-You have been warned!
+### Record the packages and versions
+
+It's not enough to simply minimise your dependencies. You need to think about how this impacts the reproducibility of your project. To ensure that your scripts are executed in the same way next time, you need to record the packages and their versions in some way. Then you or a colleague can recreate the environment in which the outputs were produced the first time round.
+
+## Approaches
 
 ### Version numbers
 
@@ -229,7 +224,7 @@ This will download the packages one by one into the virtual environment in their
 
 ### Theory
 
-Good package management deals with one of the major problems of dependency hell. But the problem is bigger.Collaborators could still encounter errors if they: 
+Good package management deals with one of the major problems of dependency hell. But the problem is bigger. Collaborators could still encounter errors if they: 
 
 * try to run your code in a later version of the language you used during development
 * use a different or updated Integrated Development Environment (IDE, like RStudio or Jupyter Notebooks)
