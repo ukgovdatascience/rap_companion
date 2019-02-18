@@ -18,7 +18,7 @@ Most statistical publications are [updated on a scheduled basis](https://www.gov
 
 It's possible that you'll get some errors when you reuse your RAP project code for the next update, even if everything worked perfectly last time. Why? The maintainers of your dependencies may have changed the code and it no longer works as you expect.
 
-Changes might not impact your publication. If not, the best case is that you'll get a helpful error message. At worst, your code will execute with an impercetible but impactful error. Maybe a rounding function now rounds to the nearest 10 instead of the nearest 1000.
+Changes might not impact your publication. If changes do have an impact, the best case is that you'll get a helpful error message. At worst, your code will execute with an impercetible but impactful error. Maybe a rounding function now rounds to the nearest 10 instead of the nearest 1000.
 
 The problem is compounded if your dependencies depend on other dependencies, or if two of your dependencies require conflicting versions of a third dependency. You could get stuck in so-called [dependency hell](https://en.wikipedia.org/wiki/Dependency_hell).
 
@@ -113,96 +113,26 @@ Ideally we want to automate the process of recording packages and their version 
 
 #### Package managers in R
 
-A popular choice for automated package management in R is [the `packrat` package](https://rstudio.github.io/packrat/). The Packrat developers have created [a walkthrough on their website](https://rstudio.github.io/packrat/walkthrough.html).
+There is currently no consensus approach for package management in R. Below are a few options, but this is a non-exhaustive list.
 
-You need only run one line to activate 'Packrat mode' for your project. 
+[The `packrat` package](https://rstudio.github.io/packrat/) is often referred to, but [has its issues](https://rstudio.github.io/packrat/limitations.html). A [walkthrough is available](https://rstudio.github.io/packrat/walkthrough.html), but the basic process is:
 
-```{r, eval=FALSE}
-packrat::init("~/projects/rap-project")
-```
-```
-Adding these packages to packrat:
-            _         
-    packrat   0.2.0.128
+1. Activate 'packrat mode' in your project folder with `init()`, which records and snapshots the packages you've called in your scripts
+1. Install new packages as usual, except they're now saved to a _private package repository_ within the project, rather than your local machine
+1. By default, regular snapshots are taken to record the state of dependencies, but you can force one with `snapshot()`
+1. When opening the project fresh on a new machine, Packrat automates the process of fetching the packages -- with their recorded version numbers -- and storing them in a private package library created on the collaborator's machine
 
-Fetching sources for packrat (0.2.0.128) ... OK (GitHub)
-Snapshot written to '/Users/matt/projects/rap-project/packrat/packrat.lock'
-Installing packrat (0.2.0.128) ... OK (built source)
-init complete!
-Packrat mode on. Using library in directory:
-- "~/projects/rap-project/packrat/lib" 
-```
+[The `checkpoint` package](https://github.com/RevolutionAnalytics/checkpoint/wiki) from Microsoft's Revolution Analytics works like `packrat` but you simply `checkpoint()` your project for a given _date_. This allows you to call the packages from that date into a private library for that project. It works by fetching the packages from the [Microsoft R Application Network (MRAN)](https://mran.microsoft.com/), which is a daily snapshot of [CRAN](https://cran.r-project.org/). Note that this doesn't permit control of packages that are hosted anywhere other than CRAN, such as Bioconductor or GitHub, and relies on Microsoft continuing to snapshot and store CRAN copies in MRAN.
 
-What happened here? Packrat:
+Another option is `jetpack`, which is different to `packrat` because it uses a DESCRIPTION file to list your dependencies. [DESCRIPTION files are used in package development](http://r-pkgs.had.co.nz/description.html) to store information, including that package's dependencies. This package claims to be lightweight and can be run from the command line.
 
-* was initiated within our project folder only
-* found a specific version of a package (`packrat` itself!) in use within the project
-* downloaded the package it found to a _private package library_, a new folder isolated within the project for storing packages
-* recorded a snapshot of the current state of the dependencies
-
-With Packrat mode on, any newly-downloaded packages are saved _within_ your project in the private library. By default, regular snapshots are taken to record the state of dependencies. You can also force this with `packrat::snapshot()`. 
-
-```{r, eval=FALSE}
-packrat::snapshot()
-```
-```
-Adding these packages to packrat:
-             _       
-    plyr       1.8.1 
-    Rcpp       0.11.2
-    reshape2   1.4   
-    stringr    0.6.2 
-
-Fetching sources for plyr (1.8.1) ... OK (CRAN current)
-Fetching sources for Rcpp (0.11.2) ... OK (CRAN current)
-Fetching sources for reshape2 (1.4) ... OK (CRAN current)
-Fetching sources for stringr (0.6.2) ... OK (CRAN current)
-Snapshot written to '/Users/matt/projects/rap-project/packrat/packrat.lock'
-```
-
-This shows a user-initiated snapshot after installing a few packages (`plyr`, `Rcpp`, `reshape2` and `stringr`). You can see that Packrat fetches the sources and records a snapshot.
-
-So far this looks like an automated version of recording the output of 'sessionInfo()` with a special private library so you're only using specific package versions for your project. When you run this again in future, you'll have the exact versions you need to recreate the analysis. 
-
-Great, but what if a collaborator downloads the package? This is where we see the power of the snapshot. When opening the project fresh on a new machine, Packrat automates the process of fetching the packages -- with their recorded version numbers -- and storing them in a private package library, created on the collaborator's machine.
-
-```
-Packrat is not installed in the local library -- attempting to bootstrap an installation...
-> Installing packrat into project private library:
-- '/Users/matt/projects/rap-project/packrat/lib/x86_64-apple-darwin13.1.0/3.2.0'
-* installing *source* package ‘packrat’ ...
-** R
-** inst
-** preparing package for lazy loading
-** help
-*** installing help indices
-** building package indices
-** testing if installed package can be loaded
-* DONE (packrat)
-> Attaching packrat
-> Restoring library
-Installing plyr (1.8.1) ... OK (built source)
-Installing Rcpp (0.11.2) ... OK (built source)
-Installing reshape2 (1.4) ... OK (built source)
-Installing stringr (0.6.2) ... OK (built source)
-> Packrat bootstrap successfully completed. Entering packrat mode...
-Packrat mode on. Using library in directory:
-- "~/projects/babynames/packrat/lib"
-```
-
-Note that [there are some caveats](https://rstudio.github.io/packrat/limitations.html) to using Packrat.
-
-A similar tool to `packrat` is [the `checkpoint` package](https://github.com/RevolutionAnalytics/checkpoint/wiki) from Microsoft's Revolution Analytics. It works like `packrat` but you simply `checkpoint()` your project for a given _date_. This allows you to call the packages from that date into a private library for that project. It works by fetching the packages from the Microsoft R Application Network (MRAN), which is a daily snapshot of [CRAN](https://cran.r-project.org/). One caveat is that you're dependent on MRAN to continue snapshotting CRAN and for it to continue to be maintained.
-
-
+Paid options also exist, but are obviously less accessible and require maintenance. One example is [RStudio's Package Manager](https://www.rstudio.com/products/package-manager/).
 
 #### Virtual environments in Python
 
-In Python we can create an isolated environment for our project and load packages into it.
+In Python we can easily create an isolated environment for our project and load packages into it. This is possible with tools like [`virtualenv` and `Pipenv`](https://docs.python-guide.org/dev/virtualenvs/).
 
-This is possible with tools like [`virtualenv` and `Pipenv`](https://docs.python-guide.org/dev/virtualenvs/).
-
-You can set up a virtual environment in your project folder, activate it, install any packages you need and then record them in a file for use in future. Install `virtualenv` and navigate to your project's home folder. A shell script to do this might be:
+You can set up a virtual environment in your project folder, activate it, install any packages you need and then record them in a file for use in future. One way to do this is with `virtualenv`. After installation and having navigated to your project's home folder, you can follow something like this from the command line:
 
 ```{bash, eval=FALSE}
 virtualenv venv  # create virtual environment folder
