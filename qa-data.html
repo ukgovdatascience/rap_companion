@@ -25,7 +25,7 @@
 <meta name="author" content="Matthew Gregory, Matthew Upson">
 
 
-<meta name="date" content="2019-01-10">
+<meta name="date" content="2019-03-01">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -176,7 +176,22 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="9" data-path="travis.html"><a href="travis.html"><i class="fa fa-check"></i><b>9</b> Automated Testing</a></li>
 <li class="chapter" data-level="10" data-path="code-cover.html"><a href="code-cover.html"><i class="fa fa-check"></i><b>10</b> Code coverage</a></li>
-<li class="chapter" data-level="11" data-path="dep.html"><a href="dep.html"><i class="fa fa-check"></i><b>11</b> Dependency management</a></li>
+<li class="chapter" data-level="11" data-path="dep.html"><a href="dep.html"><i class="fa fa-check"></i><b>11</b> Dependency and reproducibility</a><ul>
+<li class="chapter" data-level="11.1" data-path="dep.html"><a href="dep.html#other-peoples-code"><i class="fa fa-check"></i><b>11.1</b> Other people’s code</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="dep.html"><a href="dep.html#limitations"><i class="fa fa-check"></i><b>11.1.1</b> Limitations</a></li>
+<li class="chapter" data-level="11.1.2" data-path="dep.html"><a href="dep.html#think-lightweight"><i class="fa fa-check"></i><b>11.1.2</b> Think lightweight</a></li>
+<li class="chapter" data-level="11.1.3" data-path="dep.html"><a href="dep.html#record-the-packages-and-versions"><i class="fa fa-check"></i><b>11.1.3</b> Record the packages and versions</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="dep.html"><a href="dep.html#approaches"><i class="fa fa-check"></i><b>11.2</b> Approaches</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="dep.html"><a href="dep.html#version-numbers"><i class="fa fa-check"></i><b>11.2.1</b> Version numbers</a></li>
+<li class="chapter" data-level="11.2.2" data-path="dep.html"><a href="dep.html#environments-for-dependency-management"><i class="fa fa-check"></i><b>11.2.2</b> Environments for dependency management</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="dep.html"><a href="dep.html#containers"><i class="fa fa-check"></i><b>11.3</b> Containers</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="dep.html"><a href="dep.html#theory"><i class="fa fa-check"></i><b>11.3.1</b> Theory</a></li>
+<li class="chapter" data-level="11.3.2" data-path="dep.html"><a href="dep.html#docker"><i class="fa fa-check"></i><b>11.3.2</b> Docker</a></li>
+<li class="chapter" data-level="11.3.3" data-path="dep.html"><a href="dep.html#making-it-easier"><i class="fa fa-check"></i><b>11.3.3</b> Making it easier</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="12" data-path="qa-data.html"><a href="qa-data.html"><i class="fa fa-check"></i><b>12</b> Quality Assurance of the pipeline</a><ul>
 <li class="chapter" data-level="12.1" data-path="qa-data.html"><a href="qa-data.html#testing-the-input-data"><i class="fa fa-check"></i><b>12.1</b> Testing the input data</a></li>
 <li class="chapter" data-level="12.2" data-path="qa-data.html"><a href="qa-data.html#murphys-law-and-errors-in-your-pipeline"><i class="fa fa-check"></i><b>12.2</b> Murphy’s Law and errors in your pipeline</a></li>
@@ -324,9 +339,9 @@ figure3<span class="fl">.1</span> &lt;-<span class="st"> </span>function(x, ...)
 
 futile.logger::<span class="kw">flog.debug</span>(<span class="st">&quot;This won&#39;t print&quot;</span>) 
 futile.logger::<span class="kw">flog.info</span>(<span class="st">&quot;But this %s&quot;</span>, <span class="st">&#39;will&#39;</span>) </code></pre></div>
-<pre><code>## INFO [2019-01-10 13:08:52] But this will</code></pre>
+<pre><code>## INFO [2019-03-01 14:51:32] But this will</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">futile.logger::<span class="kw">flog.warn</span>(<span class="st">&quot;As will %s&quot;</span>, <span class="st">&#39;this&#39;</span>)</code></pre></div>
-<pre><code>## WARN [2019-01-10 13:08:52] As will this</code></pre>
+<pre><code>## WARN [2019-03-01 14:51:32] As will this</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;culture&quot;</span>, <span class="st">&quot;sport&quot;</span>, <span class="ot">NA</span>)
 
   <span class="kw">message</span>(<span class="st">&#39;Checking x does not contain missing values...&#39;</span>)
@@ -343,11 +358,11 @@ futile.logger::<span class="kw">flog.trace</span>(<span class="st">&quot;Checkin
     futile.logger::<span class="kw">flog.error</span>(<span class="st">&quot;x cannot contain any missing values.&quot;</span>, 
                x, <span class="dt">capture =</span> <span class="ot">TRUE</span>)
   }</code></pre></div>
-<pre><code>## ERROR [2019-01-10 13:08:52] x cannot contain any missing values.
+<pre><code>## ERROR [2019-03-01 14:51:33] x cannot contain any missing values.
 ## 
 ## [1] &quot;culture&quot; &quot;sport&quot;   NA</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">futile.logger::<span class="kw">flog.info</span>(<span class="st">&quot;Finished checks.&quot;</span>)</code></pre></div>
-<pre><code>## INFO [2019-01-10 13:08:52] Finished checks.</code></pre>
+<pre><code>## INFO [2019-03-01 14:51:33] Finished checks.</code></pre>
 <p>The above example can help the user identify where the pipeline is going wrong by logging the error and capturing the object <code>x</code> where the data is missing. This allows us to more quickly track down what’s going wrong.</p>
 </div>
 <div id="logging-to-file" class="section level3">

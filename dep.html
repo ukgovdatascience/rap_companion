@@ -25,7 +25,7 @@
 <meta name="author" content="Matthew Gregory, Matthew Upson">
 
 
-<meta name="date" content="2019-01-10">
+<meta name="date" content="2019-03-01">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -176,7 +176,22 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="9" data-path="travis.html"><a href="travis.html"><i class="fa fa-check"></i><b>9</b> Automated Testing</a></li>
 <li class="chapter" data-level="10" data-path="code-cover.html"><a href="code-cover.html"><i class="fa fa-check"></i><b>10</b> Code coverage</a></li>
-<li class="chapter" data-level="11" data-path="dep.html"><a href="dep.html"><i class="fa fa-check"></i><b>11</b> Dependency management</a></li>
+<li class="chapter" data-level="11" data-path="dep.html"><a href="dep.html"><i class="fa fa-check"></i><b>11</b> Dependency and reproducibility</a><ul>
+<li class="chapter" data-level="11.1" data-path="dep.html"><a href="dep.html#other-peoples-code"><i class="fa fa-check"></i><b>11.1</b> Other people’s code</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="dep.html"><a href="dep.html#limitations"><i class="fa fa-check"></i><b>11.1.1</b> Limitations</a></li>
+<li class="chapter" data-level="11.1.2" data-path="dep.html"><a href="dep.html#think-lightweight"><i class="fa fa-check"></i><b>11.1.2</b> Think lightweight</a></li>
+<li class="chapter" data-level="11.1.3" data-path="dep.html"><a href="dep.html#record-the-packages-and-versions"><i class="fa fa-check"></i><b>11.1.3</b> Record the packages and versions</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="dep.html"><a href="dep.html#approaches"><i class="fa fa-check"></i><b>11.2</b> Approaches</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="dep.html"><a href="dep.html#version-numbers"><i class="fa fa-check"></i><b>11.2.1</b> Version numbers</a></li>
+<li class="chapter" data-level="11.2.2" data-path="dep.html"><a href="dep.html#environments-for-dependency-management"><i class="fa fa-check"></i><b>11.2.2</b> Environments for dependency management</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="dep.html"><a href="dep.html#containers"><i class="fa fa-check"></i><b>11.3</b> Containers</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="dep.html"><a href="dep.html#theory"><i class="fa fa-check"></i><b>11.3.1</b> Theory</a></li>
+<li class="chapter" data-level="11.3.2" data-path="dep.html"><a href="dep.html#docker"><i class="fa fa-check"></i><b>11.3.2</b> Docker</a></li>
+<li class="chapter" data-level="11.3.3" data-path="dep.html"><a href="dep.html#making-it-easier"><i class="fa fa-check"></i><b>11.3.3</b> Making it easier</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="12" data-path="qa-data.html"><a href="qa-data.html"><i class="fa fa-check"></i><b>12</b> Quality Assurance of the pipeline</a><ul>
 <li class="chapter" data-level="12.1" data-path="qa-data.html"><a href="qa-data.html#testing-the-input-data"><i class="fa fa-check"></i><b>12.1</b> Testing the input data</a></li>
 <li class="chapter" data-level="12.2" data-path="qa-data.html"><a href="qa-data.html#murphys-law-and-errors-in-your-pipeline"><i class="fa fa-check"></i><b>12.2</b> Murphy’s Law and errors in your pipeline</a></li>
@@ -236,13 +251,161 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="dep" class="section level1">
-<h1><span class="header-section-number">Chapter 11</span> Dependency management</h1>
+<h1><span class="header-section-number">Chapter 11</span> Dependency and reproducibility</h1>
+<p><em>This section is in development. Please <a href="https://github.com/ukgovdatascience/rap_companion/issues/89">contribute to the discussion</a>.</em></p>
+<div id="other-peoples-code" class="section level2">
+<h2><span class="header-section-number">11.1</span> Other people’s code</h2>
+<p>You’re likely to make use of other people’s code when you develop your RAP project. Maybe you’ve imported packages to perform a statistical test, for example. These dependencies can be extremely helpful. They can:</p>
+<ul>
+<li>prevent you from recreating code that already exists</li>
+<li>save you time trying to solve a problem and optimise its solution</li>
+<li>give you access to code and solutions from experts in the field</li>
+<li>help to reduce the size of your scripts and make them more human-readable</li>
+<li>limit the need for you to update and fix problems yourself</li>
+</ul>
+<div id="limitations" class="section level3">
+<h3><span class="header-section-number">11.1.1</span> Limitations</h3>
+<p>Most statistical publications are <a href="https://www.gov.uk/government/statistics/announcements">updated on a scheduled basis</a> when new data become available.</p>
+<p>It’s possible that you’ll get some errors when you reuse your RAP project code for the next update, even if everything worked perfectly last time. Why? The maintainers of your dependencies may have changed the code and it no longer works as you expect.</p>
+<p>Changes might not impact your publication. If changes do have an impact, the best case is that you’ll get a helpful error message. At worst, your code will execute with an imperceptible but impactful error. Maybe a rounding function now rounds to the nearest 10 instead of the nearest 1000.</p>
+<p>The problem is compounded if your dependencies depend on other dependencies, or if two of your dependencies require conflicting versions of a third dependency. You could get stuck in so-called <a href="https://en.wikipedia.org/wiki/Dependency_hell">dependency hell</a>.</p>
+<p>The bottom line: your publication is dependent on particular software <em>and</em> its state at a given time. How can you deal with this? This chapter considers a few possibilities given variation in tools, techniques and IT restrictions.</p>
+</div>
+<div id="think-lightweight" class="section level3">
+<h3><span class="header-section-number">11.1.2</span> Think lightweight</h3>
+<p>First, think about what you can do to reduce the chance of problems. To put it succinctly, <a href="http://www.tinyverse.org/">the tinyverse philosophy of dependency management</a> suggests that:</p>
 <blockquote>
-<p>If you want your code to be reproducible in the long-run (i.e. so you can come back to run it next month or next year), you’ll need to track the versions of the packages that your code uses. A rigorous approach is to use packrat, <a href="http://rstudio.github.io/packrat/" class="uri">http://rstudio.github.io/packrat/</a>, which store packages in your project directory, or checkpoint, <a href="https://github.com/RevolutionAnalytics/checkpoint" class="uri">https://github.com/RevolutionAnalytics/checkpoint</a>, which will reinstall packages available on a specified date. A quick and dirty hack is to include a chunk that runs sessionInfo() — that won’t you let easily recreate your packages as they are today, but at least you’ll know what they were. - Hadley Wickham, R for Data Science</p>
+<p>Lightweight is the right weight</p>
 </blockquote>
-<p>One of the problems with working with open source software is that it is quite easy to fall into a trap called ‘<a href="https://en.wikipedia.org/wiki/Dependency_hell">dependency hell</a>’. Essentially, this occurs when the software we write depends on open source packages, which depend on other open source packages, which can depend on other packages, and on, and on.</p>
-<p>All these packages may be written by many different people, and are updated at vastly different timescales. If we fail to take account of this, then we are likely to fail at the first hurdle of reproducibility, and we may find that in a year’s time we are no longer able to reproduce the work that we previously did - or at least not without a lot of trouble. There are several ways we might get on top of this problem, but in this project we opted for using <a href="https://rstudio.github.io/packrat/">packrat</a>, which creates a cache of all the R packages used in the project which is then version controlled on GitHub. Matt Upson has <a href="http://www.machinegurning.com/rstats/latex-phd/">blogged about this previously</a> in the context of writing academic works.</p>
+<p>To achieve this you could:</p>
+<ul>
+<li>minimise the number of dependencies and remove redundancy where possible</li>
+<li>avoid depending on packages that in turn have many dependencies</li>
+<li>restrict yourself to ‘stable’ packages for which recent changes were restricted to minor updates and bug-fixes</li>
+<li>review regularly your dependencies to establish if better alternatives exist</li>
+</ul>
+</div>
+<div id="record-the-packages-and-versions" class="section level3">
+<h3><span class="header-section-number">11.1.3</span> Record the packages and versions</h3>
+<p>It’s not enough to simply minimise your dependencies. You need to think about how this impacts the reproducibility of your project. To ensure that your scripts are executed in the same way next time, you need to record the packages and their versions in some way. Then you or a colleague can recreate the environment in which the outputs were produced the first time round.</p>
+</div>
+</div>
+<div id="approaches" class="section level2">
+<h2><span class="header-section-number">11.2</span> Approaches</h2>
+<div id="version-numbers" class="section level3">
+<h3><span class="header-section-number">11.2.1</span> Version numbers</h3>
+<p>Maintainers signal updates by increasing the version number of their software. This could be a simple patch of an earlier version’s bug (e.g. version 3.2.7 replaces 3.2.6), or perhaps a major <em>breaking</em> change (e.g. version 3.2.6 is update to version 4.0.0).</p>
+<p>There are many ways to record each of the packages used in our analysis and their version numbers.</p>
+<p>In R you could, for example, use the <code>session_info()</code> function from <code>devtools</code> package. This prints details about the current state of the working environment.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools::<span class="kw">session_info</span>()</code></pre></div>
+<pre><code>─ Session info ─────────────────────────────────────────
+setting  value                       
+version  R version 3.5.2 (2018-12-20)
+os       macOS High Sierra 10.13.6   
+system   x86_64, darwin15.6.0        
+ui       RStudio                     
+language (EN)                        
+collate  en_GB.UTF-8                 
+ctype    en_GB.UTF-8                 
+tz       Europe/London               
+date     2019-03-01                  
 
+─ Packages ────────────────────────────────────────────
+package     * version    date       lib source                         
+assertthat    0.2.0      2017-04-11 [1] CRAN (R 3.5.0)                 
+backports     1.1.3      2018-12-14 [1] CRAN (R 3.5.0)                 
+bookdown      0.7        2018-02-18 [1] CRAN (R 3.5.0)                 
+callr         3.1.1      2018-12-21 [1] CRAN (R 3.5.0)                 
+...</code></pre>
+<p>You could do something like <code>pkgs &lt;- devtools::session_info()$packages</code> to save a dataframe of the packages and versions.</p>
+<p>You can achieve a similar thing for Python with <code>pip freeze</code> in a shell script.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">pip</span> freeze</code></pre></div>
+<pre><code>## alabaster==0.7.10
+## anaconda-client==1.6.14
+## anaconda-navigator==1.8.7
+## anaconda-project==0.8.2
+## appnope==0.1.0
+## appscript==1.0.1
+...</code></pre>
+<p>You can save this information with something like <code>pip freeze &gt; requirements.txt</code> in the shell. The packages should be ‘pinned’ to specific versions, meaning that they’re in the form <code>packageName==1.3.2</code> rather than <code>packageName&gt;=1.3.2</code>. We’re interested in storing <em>specific versions</em>, not <em>specific versions or newer</em>.</p>
+<p>But simply saving this information in your project folder isn’t good dependency control. It:</p>
+<ul>
+<li>would be tedious for analysts to read these reports and download each recorded package version one-by-one</li>
+<li>records <em>every</em> package and its version <em>on your whole system</em>, not just the ones relevant to your project</li>
+<li>isn’t a reproducible or automated process</li>
+</ul>
+</div>
+<div id="environments-for-dependency-management" class="section level3">
+<h3><span class="header-section-number">11.2.2</span> Environments for dependency management</h3>
+<p>Ideally we want to automate the process of recording packages and their version numbers and have them installed in an isolated environment that’s specific to our project. Doing this makes the project more portable – you could run it easily from another machine that’s configured differently to your own – and it would therefore be more reproducible.</p>
+<div id="package-managers-in-r" class="section level4">
+<h4><span class="header-section-number">11.2.2.1</span> Package managers in R</h4>
+<p>There is currently no consensus approach for package management in R. Below are a few options, but this is a non-exhaustive list.</p>
+<p>The <a href="https://rstudio.github.io/packrat/"><code>packrat</code> package</a> is commonly used but <a href="https://rstudio.github.io/packrat/limitations.html">has known issues</a>. The RAP community has noted in particular that it has a problem compiling older package versions on Windows. <a href="https://github.com/ukgovdatascience/rap_companion/issues/86">Join the discussion for more information</a>.</p>
+<p><a href="https://rstudio.github.io/packrat/walkthrough.html">A <code>packrat</code> walkthrough is available</a>, but the basic process is:</p>
+<ol style="list-style-type: decimal">
+<li>Activate ‘packrat mode’ in your project folder with <code>init()</code>, which records and snapshots the packages you’ve called in your scripts.</li>
+<li>Install new packages as usual, except they’re now saved to a <em>private package repository</em> within the project, rather than your local machine.</li>
+<li>By default, regular snapshots are taken to record the state of dependencies, but you can force one with <code>snapshot()</code>.</li>
+<li>When opening the project fresh on a new machine, Packrat automates the process of fetching the packages – with their recorded version numbers – and storing them in a private package library created on the collaborator’s machine.</li>
+</ol>
+<p>As for other options, <a href="https://github.com/RevolutionAnalytics/checkpoint/wiki">the <code>checkpoint</code> package</a> from Microsoft’s Revolution Analytics works like <code>packrat</code> but you simply <code>checkpoint()</code> your project for a given <em>date</em>. This allows you to call the packages from that date into a private library for that project. It works by fetching the packages from the <a href="https://mran.microsoft.com/">Microsoft R Application Network (MRAN)</a>, which is a daily snapshot of <a href="https://cran.r-project.org/">CRAN</a>. Note that this doesn’t permit control of packages that are hosted anywhere other than CRAN, such as Bioconductor or GitHub, and relies on Microsoft continuing to snapshot and store CRAN copies in MRAN.</p>
+<p>Another option is <code>jetpack</code>, which is different to <code>packrat</code> because it uses a DESCRIPTION file to list your dependencies. <a href="http://r-pkgs.had.co.nz/description.html">DESCRIPTION files are used in package development</a> to store information, including that package’s dependencies. This is a lightweight option and can be run from the command line.</p>
+<p>Paid options also exist, but are obviously less accessible and require maintenance. One example is <a href="https://www.rstudio.com/products/package-manager/">RStudio’s Package Manager</a>.</p>
+</div>
+<div id="virtual-environments-in-python" class="section level4">
+<h4><span class="header-section-number">11.2.2.2</span> Virtual environments in Python</h4>
+<p>In Python we can easily create an isolated environment for our project and load packages into it. This is possible with tools like <a href="https://docs.python-guide.org/dev/virtualenvs/"><code>virtualenv</code> and <code>Pipenv</code></a>.</p>
+<p>You can set up a virtual environment in your project folder, activate it, install any packages you need and then record them in a file for use in future. One way to do this is with <code>virtualenv</code>. After installation and having navigated to your project’s home folder, you can follow something like this from the command line:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">virtualenv</span> venv  <span class="co"># create virtual environment folder</span>
+<span class="bu">source</span> venv/bin/activate  <span class="co"># activate the environment</span>
+<span class="ex">pip</span> install packageName  <span class="co"># install packages you need</span>
+<span class="ex">pip</span> freeze <span class="op">&gt;</span> requirements.txt  <span class="co"># save package-version list</span>
+<span class="ex">deactivate</span>  <span class="co"># deactivate the environment when done</span></code></pre></div>
+<p>When another user downloads your version-controlled project folder, the requirements.txt file will be there. Now they can create a virtual environment on their machine following steps 1 to 3 above, but rather than <code>pip install packageName</code> for each package they need, they can automate the process by installing everything from the requirements.txt file with:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">pip</span> install -r requirements.txt</code></pre></div>
+<p>This will download the packages one by one into the virtual environment in their copy of the project virtual environment. Now they’ll be using the same packages you were when you developed your project.</p>
+</div>
+</div>
+</div>
+<div id="containers" class="section level2">
+<h2><span class="header-section-number">11.3</span> Containers</h2>
+<div id="theory" class="section level3">
+<h3><span class="header-section-number">11.3.1</span> Theory</h3>
+<p>Good package management deals with one of the major problems of dependency hell. But the problem is bigger. Collaborators could still encounter errors if they:</p>
+<ul>
+<li>try to run your code in a later version of the language you used during development</li>
+<li>use a different or updated <a href="https://en.wikipedia.org/wiki/Integrated_development_environment">Integrated Development Environment</a> (IDE, like RStudio or Jupyter Notebooks)</li>
+<li>try to re-run the analysis on a different system, like if they try to run code on a Linux machine but the original was built on a Microsoft machine</li>
+</ul>
+<p>What you really want to do is create a virtual computer inside your computer – a <em>container</em> – with everything you need to recreate the analysis under consistent conditions, regardless of who you are and what equipment you’re using.</p>
+<p>Imagine one of those ubiquitous <a href="https://en.wikipedia.org/wiki/Intermodal_container">shipping containers</a>. They are:</p>
+<ul>
+<li>capable of holding different cargo</li>
+<li>can provide an isolated environment from the outside world</li>
+<li>can be transported by various transport methods</li>
+</ul>
+<p>This is what we want for our project as well. We want to put whatever we want inside, we want it to be isolated and we want to be able to run it from anywhere.</p>
+</div>
+<div id="docker" class="section level3">
+<h3><span class="header-section-number">11.3.2</span> Docker</h3>
+<p>Docker can seem daunting at first.</p>
+<p>It works like this:</p>
+<ol style="list-style-type: decimal">
+<li>Create a ‘dockerfile’. This is like a plain-text recipe that will build from scratch everything you need to recreate a project. It’s just a textfile that you can put under version control.</li>
+<li>Run the dockerfile to generate a Docker ‘image’. The image is an instance of the environment and everything you need to recreate your analysis. It’s a delicious cake you made following the recipe.</li>
+<li>Other people can follow the dockerfile recipe to make their own copies of the delicious image cake. Each running instance of an image is called a container.</li>
+</ol>
+<p>You can learn more about this process by <a href="https://docker-curriculum.com/">following the curriculum on Docker’s website</a>. You can also read about the use of Docker <a href="https://dwpdigital.blog.gov.uk/2018/05/18/using-containers-to-deliver-our-data-projects/">in the Department for Work and Pensions</a> (DWP). Phil Chapman <a href="https://chapmandu2.github.io/post/2018/05/26/reproducible-data-science-environments-with-docker/">wrote more about the technical side of this process</a>.</p>
+</div>
+<div id="making-it-easier" class="section level3">
+<h3><span class="header-section-number">11.3.3</span> Making it easier</h3>
+<p>You don’t have to build everything from scratch. <a href="https://hub.docker.com/">Docker hub</a> is a big library of pre-prepared container images. For example, the <a href="https://hub.docker.com/u/rocker">rocker project on Docker hub</a> lists a number of images containing R-specific tools like <a href="https://hub.docker.com/r/rocker/tidyverse">rocker/tidyverse</a> that contains R, RStudio and <a href="https://tidyverse.tidyverse.org/">the tidyverse packages</a>. You can specify a rocker image in your dockerfile to make your life easier. Learn more about <a href="http://ropenscilabs.github.io/r-docker-tutorial/">rOpenSci labs tutorial</a></p>
+<p>As well as rocker, R users can set up Docker from within an interactive R session: <a href="https://o2r.info/containerit/index.html">the <code>containerit</code> package</a> lets you create a dockerfile given the current state of your session. This simplifies the process a great deal.</p>
+<p>R users can also read <a href="https://github.com/noamross/nyhackr-docker-talk">Docker for the useR</a> by Noam Ross and <a href="https://colinfay.me/docker-r-reproducibility/">an introduction to Docker for R users</a> by Colin Fay.</p>
+
+</div>
+</div>
 </div>
             </section>
 

@@ -25,7 +25,7 @@
 <meta name="author" content="Matthew Gregory, Matthew Upson">
 
 
-<meta name="date" content="2019-01-10">
+<meta name="date" content="2019-03-01">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -176,7 +176,22 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="9" data-path="travis.html"><a href="travis.html"><i class="fa fa-check"></i><b>9</b> Automated Testing</a></li>
 <li class="chapter" data-level="10" data-path="code-cover.html"><a href="code-cover.html"><i class="fa fa-check"></i><b>10</b> Code coverage</a></li>
-<li class="chapter" data-level="11" data-path="dep.html"><a href="dep.html"><i class="fa fa-check"></i><b>11</b> Dependency management</a></li>
+<li class="chapter" data-level="11" data-path="dep.html"><a href="dep.html"><i class="fa fa-check"></i><b>11</b> Dependency and reproducibility</a><ul>
+<li class="chapter" data-level="11.1" data-path="dep.html"><a href="dep.html#other-peoples-code"><i class="fa fa-check"></i><b>11.1</b> Other people’s code</a><ul>
+<li class="chapter" data-level="11.1.1" data-path="dep.html"><a href="dep.html#limitations"><i class="fa fa-check"></i><b>11.1.1</b> Limitations</a></li>
+<li class="chapter" data-level="11.1.2" data-path="dep.html"><a href="dep.html#think-lightweight"><i class="fa fa-check"></i><b>11.1.2</b> Think lightweight</a></li>
+<li class="chapter" data-level="11.1.3" data-path="dep.html"><a href="dep.html#record-the-packages-and-versions"><i class="fa fa-check"></i><b>11.1.3</b> Record the packages and versions</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="dep.html"><a href="dep.html#approaches"><i class="fa fa-check"></i><b>11.2</b> Approaches</a><ul>
+<li class="chapter" data-level="11.2.1" data-path="dep.html"><a href="dep.html#version-numbers"><i class="fa fa-check"></i><b>11.2.1</b> Version numbers</a></li>
+<li class="chapter" data-level="11.2.2" data-path="dep.html"><a href="dep.html#environments-for-dependency-management"><i class="fa fa-check"></i><b>11.2.2</b> Environments for dependency management</a></li>
+</ul></li>
+<li class="chapter" data-level="11.3" data-path="dep.html"><a href="dep.html#containers"><i class="fa fa-check"></i><b>11.3</b> Containers</a><ul>
+<li class="chapter" data-level="11.3.1" data-path="dep.html"><a href="dep.html#theory"><i class="fa fa-check"></i><b>11.3.1</b> Theory</a></li>
+<li class="chapter" data-level="11.3.2" data-path="dep.html"><a href="dep.html#docker"><i class="fa fa-check"></i><b>11.3.2</b> Docker</a></li>
+<li class="chapter" data-level="11.3.3" data-path="dep.html"><a href="dep.html#making-it-easier"><i class="fa fa-check"></i><b>11.3.3</b> Making it easier</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="12" data-path="qa-data.html"><a href="qa-data.html"><i class="fa fa-check"></i><b>12</b> Quality Assurance of the pipeline</a><ul>
 <li class="chapter" data-level="12.1" data-path="qa-data.html"><a href="qa-data.html#testing-the-input-data"><i class="fa fa-check"></i><b>12.1</b> Testing the input data</a></li>
 <li class="chapter" data-level="12.2" data-path="qa-data.html"><a href="qa-data.html#murphys-law-and-errors-in-your-pipeline"><i class="fa fa-check"></i><b>12.2</b> Murphy’s Law and errors in your pipeline</a></li>
@@ -305,7 +320,7 @@ It’s good to push your branches to Github if your working on it prior to it be
 <p>As an additional measure, or if you find versioning intimidating, you could watermark your report by citing the git commit used to generate it, as demonstrated below and in the stackoverflow answer by <a href="https://stackoverflow.com/questions/32260956/show-git-version-in-r-code">Wander Nauta, 2015</a>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">system</span>(<span class="st">&quot;git rev-parse --short HEAD&quot;</span>,
              <span class="dt">intern =</span> <span class="ot">TRUE</span>))</code></pre></div>
-<pre><code>## [1] &quot;eeca723&quot;</code></pre>
+<pre><code>## [1] &quot;ca874b6&quot;</code></pre>
 <p>This commit hash can be used to “revert” back to the code at the time the report was produced, fool around and reproduce the original report. You also have the flexibility to do other things which are explored in this <a href="https://stackoverflow.com/questions/4114095/how-to-revert-git-repository-to-a-previous-commit">Stack Overflow answer</a>. This feature of version control is what makes our analytical pipelines reproducible.</p>
 
 </div>
