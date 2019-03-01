@@ -18,11 +18,11 @@ Most statistical publications are [updated on a scheduled basis](https://www.gov
 
 It's possible that you'll get some errors when you reuse your RAP project code for the next update, even if everything worked perfectly last time. Why? The maintainers of your dependencies may have changed the code and it no longer works as you expect.
 
-Changes might not impact your publication. If changes do have an impact, the best case is that you'll get a helpful error message. At worst, your code will execute with an impercetible but impactful error. Maybe a rounding function now rounds to the nearest 10 instead of the nearest 1000.
+Changes might not impact your publication. If changes do have an impact, the best case is that you'll get a helpful error message. At worst, your code will execute with an imperceptible but impactful error. Maybe a rounding function now rounds to the nearest 10 instead of the nearest 1000.
 
 The problem is compounded if your dependencies depend on other dependencies, or if two of your dependencies require conflicting versions of a third dependency. You could get stuck in so-called [dependency hell](https://en.wikipedia.org/wiki/Dependency_hell).
 
-The bottom line: your publication is dependent on particular software _and_ its state at a given time. How can you deal with this?
+The bottom line: your publication is dependent on particular software _and_ its state at a given time. How can you deal with this? This chapter considers a few possibilities given variation in tools, techniques and IT restrictions.
 
 ### Think lightweight
 
@@ -49,41 +49,36 @@ Maintainers signal updates by increasing the version number of their software. T
 
 There are many ways to record each of the packages used in our analysis and their version numbers.
 
-For example, in R you could use the `sessionInfo()` package.[^sessionInfo] This prints details about the current state of the working environment, including the packages and version numbers. 
+In R you could, for example, use the `session_info()` function from `devtools` package. This prints details about the current state of the working environment. 
 
 ```{r, eval=FALSE}
-sessionInfo()
+devtools::session_info()
 ```
 ```
-## R version 3.5.1 (2018-07-02)
-## Platform: x86_64-apple-darwin15.6.0 (64-bit)
-## Running under: macOS High Sierra 10.13.6
-## 
-## Matrix products: default
-## BLAS: /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib
-## LAPACK: /Library/Frameworks/R.framework/Versions/3.5/Resources/lib/libRlapack.dylib
-## 
-## locale:
-## [1] en_GB.UTF-8/en_GB.UTF-8/en_GB.UTF-8/C/en_GB.UTF-8/en_GB.UTF-8
-## 
-## attached base packages:
-## [1] stats     graphics  grDevices utils     datasets  methods   base     
-## 
-## other attached packages:
-## [1] packrat_0.4.8-1
-## 
-## loaded via a namespace (and not attached):
-##  [1] bookdown_0.7      Rcpp_1.0.0        later_0.7.5      
-##  [4] digest_0.6.18     mime_0.6          R6_2.3.0         
-##  [7] magrittr_1.5      evaluate_0.11     xaringan_0.8     
-## [10] stringi_1.2.4     promises_1.0.1    rstudioapi_0.8   
-## [13] rmarkdown_1.11    tools_3.5.1       servr_0.10       
-## [16] stringr_1.3.1     httpuv_1.4.5      xfun_0.3         
-## [19] yaml_2.2.0        rsconnect_0.8.10  compiler_3.5.1   
-## [22] htmltools_0.3.6   knitr_1.21        highlight_0.4.7.2
+─ Session info ─────────────────────────────────────────
+setting  value                       
+version  R version 3.5.2 (2018-12-20)
+os       macOS High Sierra 10.13.6   
+system   x86_64, darwin15.6.0        
+ui       RStudio                     
+language (EN)                        
+collate  en_GB.UTF-8                 
+ctype    en_GB.UTF-8                 
+tz       Europe/London               
+date     2019-03-01                  
+
+─ Packages ────────────────────────────────────────────
+package     * version    date       lib source                         
+assertthat    0.2.0      2017-04-11 [1] CRAN (R 3.5.0)                 
+backports     1.1.3      2018-12-14 [1] CRAN (R 3.5.0)                 
+bookdown      0.7        2018-02-18 [1] CRAN (R 3.5.0)                 
+callr         3.1.1      2018-12-21 [1] CRAN (R 3.5.0)                 
+...
 ```
 
-You can achieve a similar thing for Python with `pip freeze` in a shell script.[^pip-pin] Again, this provides a list of the packages available in the current environment and their version numbers.
+You could do something like `pkgs <- devtools::session_info()$packages` to save a dataframe of the packages and versions.
+
+You can achieve a similar thing for Python with `pip freeze` in a shell script.
 
 ```{bash, eval=FALSE}
 pip freeze
@@ -95,13 +90,12 @@ pip freeze
 ## anaconda-project==0.8.2
 ## appnope==0.1.0
 ## appscript==1.0.1
-## argcomplete==1.9.4
-## asn1crypto==0.24.0
-## astroid==1.6.3
 ...
 ```
 
-But simply saving this information[^save-session] in your project folder isn't good dependency control. It:
+You can save this information with something like `pip freeze > requirements.txt` in the shell. The packages  should be 'pinned' to specific versions, meaning that they're in the form `packageName==1.3.2` rather than `packageName>=1.3.2`. We're interested in storing _specific versions_, not _specific versions or newer_.
+
+But simply saving this information in your project folder isn't good dependency control. It:
 
 * would be tedious for analysts to read these reports and download each recorded package version one-by-one
 * records _every_ package and its version _on your whole system_, not just the ones relevant to your project
@@ -115,16 +109,18 @@ Ideally we want to automate the process of recording packages and their version 
 
 There is currently no consensus approach for package management in R. Below are a few options, but this is a non-exhaustive list.
 
-[The `packrat` package](https://rstudio.github.io/packrat/) is often referred to, but [has its issues](https://rstudio.github.io/packrat/limitations.html). A [walkthrough is available](https://rstudio.github.io/packrat/walkthrough.html), but the basic process is:
+The [`packrat` package](https://rstudio.github.io/packrat/) is commonly used but [has known issues](https://rstudio.github.io/packrat/limitations.html). The RAP community has noted in particular that it has a problem compiling older package versions on Windows. [Join the discussion for more information](https://github.com/ukgovdatascience/rap_companion/issues/86). 
 
-1. Activate 'packrat mode' in your project folder with `init()`, which records and snapshots the packages you've called in your scripts
-1. Install new packages as usual, except they're now saved to a _private package repository_ within the project, rather than your local machine
-1. By default, regular snapshots are taken to record the state of dependencies, but you can force one with `snapshot()`
-1. When opening the project fresh on a new machine, Packrat automates the process of fetching the packages -- with their recorded version numbers -- and storing them in a private package library created on the collaborator's machine
+[A `packrat` walkthrough is available](https://rstudio.github.io/packrat/walkthrough.html), but the basic process is:
 
-[The `checkpoint` package](https://github.com/RevolutionAnalytics/checkpoint/wiki) from Microsoft's Revolution Analytics works like `packrat` but you simply `checkpoint()` your project for a given _date_. This allows you to call the packages from that date into a private library for that project. It works by fetching the packages from the [Microsoft R Application Network (MRAN)](https://mran.microsoft.com/), which is a daily snapshot of [CRAN](https://cran.r-project.org/). Note that this doesn't permit control of packages that are hosted anywhere other than CRAN, such as Bioconductor or GitHub, and relies on Microsoft continuing to snapshot and store CRAN copies in MRAN.
+1. Activate 'packrat mode' in your project folder with `init()`, which records and snapshots the packages you've called in your scripts.
+1. Install new packages as usual, except they're now saved to a _private package repository_ within the project, rather than your local machine.
+1. By default, regular snapshots are taken to record the state of dependencies, but you can force one with `snapshot()`.
+1. When opening the project fresh on a new machine, Packrat automates the process of fetching the packages -- with their recorded version numbers -- and storing them in a private package library created on the collaborator's machine.
 
-Another option is `jetpack`, which is different to `packrat` because it uses a DESCRIPTION file to list your dependencies. [DESCRIPTION files are used in package development](http://r-pkgs.had.co.nz/description.html) to store information, including that package's dependencies. This package claims to be lightweight and can be run from the command line.
+As for other options, [the `checkpoint` package](https://github.com/RevolutionAnalytics/checkpoint/wiki) from Microsoft's Revolution Analytics works like `packrat` but you simply `checkpoint()` your project for a given _date_. This allows you to call the packages from that date into a private library for that project. It works by fetching the packages from the [Microsoft R Application Network (MRAN)](https://mran.microsoft.com/), which is a daily snapshot of [CRAN](https://cran.r-project.org/). Note that this doesn't permit control of packages that are hosted anywhere other than CRAN, such as Bioconductor or GitHub, and relies on Microsoft continuing to snapshot and store CRAN copies in MRAN.
+
+Another option is `jetpack`, which is different to `packrat` because it uses a DESCRIPTION file to list your dependencies. [DESCRIPTION files are used in package development](http://r-pkgs.had.co.nz/description.html) to store information, including that package's dependencies. This is a lightweight option and can be run from the command line.
 
 Paid options also exist, but are obviously less accessible and require maintenance. One example is [RStudio's Package Manager](https://www.rstudio.com/products/package-manager/).
 
@@ -157,8 +153,8 @@ This will download the packages one by one into the virtual environment in their
 Good package management deals with one of the major problems of dependency hell. But the problem is bigger. Collaborators could still encounter errors if they: 
 
 * try to run your code in a later version of the language you used during development
-* use a different or updated Integrated Development Environment (IDE, like RStudio or Jupyter Notebooks)
-* try to re-run the analysis on a different system, like if you try to run code on a Linux machine but the original was built on a Microsoft machine
+* use a different or updated [Integrated Development Environment](https://en.wikipedia.org/wiki/Integrated_development_environment) (IDE, like RStudio or Jupyter Notebooks)
+* try to re-run the analysis on a different system, like if they try to run code on a Linux machine but the original was built on a Microsoft machine
 
 What you really want to do is create a virtual computer inside your computer -- a _container_ -- with everything you need to recreate the analysis under consistent conditions, regardless of who you are and what equipment you're using.
 
@@ -189,7 +185,3 @@ You don't have to build everything from scratch. [Docker hub](https://hub.docker
 As well as rocker, R users can set up Docker from within an interactive R session: [the `containerit` package](https://o2r.info/containerit/index.html) lets you create a dockerfile given the current state of your session. This simplifies the process a great deal.
 
 R users can also read [Docker for the useR](https://github.com/noamross/nyhackr-docker-talk) by Noam Ross and [an introduction to Docker for R users](https://colinfay.me/docker-r-reproducibility/) by Colin Fay.
-
-[^sessionInfo]: There's also a `session_info()` function in each of the `devtools`, `xfun` and `sessioninfo` packages, which provide more detail on things like a package's source (e.g. CRAN or GitHub) and give the version number in a separate column.
-[^pip-pin]: These should be 'pinned' meaning that they're in the form `packageName==1.3.2` rather than `packageName>=1.3.2`. We're interested in storing _specific versions_, not _specific versions or newer_.
-[^save-session]: With something like `writeLines(capture.output(sessionInfo()), "sessionInfo.txt")` within R and `pip freeze > requirements.txt` in the shell for Python.
